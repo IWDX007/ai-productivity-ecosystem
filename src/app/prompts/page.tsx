@@ -44,10 +44,7 @@ export default function PromptsPage() {
                       <h3 className="text-xl font-bold text-white mb-2">{prompt.title}</h3>
                       <p className="text-white/80 text-sm">{prompt.description}</p>
                     </div>
-                    <div className="flex items-center justify-between mt-4">
-                      <div className="flex gap-1 flex-wrap">{prompt.tags.slice(0, 2).map(tag => (<span key={tag} className="px-2 py-0.5 rounded bg-white/20 text-white text-xs">#{tag}</span>))}</div>
-                      <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition" />
-                    </div>
+                    <ArrowRight className="w-5 h-5 text-white self-end group-hover:translate-x-1 transition" />
                   </div>
                 </Link>
               ))}
@@ -63,19 +60,16 @@ export default function PromptsPage() {
         </div>
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-theme-primary mb-1">{selectedCategory === "all" ? "All Prompts" : promptCategories.find(c => c.slug === selectedCategory)?.name}</h2>
-          <p className="text-sm text-theme-muted mb-4">{filteredallPrompts.length} prompts found</p>
-          {filteredallPrompts.length === 0 ? (<div className="text-center py-16 text-theme-muted">No prompts found.</div>) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredPrompts.map((prompt) => (
-                <Link key={prompt.slug} href={`/prompts/${prompt.category}/${prompt.slug}`} className="glass-card rounded-xl p-5 card-hover group">
-                  <div className={`inline-block px-2 py-0.5 rounded-full bg-gradient-to-r ${prompt.gradient} text-white text-xs mb-3`}>{prompt.aiModel}</div>
-                  <h3 className="font-bold text-theme-primary mb-2">{prompt.title}</h3>
-                  <p className="text-sm text-theme-secondary mb-3">{prompt.description}</p>
-                  <div className="flex flex-wrap gap-1">{prompt.tags.slice(0, 3).map(tag => (<span key={tag} className="px-2 py-0.5 rounded bg-theme-secondary text-xs text-theme-muted">#{tag}</span>))}</div>
-                </Link>
-              ))}
-            </div>
-          )}
+          <p className="text-sm text-theme-muted mb-4">{filteredPrompts.length} prompts found</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredPrompts.map((prompt) => (
+              <Link key={prompt.slug} href={`/prompts/${prompt.category}/${prompt.slug}`} className="glass-card rounded-xl p-5 card-hover group">
+                <div className={`inline-block px-2 py-0.5 rounded-full bg-gradient-to-r ${prompt.gradient} text-white text-xs mb-3`}>{prompt.aiModel}</div>
+                <h3 className="font-bold text-theme-primary mb-2">{prompt.title}</h3>
+                <p className="text-sm text-theme-secondary mb-3">{prompt.description}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
