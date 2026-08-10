@@ -4,13 +4,13 @@ import { useState, useMemo } from "react"
 import Link from "next/link"
 import { Search, Star, ArrowRight } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-import { prompts, promptCategories, getFeaturedPrompts } from "@/config/prompts-data"
+import { allPrompts, promptCategories, getFeaturedPrompts } from "@/config/prompts-data"
 
 export default function PromptsPage() {
   const [search, setSearch] = useState("")
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const filteredPrompts = useMemo(() => {
-    let filtered = prompts
+    let filtered = allPrompts
     if (selectedCategory !== "all") filtered = filtered.filter(p => p.category === selectedCategory)
     if (search.trim()) {
       const q = search.toLowerCase()
@@ -24,7 +24,7 @@ export default function PromptsPage() {
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "AI Prompts" }]} />
         <div className="text-center mb-12 mt-6">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 text-purple-400 text-sm font-medium mb-4">{prompts.length}+ AI Prompts</div>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 text-purple-400 text-sm font-medium mb-4">{allPrompts.length}+ AI Prompts</div>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-theme-primary">AI <span className="gradient-text">Prompts</span> Library</h1>
           <p className="text-theme-secondary max-w-2xl mx-auto mb-6 text-lg">Discover powerful prompts for ChatGPT, Midjourney, DALL-E and more.</p>
           <div className="max-w-2xl mx-auto relative">
@@ -57,14 +57,14 @@ export default function PromptsPage() {
         <div className="mb-8">
           <h2 className="text-xl font-bold text-theme-primary mb-4">Browse by Category</h2>
           <div className="flex flex-wrap gap-2">
-            <button onClick={() => setSelectedCategory("all")} className={`px-4 py-2 rounded-full text-sm font-medium transition ${selectedCategory === "all" ? "bg-purple-500 text-white" : "bg-theme-secondary text-theme-secondary border border-theme"}`}>All ({prompts.length})</button>
+            <button onClick={() => setSelectedCategory("all")} className={`px-4 py-2 rounded-full text-sm font-medium transition ${selectedCategory === "all" ? "bg-purple-500 text-white" : "bg-theme-secondary text-theme-secondary border border-theme"}`}>All ({allPrompts.length})</button>
             {promptCategories.map(cat => (<button key={cat.slug} onClick={() => setSelectedCategory(cat.slug)} className={`px-4 py-2 rounded-full text-sm font-medium transition ${selectedCategory === cat.slug ? "bg-purple-500 text-white" : "bg-theme-secondary text-theme-secondary border border-theme"}`}>{cat.name} ({cat.count})</button>))}
           </div>
         </div>
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-theme-primary mb-1">{selectedCategory === "all" ? "All Prompts" : promptCategories.find(c => c.slug === selectedCategory)?.name}</h2>
-          <p className="text-sm text-theme-muted mb-4">{filteredPrompts.length} prompts found</p>
-          {filteredPrompts.length === 0 ? (<div className="text-center py-16 text-theme-muted">No prompts found.</div>) : (
+          <p className="text-sm text-theme-muted mb-4">{filteredallPrompts.length} prompts found</p>
+          {filteredallPrompts.length === 0 ? (<div className="text-center py-16 text-theme-muted">No prompts found.</div>) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredPrompts.map((prompt) => (
                 <Link key={prompt.slug} href={`/prompts/${prompt.category}/${prompt.slug}`} className="glass-card rounded-xl p-5 card-hover group">

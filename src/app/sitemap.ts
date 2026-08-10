@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { categories } from '@/config/tools-data'
-import { prompts, promptCategories } from '@/config/prompts-data'
+import { allPrompts, promptCategories } from '@/config/prompts-data'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai-productivity-ecosystem-azure.vercel.app'
 
@@ -54,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   })
 
   // Individual prompt pages
-  prompts.forEach(prompt => {
+  allPrompts.forEach(prompt => {
     sitemap.push({
       url: `${SITE_URL}/prompts/${prompt.category}/${prompt.slug}`,
       lastModified: now,
