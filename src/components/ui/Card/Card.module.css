@@ -1,0 +1,39 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Variants */
+.default {
+  background: var(--bg-card);
+}
+
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gradient {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
+}
+
+/* Hover effects */
+.hoverable {
+  cursor: pointer;
+}
+
+.hoverable:hover {
+  border-color: var(--brand-border);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px var(--brand-glow);
+}
+
+/* Padding */
+.paddingNone { padding: 0; }
+.paddingSm { padding: 1rem; }
+.paddingMd { padding: 1.5rem; }
+.paddingLg { padding: 2rem; }

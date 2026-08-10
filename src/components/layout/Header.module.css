@@ -1,0 +1,100 @@
+/* ============================================
+   HEADER - Sticky + Glassmorphism
+   ============================================ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.headerScrolled {
+  background: var(--header-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--header-border);
+  box-shadow: 0 4px 30px var(--header-shadow);
+}
+
+.logoIcon {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-from) 0%,
+    var(--gradient-via) 50%,
+    var(--gradient-to) 100%
+  );
+  box-shadow: 0 4px 20px var(--brand-glow);
+  transition: transform 0.3s ease;
+}
+
+.logoIcon:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.logoText {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.logoSubtext {
+  color: var(--brand);
+  font-size: 0.75rem;
+}
+
+.navLink {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  color: var(--brand);
+}
+
+.searchBar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.searchBar:hover {
+  border-color: var(--brand-border);
+}
+
+.signInBtn {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.signInBtn:hover {
+  color: var(--brand);
+}
+
+.signUpBtn {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-from) 0%,
+    var(--gradient-via) 50%,
+    var(--gradient-to) 100%
+  );
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 15px var(--brand-glow);
+  transition: all 0.3s ease;
+}
+
+.signUpBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--brand-glow);
+}
+
+/* Spacer to prevent content jump */
+.headerSpacer {
+  height: 72px;
+}

@@ -1,0 +1,31 @@
+.button {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background: var(--bg-card-hover);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--brand);
+  transition: transform 0.3s ease;
+}
+
+.button:hover .icon {
+  transform: rotate(20deg);
+}
+
+.placeholder {
+  width: 20px;
+  height: 20px;
+}

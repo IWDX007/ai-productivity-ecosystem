@@ -1,0 +1,19 @@
+.section {
+  position: relative;
+  width: 100%;
+}
+
+/* Padding variants */
+.paddingSm { padding: 2rem 0; }
+.paddingMd { padding: 3rem 0; }
+.paddingLg { padding: 4rem 0; }
+.paddingXl { padding: 5rem 0; }
+
+/* Background variants */
+.bgDefault { background: transparent; }
+.bgSecondary { background: var(--bg-secondary); }
+.bgCard { background: var(--bg-card); }
+
+/* Border */
+.borderTop { border-top: 1px solid var(--border-color); }
+.borderBottom { border-bottom: 1px solid var(--border-color); }

@@ -1,0 +1,49 @@
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  background: radial-gradient(circle, var(--brand-glow) 0%, transparent 70%);
+}
+
+.orb1 {
+  top: 5rem;
+  left: 2.5rem;
+  width: 24rem;
+  height: 24rem;
+  animation: float-orb 15s ease-in-out infinite;
+}
+
+.orb2 {
+  top: 10rem;
+  right: 5rem;
+  width: 20rem;
+  height: 20rem;
+  animation: float-orb 20s ease-in-out infinite reverse;
+  animation-delay: -5s;
+}
+
+.orb3 {
+  bottom: 5rem;
+  left: 33%;
+  width: 18rem;
+  height: 18rem;
+  animation: float-orb 18s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--brand);
+  animation: sparkle 3s ease-in-out infinite;
+}

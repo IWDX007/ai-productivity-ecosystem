@@ -1,0 +1,42 @@
+.link {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.link:hover {
+  background: var(--bg-card-hover);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--brand);
+  transition: transform 0.2s ease;
+}
+
+.link:hover .icon {
+  transform: scale(1.1);
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+  color: white;
+  font-size: 0.625rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

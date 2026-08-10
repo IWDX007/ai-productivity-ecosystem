@@ -1,0 +1,273 @@
+AI Productivity Ecosystem - Build Audit Report
+Timestamp: 20260810_094958
+Root: D:\ai-productivity-ecosystem
+============================================================
+STEP 1 - Quarantine backup/junk/empty code files
+============================================================
+QUARANTINED: D:\ai-productivity-ecosystem\next.config.backup.ts
+QUARANTINED: D:\ai-productivity-ecosystem\playwright.config.ts
+QUARANTINED: D:\ai-productivity-ecosystem\vitest.config.ts
+QUARANTINED: D:\ai-productivity-ecosystem\drizzle\drizzle.config.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\calculators\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\converters\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\base64-decoder\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\base64-encoder\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\color-converter\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\color-palette\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\color-picker\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\contrast-checker\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\cron-generator\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\css-beautifier\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\css-minifier\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\csv-to-json\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\gradient-generator\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\hash-generator\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\html-beautifier\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\html-entities-decoder\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\html-entities-encoder\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\html-preview\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\html-table-generator\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\http-status-codes\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\js-beautifier\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\json-formatter\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\json-minifier\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\json-to-csv\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\json-to-xml\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\json-to-yaml\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\json-validator\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\jwt-decoder\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\markdown-preview\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\regex-tester\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\sql-formatter\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\url-decoder\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\url-encoder\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\uuid-generator\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\xml-formatter\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\xml-to-json\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\developer\yaml-to-json\page.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\image\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\pdf\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\qr-barcode\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\security\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\app\tools\text\page.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\admin\BlogEditor.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\admin\BlogsTable.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\admin\KPICard.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\admin\PromptsTable.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\admin\ToolsTable.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\admin\TrafficGraph.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\admin\UsersTable.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ads\AdUnit.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ads\InArticleAd.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ads\LeaderboardAd.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ads\RectangleAd.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ads\SidebarAd.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\BlogAuthor.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\BlogCard.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\BlogCategories.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\BlogContent.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\BlogGrid.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\BlogHeader.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\BlogRelated.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\BlogSearch.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\ReadingProgress.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\blog\TableOfContents.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\dashboard\BillingCard.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\dashboard\FavoritesGrid.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\dashboard\HistoryTimeline.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\dashboard\QuickAccess.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\dashboard\SavedPrompts.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\dashboard\StatCard.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\dashboard\UserSettings.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\home\AIPromptsSection.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\home\CategoryGrid.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\home\LatestBlogs.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\home\NewsletterSection.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\home\PopularTools.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\home\StatsBar.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\layout\AdminSidebar.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\layout\Breadcrumb.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\layout\MegaMenu.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\layout\MobileHeader.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\layout\MobileMenu.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\layout\MobileNav.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\layout\Sidebar.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\prompts\CopyButton.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\prompts\PromptCard.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\prompts\PromptCategories.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\prompts\PromptFilters.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\prompts\PromptGrid.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\prompts\PromptModal.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\prompts\PromptSearch.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\prompts\TrendingPrompts.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\seo\BlogSchema.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\seo\FAQSchema.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\seo\JsonLd.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\seo\ToolSchema.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tool-templates\CalculatorTemplate.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tool-templates\CodeEditorTemplate.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tool-templates\ConverterTemplate.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tool-templates\FileToolTemplate.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tool-templates\TextToolTemplate.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\CategoryPageTemplate.tsx.backup-old.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\HowToUse.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\RelatedTools.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\SEOSections.backup.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\ToolBreadcrumb.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\ToolCard.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\ToolFAQ.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\ToolFeatures.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\ToolGrid.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\ToolHeader.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\tools\ToolSearch.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\Badge.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\CommandPalette.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\CookieBanner.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\CopyToClipboard.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\EmptyState.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\ErrorBoundary.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\ErrorFallback.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\FileUpload.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\GlassCard.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\GoldButton.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\GoldDivider.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\LoadingSpinner.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\LottiePlayer.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\Modal.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\OfflineDetector.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\ProgressBar.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\components\ui\ToastProvider.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\config\converter-seo-content.ts.backup.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\config\developer-seo-content.backup.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\config\tool-seo-content.backup.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\config\tools-data.backup.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\data\categories.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\data\navigation.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\data\prompt-categories.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\data\prompts.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\data\tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\e2e\auth.spec.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\e2e\homepage.spec.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\e2e\prompts.spec.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\e2e\tools.spec.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\useClipboard.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\useDebounce.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\useFavorites.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\useFileUpload.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\useHistory.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\useLocalStorage.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\usePrompts.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\useSearch.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\hooks\useTools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\auth.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\constants.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\validations.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\analytics\clarity.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\analytics\events.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\analytics\gtag.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\cache\cache-helpers.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\email\resend.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\email\templates\newsletter.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\email\templates\welcome.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\errors\AppError.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\errors\errorHandler.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\errors\errorMessages.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\security\fileValidation.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\security\headers.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\security\sanitize.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\seo\jsonld.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\seo\metadata.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\seo\sitemap.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\storage\r2.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\tools\calculator-tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\tools\converter-tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\tools\developer-tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\tools\image-tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\tools\pdf-tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\tools\qr-tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\tools\security-tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\lib\tools\text-tools.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\store\useAppStore.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\store\useSearchStore.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\store\useToolStore.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\store\useUserStore.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\types\api.types.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\types\blog.types.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\types\prompt.types.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\types\tool.types.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\types\user.types.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\__tests__\api\favorites.test.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\__tests__\api\prompts.test.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\__tests__\tools\calculator-tools.test.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\__tests__\tools\converter-tools.test.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\__tests__\tools\security-tools.test.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\__tests__\tools\text-tools.test.ts
+QUARANTINED: D:\ai-productivity-ecosystem\src\__tests__\utils\utils.test.ts
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT2_20260803_204256\Footer.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT2_20260803_204256\Header.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT2_20260803_204256\page.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT3_20260803_204752\AnimatedBackground.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT3_20260803_204752\FavoritesIcon.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT3_20260803_204752\ThemeProvider.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT3_20260803_204752\ThemeToggle.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT4_20260804_080901\page.tsx
+QUARANTINED: D:\ai-productivity-ecosystem\_BACKUP_SCRIPT5_20260804_081321\page.tsx
+
+Total quarantined files: 211
+
+============================================================
+STEP 2 - Exact known fixes
+============================================================
+
+============================================================
+STEP 3 - Image tools cleanup
+============================================================
+
+============================================================
+STEP 4 - PDF tools cleanup
+============================================================
+
+============================================================
+STEP 5 - Security tools cleanup
+============================================================
+FIXED: D:\ai-productivity-ecosystem\src\app\tools\security\hmac-generator\page.tsx
+FIXED: D:\ai-productivity-ecosystem\src\app\tools\security\jwt-generator\page.tsx
+
+============================================================
+STEP 6 - Post-fix audit counts
+============================================================
+Remaining zero-byte code files: 0
+Remaining backup/junk code files: 0
+Remaining PDF Blob patterns: 12
+Remaining pdfjs render patterns: 0
+Remaining PBKDF2 salt shorthand patterns: 0
+Remaining AES-GCM iv shorthand patterns: 0
+Remaining image literal comparison patterns: 0
+
+============================================================
+STEP 7 - Clear cache and build
+============================================================
+Deleted .next successfully
+
+Changed files count: 2
+CHANGED: D:\ai-productivity-ecosystem\src\app\tools\security\hmac-generator\page.tsx
+CHANGED: D:\ai-productivity-ecosystem\src\app\tools\security\jwt-generator\page.tsx
+
+Running npm run build...
+
+
+Build exit code: 1
+Build log: D:\ai-productivity-ecosystem\build-output_20260810_094958.txt
+
+Last 80 lines of build output:
+
+> ai-productivity-ecosystem@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.2.12 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
