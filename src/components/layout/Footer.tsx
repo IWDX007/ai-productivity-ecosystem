@@ -24,16 +24,16 @@ export function Footer() {
               200+ Free Online Tools & AI Prompts in One Place. Boost your productivity today.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="p-2 rounded-lg bg-theme-secondary hover:bg-crimson-500/10 text-theme-secondary hover:text-crimson-500 transition-all">
+              <a href="https://twitter.com/aiproductivity" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-theme-secondary hover:bg-crimson-500/10 text-theme-secondary hover:text-crimson-500 transition-all">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-theme-secondary hover:bg-crimson-500/10 text-theme-secondary hover:text-crimson-500 transition-all">
+              <a href="https://facebook.com/aiproductivity" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-theme-secondary hover:bg-crimson-500/10 text-theme-secondary hover:text-crimson-500 transition-all">
                 <Github className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-theme-secondary hover:bg-crimson-500/10 text-theme-secondary hover:text-crimson-500 transition-all">
+              <a href="https://instagram.com/aiproductivity" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-theme-secondary hover:bg-crimson-500/10 text-theme-secondary hover:text-crimson-500 transition-all">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-theme-secondary hover:bg-crimson-500/10 text-theme-secondary hover:text-crimson-500 transition-all">
+              <a href="https://linkedin.com/company/aiproductivity" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-theme-secondary hover:bg-crimson-500/10 text-theme-secondary hover:text-crimson-500 transition-all">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
@@ -45,8 +45,8 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/tools" className="text-theme-secondary hover:text-crimson-500 transition-colors">All Tools</Link></li>
               <li><Link href="/prompts" className="text-theme-secondary hover:text-crimson-500 transition-colors">AI Prompts</Link></li>
-              <li><Link href="/blog" className="text-theme-secondary hover:text-crimson-500 transition-colors">Blog</Link></li>
-              <li><Link href="/pricing" className="text-theme-secondary hover:text-crimson-500 transition-colors">Pricing</Link></li>
+              <li></li>
+              <li></li>
             </ul>
           </div>
 

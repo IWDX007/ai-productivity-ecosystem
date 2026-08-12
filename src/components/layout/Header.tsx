@@ -134,15 +134,9 @@ export function Header() {
                 AI Prompts
               </Link>
               
-              <Link href="/blog" className="menu-link px-4 py-2 text-sm font-medium text-theme-primary hover:text-crimson-500 transition-colors flex items-center gap-2">
-                <BookOpen className="w-4 h-4" />
-                Blog
-              </Link>
               
-              <Link href="/pricing" className="menu-link px-4 py-2 text-sm font-medium text-theme-primary hover:text-crimson-500 transition-colors flex items-center gap-2">
-                <DollarSign className="w-4 h-4" />
-                Pricing
-              </Link>
+              
+              
             </nav>
 
             {/* Right Side - Desktop */}
@@ -412,24 +406,10 @@ export function Header() {
           </Link>
 
           {/* Blog */}
-          <Link 
-            href="/blog"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-3 px-3 py-3 text-theme-primary hover:text-crimson-500 hover:bg-theme-secondary rounded-lg transition-colors"
-          >
-            <BookOpen className="w-5 h-5" />
-            <span className="text-sm font-medium">Blog</span>
-          </Link>
+          
 
           {/* Pricing */}
-          <Link 
-            href="/pricing"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-3 px-3 py-3 text-theme-primary hover:text-crimson-500 hover:bg-theme-secondary rounded-lg transition-colors"
-          >
-            <DollarSign className="w-5 h-5" />
-            <span className="text-sm font-medium">Pricing</span>
-          </Link>
+          
 
           {/* Divider */}
           <div className="my-4 border-t border-theme"></div>
