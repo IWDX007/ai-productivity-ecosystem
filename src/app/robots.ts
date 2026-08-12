@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/dashboard/', '/api/', '/admin/'],
+        disallow: ['/dashboard/', '/api/', '/admin/', '/sign-in/', '/sign-up/'],
       },
     ],
     sitemap: 'https://ai-productivity-ecosystem-azure.vercel.app/sitemap.xml',

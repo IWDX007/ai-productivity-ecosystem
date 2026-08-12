@@ -6,7 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://ai-productivity-ecosystem-azure.vercel.app'
   const currentDate = new Date().toISOString()
 
-  // Static pages
   const staticPages = [
     { url: baseUrl, lastModified: currentDate, priority: 1.0 },
     { url: `${baseUrl}/tools`, lastModified: currentDate, priority: 0.9 },
@@ -21,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/disclaimer`, lastModified: currentDate, priority: 0.3 },
   ]
 
-  // Tool category pages
   const categories = ['calculators','converters','developer','image','pdf','qr-barcode','security','text']
   const categoryPages = categories.map(cat => ({
     url: `${baseUrl}/tools/${cat}`,
@@ -29,21 +27,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  // All tool pages
-  const toolPages = toolsData.map(tool => ({
+  const toolPages = (toolsData as any[]).map(tool => ({
     url: `${baseUrl}/tools/${tool.category}/${tool.slug}`,
     lastModified: currentDate,
     priority: 0.7,
   }))
 
-  // All prompt pages
-  const promptPages = promptsData.map(prompt => ({
+  const promptPages = (promptsData as any[]).map(prompt => ({
     url: `${baseUrl}/prompts/${prompt.slug}`,
     lastModified: currentDate,
     priority: 0.6,
   }))
 
-  // Prompt categories
   const promptCategories = ['chatgpt','midjourney','dalle','stable-diffusion','claude','gemini','coding','video','music','voice']
   const promptCategoryPages = promptCategories.map(cat => ({
     url: `${baseUrl}/prompts/category/${cat}`,
