@@ -81,8 +81,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAnalytics />measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""}
-        />
+        <GoogleAnalytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
