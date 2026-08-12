@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
-import { toolsData } from '@/config/tools-data'
-import { promptsData } from '@/config/prompts-data'
+import { categories } from '@/config/tools-data'
+import { allPrompts, promptCategories } from '@/config/prompts-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://ai-productivity-ecosystem-azure.vercel.app'
@@ -20,28 +20,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/disclaimer`, lastModified: currentDate, priority: 0.3 },
   ]
 
-  const categories = ['calculators','converters','developer','image','pdf','qr-barcode','security','text']
-  const categoryPages = categories.map(cat => ({
-    url: `${baseUrl}/tools/${cat}`,
-    lastModified: currentDate,
-    priority: 0.8,
-  }))
+  // Category pages + all tools from categories
+  const categoryPages: any[] = []
+  const toolPages: any[] = []
 
-  const toolPages = (toolsData as any[]).map(tool => ({
-    url: `${baseUrl}/tools/${tool.category}/${tool.slug}`,
-    lastModified: currentDate,
-    priority: 0.7,
-  }))
+  Object.entries(categories).forEach(([slug, category]) => {
+    categoryPages.push({
+      url: `${baseUrl}/tools/${slug}`,
+      lastModified: currentDate,
+      priority: 0.8,
+    })
 
-  const promptPages = (promptsData as any[]).map(prompt => ({
+    if (category.tools && Array.isArray(category.tools)) {
+      category.tools.forEach((tool: any) => {
+        toolPages.push({
+          url: `${baseUrl}/tools/${slug}/${tool.slug}`,
+          lastModified: currentDate,
+          priority: 0.7,
+        })
+      })
+    }
+  })
+
+  // Prompt pages
+  const promptPages = allPrompts.map(prompt => ({
     url: `${baseUrl}/prompts/${prompt.slug}`,
     lastModified: currentDate,
     priority: 0.6,
   }))
 
-  const promptCategories = ['chatgpt','midjourney','dalle','stable-diffusion','claude','gemini','coding','video','music','voice']
+  // Prompt category pages
   const promptCategoryPages = promptCategories.map(cat => ({
-    url: `${baseUrl}/prompts/category/${cat}`,
+    url: `${baseUrl}/prompts/category/${cat.slug}`,
     lastModified: currentDate,
     priority: 0.7,
   }))
