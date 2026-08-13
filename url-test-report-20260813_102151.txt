@@ -1,0 +1,94 @@
+═══════════════════════════════════════════
+URL TEST REPORT
+═══════════════════════════════════════════
+Date: 08/13/2026 10:22:51
+Base URL: https://ai-productivity-ecosystem-azure.vercel.app
+Total URLs Tested: 61
+
+═══════════════════════════════════════════
+SUMMARY
+═══════════════════════════════════════════
+✅ Working: 46
+❌ 404 Not Found: 15
+🔄 Redirects: 0
+⚠️ Errors: 0
+
+═══════════════════════════════════════════
+❌ BROKEN LINKS (404 - NEED TO FIX)
+═══════════════════════════════════════════
+- Music Prompts → /prompts/category/music
+- Sign In → /sign-in
+- Voice Prompts → /prompts/category/voice
+- New Prompts → /prompts/new
+- Sample Prompt → /prompts/professional-email-writer
+- Sign Up → /sign-up
+- Midjourney Prompts → /prompts/category/midjourney
+- Trending Prompts → /prompts/trending
+- ChatGPT Prompts → /prompts/category/chatgpt
+- Coding Prompts → /prompts/category/coding
+- Stable Diffusion → /prompts/category/stable-diffusion
+- Gemini Prompts → /prompts/category/gemini
+- Video Prompts → /prompts/category/video
+- DALL-E Prompts → /prompts/category/dalle
+- Claude Prompts → /prompts/category/claude
+
+
+═══════════════════════════════════════════
+🔄 REDIRECTS
+═══════════════════════════════════════════
+
+
+═══════════════════════════════════════════
+⚠️ OTHER ERRORS
+═══════════════════════════════════════════
+
+
+═══════════════════════════════════════════
+✅ WORKING PAGES
+═══════════════════════════════════════════
+- SEO Tools → /tools/seo
+- QR Barcode → /tools/qr-barcode
+- Dashboard → /dashboard
+- Sitemap → /sitemap.xml
+- BMI Calculator → /tools/calculators/bmi-calculator
+- Cookie → /cookie-policy
+- PDF → /tools/pdf
+- Image Compressor → /tools/image/image-compressor
+- Google Verification → /google4b6b82212dae2e2d.html
+- Disclaimer → /disclaimer
+- Password Generator → /tools/security/password-generator
+- AI Tools → /tools/ai
+- Contact → /contact
+- Image Resizer → /tools/image/image-resizer
+- Calculators → /tools/calculators
+- Bing Auth → /BingSiteAuth.xml
+- Prompts Main → /prompts
+- PDF Compressor → /tools/pdf/pdf-compressor
+- Word Counter → /tools/text/word-counter
+- Case Converter → /tools/text/case-converter
+- Image Converter → /tools/image/image-converter
+- Developer → /tools/developer
+- Length Converter → /tools/converters/length-converter
+- Converters → /tools/converters
+- WiFi QR → /tools/qr-barcode/wifi-qr-generator
+- Security → /tools/security
+- About → /about
+- Lorem Ipsum → /tools/text/lorem-ipsum
+- Text → /tools/text
+- Terms → /terms
+- Currency Converter → /tools/converters/currency-converter
+- Tools Main → /tools
+- Robots → /robots.txt
+- Privacy → /privacy-policy
+- PDF Merger → /tools/pdf/pdf-merger
+- QR Generator → /tools/qr-barcode/qr-code-generator
+- Age Calculator → /tools/calculators/age-calculator
+- Hash Generator → /tools/developer/hash-generator
+- Image → /tools/image
+- Video Tools → /tools/video
+- Base64 Encoder → /tools/developer/base64-encoder
+- PDF Splitter → /tools/pdf/pdf-splitter
+- Homepage → /
+- JSON Formatter → /tools/developer/json-formatter
+- Percentage Calc → /tools/calculators/percentage-calculator
+- Audio Tools → /tools/audio
