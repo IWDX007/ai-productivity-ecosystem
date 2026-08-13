@@ -3,9 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider/ThemeProvider";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 const geistSans = Geist({
@@ -88,12 +86,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <MobileBottomNav />
-          </div>
+          <ConditionalLayout>{children}</ConditionalLayout>
         </ThemeProvider>
       </body>
     </html>

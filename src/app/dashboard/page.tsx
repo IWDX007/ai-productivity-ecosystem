@@ -1,176 +1,79 @@
-'use client'
+import { db } from "@/lib/db";
+import { tools, prompts, categories } from "@/lib/db/schema";
+import { StatCard } from "@/components/dashboard/StatCard";
+import { Wrench, Lightbulb, FolderTree, TrendingUp, Users, Eye, Search, Zap, BarChart3 } from "lucide-react";
 
-import { 
-  Zap, 
-  Heart, 
-  Users, 
-  TrendingUp,
-  Sparkles,
-  ChevronDown,
-  Search,
-  Bell,
-  Menu
-} from 'lucide-react'
-import Link from 'next/link'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
-import { MobileBottomNav } from '@/components/layout/MobileBottomNav'
-import { StatsCard } from '@/components/dashboard/StatsCard'
-import { RecentActivity } from '@/components/dashboard/RecentActivity'
-import { QuickActions } from '@/components/dashboard/QuickActions'
+export default async function DashboardPage() {
+  const [toolsList, promptsList, categoriesList] = await Promise.all([
+    db.select().from(tools),
+    db.select().from(prompts),
+    db.select().from(categories),
+  ]);
 
-export default function DashboardPage() {
+  const activeTools = toolsList.filter(t => t.isActive).length;
+  const activePrompts = promptsList.filter(p => p.isActive).length;
+  const featuredTools = toolsList.filter(t => t.isFeatured).length;
+
   return (
-    <div className="min-h-screen bg-theme-primary pb-20 lg:pb-0">
-      {/* Desktop Header */}
-      <div className="hidden lg:block">
-        <Header />
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Dashboard Overview</h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-1">Welcome back! Here is what happening with your site.</p>
       </div>
 
-      {/* Mobile Header */}
-      <div className="lg:hidden sticky top-0 z-30 bg-theme-primary border-b border-theme">
-        <div className="flex items-center justify-between px-4 py-4">
-          <div>
-            <p className="text-sm text-theme-secondary">Monday, July 20</p>
-            <h1 className="text-2xl font-bold text-theme-primary">Hi Kev 👋</h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <button className="p-2 rounded-lg hover:bg-theme-secondary transition-colors">
-              <Search className="w-5 h-5 text-theme-primary" />
-            </button>
-            <div className="w-10 h-10 rounded-full gradient-crimson flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCard title="Total Tools" value={toolsList.length} icon={Wrench} color="bg-gradient-to-br from-red-500 to-pink-600" change={`${activeTools} active`} />
+        <StatCard title="Total Prompts" value={promptsList.length} icon={Lightbulb} color="bg-gradient-to-br from-purple-500 to-indigo-600" change={`${activePrompts} active`} />
+        <StatCard title="Categories" value={categoriesList.length} icon={FolderTree} color="bg-gradient-to-br from-blue-500 to-cyan-600" />
+        <StatCard title="Featured Tools" value={featuredTools} icon={TrendingUp} color="bg-gradient-to-br from-orange-500 to-red-600" />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCard title="Visitors Today" value="-" icon={Users} color="bg-gradient-to-br from-green-500 to-emerald-600" />
+        <StatCard title="Page Views" value="-" icon={Eye} color="bg-gradient-to-br from-cyan-500 to-blue-600" />
+        <StatCard title="Search Impressions" value="-" icon={Search} color="bg-gradient-to-br from-yellow-500 to-orange-600" />
+        <StatCard title="Avg SEO Score" value="-" icon={Zap} color="bg-gradient-to-br from-pink-500 to-rose-600" />
+      </div>
+
+      <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+        <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Quick Actions</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="/dashboard/tools" className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg text-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+            <Wrench className="w-6 h-6 mx-auto mb-2 text-red-600 dark:text-red-400" />
+            <span className="text-sm font-medium text-gray-900 dark:text-white">Manage Tools</span>
+          </a>
+          <a href="/dashboard/prompts" className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
+            <Lightbulb className="w-6 h-6 mx-auto mb-2 text-purple-600 dark:text-purple-400" />
+            <span className="text-sm font-medium text-gray-900 dark:text-white">Add Prompt</span>
+          </a>
+          <a href="/dashboard/seo" className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+            <Search className="w-6 h-6 mx-auto mb-2 text-blue-600 dark:text-blue-400" />
+            <span className="text-sm font-medium text-gray-900 dark:text-white">SEO Editor</span>
+          </a>
+          <a href="/dashboard/analytics" className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg text-center hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
+            <BarChart3 className="w-6 h-6 mx-auto mb-2 text-green-600 dark:text-green-400" />
+            <span className="text-sm font-medium text-gray-900 dark:text-white">Analytics</span>
+          </a>
         </div>
       </div>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-6 lg:py-10 max-w-7xl">
-        
-        {/* Desktop Greeting */}
-        <div className="hidden lg:flex items-center justify-between mb-8">
-          <div>
-            <p className="text-sm text-theme-secondary mb-1">Monday, July 20</p>
-            <h1 className="text-3xl font-bold text-theme-primary">
-              Welcome back, <span className="gradient-text">Kev!</span>
-            </h1>
-            <p className="text-theme-secondary mt-1">Here's what's happening with your tools today</p>
+      <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+        <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">System Status</h2>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <span className="text-sm text-gray-700 dark:text-gray-300">Database</span>
+            <span className="text-xs font-semibold text-green-600 dark:text-green-400">Connected</span>
           </div>
-          
-          {/* Workspace Selector */}
-          <button className="flex items-center gap-2 px-4 py-2 glass-card border border-theme rounded-lg hover:border-crimson-500 transition-all">
-            <div className="w-8 h-8 rounded-lg gradient-crimson flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-sm font-medium text-theme-primary">Workspace</span>
-            <ChevronDown className="w-4 h-4 text-theme-secondary" />
-          </button>
-        </div>
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <StatsCard
-            title="Total Return"
-            value="$1,672.20"
-            change="42%"
-            trend="up"
-            icon={TrendingUp}
-            iconColor="text-purple-500"
-            iconBg="bg-purple-500/10"
-          />
-          <StatsCard
-            title="Tools Used"
-            value="204,765"
-            change="32%"
-            trend="down"
-            icon={Zap}
-            iconColor="text-blue-500"
-            iconBg="bg-blue-500/10"
-          />
-          <StatsCard
-            title="Total Interaction"
-            value="12,045"
-            change="64%"
-            trend="up"
-            icon={Users}
-            iconColor="text-green-500"
-            iconBg="bg-green-500/10"
-          />
-          <StatsCard
-            title="Favorites"
-            value="1,234"
-            change="18%"
-            trend="up"
-            icon={Heart}
-            iconColor="text-crimson-500"
-            iconBg="bg-crimson-500/10"
-          />
-        </div>
-
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          
-          {/* Left Column - Recent Activity */}
-          <div className="lg:col-span-2">
-            <RecentActivity />
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <span className="text-sm text-gray-700 dark:text-gray-300">Total Records</span>
+            <span className="text-xs font-semibold text-gray-900 dark:text-white">{toolsList.length + promptsList.length + categoriesList.length}</span>
           </div>
-
-          {/* Right Column - Quick Actions */}
-          <div>
-            <QuickActions />
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <span className="text-sm text-gray-700 dark:text-gray-300">Site Status</span>
+            <span className="text-xs font-semibold text-green-600 dark:text-green-400">Live</span>
           </div>
         </div>
-
-        {/* Sales Card - Full Width */}
-        <div className="mt-6 glass-card p-6 rounded-2xl border border-theme">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <p className="text-sm text-theme-secondary mb-1">Sales</p>
-              <h3 className="text-3xl font-bold text-theme-primary">$6,390.80</h3>
-              <div className="flex items-center gap-1 mt-2">
-                <TrendingUp className="w-4 h-4 text-green-500" />
-                <span className="text-sm font-medium text-green-500">+2.5%</span>
-                <span className="text-sm text-theme-muted">vs. last month</span>
-              </div>
-            </div>
-            
-            {/* Chart Placeholder */}
-            <div className="flex items-end gap-2 h-24">
-              <div className="w-4 bg-crimson-500/20 rounded-t h-8"></div>
-              <div className="w-4 bg-crimson-500/40 rounded-t h-12"></div>
-              <div className="w-4 bg-crimson-500/30 rounded-t h-10"></div>
-              <div className="w-4 bg-crimson-500/50 rounded-t h-16"></div>
-              <div className="w-4 bg-crimson-500 rounded-t h-20"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Transactions Preview */}
-        <div className="mt-6 glass-card p-6 rounded-2xl border border-theme">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h3 className="text-lg font-bold text-theme-primary">Transactions</h3>
-              <p className="text-sm text-theme-secondary">153 previous period</p>
-            </div>
-            <Link href="/dashboard/transactions" className="text-sm text-crimson-500 hover:text-crimson-600">
-              View All →
-            </Link>
-          </div>
-          
-          <div className="text-center py-8 text-theme-muted">
-            <p className="text-sm">Transaction data will appear here</p>
-          </div>
-        </div>
-      </main>
-
-      {/* Desktop Footer */}
-      <div className="hidden lg:block">
-        <Footer />
       </div>
-
-      {/* Mobile Bottom Navigation */}
-      <MobileBottomNav />
     </div>
-  )
+  );
 }
