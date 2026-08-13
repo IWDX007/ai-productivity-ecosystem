@@ -145,7 +145,7 @@ export function Header() {
                 <div className="flex items-center gap-2 px-4 py-2 glass-card border border-theme rounded-lg w-64 hover:border-crimson-500 transition-all cursor-pointer">
                   <Search className="w-4 h-4 text-theme-secondary group-hover:text-crimson-500 transition-colors" />
                   <span className="text-sm text-theme-secondary flex-1">Search tools...</span>
-                  <kbd className="px-2 py-0.5 text-xs bg-theme-secondary text-theme-primary rounded border border-theme">⌘K</kbd>
+                  <kbd className="px-2 py-0.5 text-xs bg-theme-secondary text-theme-primary rounded border border-theme">âŒ˜K</kbd>
                 </div>
               </div>
 
@@ -388,7 +388,7 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block mt-2 mx-2 text-center py-2 bg-gradient-to-r from-crimson-500/10 to-pink-500/10 text-crimson-500 text-xs font-semibold rounded-lg hover:bg-crimson-500/20 transition-colors"
                 >
-                  View All 200+ Tools →
+                  View All 200+ Tools â†’
                 </Link>
               </div>
             )}
