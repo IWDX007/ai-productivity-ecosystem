@@ -75,7 +75,7 @@ export function PromptForm({ prompt, categories }: Props) {
           await createPrompt(form);
           setMessage("Prompt created successfully!");
         }
-        setTimeout(() => router.push("/dashboard/prompts"), 1000);
+        setTimeout(() => router.push("/iconic/prompts"), 1000);
       } catch (err: any) {
         setMessage(`Error: ${err.message || "Something went wrong"}`);
       }
@@ -84,7 +84,7 @@ export function PromptForm({ prompt, categories }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <Link href="/dashboard/prompts" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+      <Link href="/iconic/prompts" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
         <ArrowLeft className="w-4 h-4" />
         Back to Prompts
       </Link>
@@ -279,7 +279,7 @@ export function PromptForm({ prompt, categories }: Props) {
         </button>
 
         <Link
-          href="/dashboard/prompts"
+          href="/iconic/prompts"
           className="px-6 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         >
           Cancel

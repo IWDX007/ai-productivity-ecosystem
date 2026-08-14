@@ -7,7 +7,7 @@ import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 
 export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isDashboard = pathname?.startsWith("/dashboard");
+  const isDashboard = pathname?.startsWith("/iconic");
 
   if (isDashboard) {
     return <>{children}</>;

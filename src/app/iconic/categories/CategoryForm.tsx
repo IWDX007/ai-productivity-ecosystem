@@ -74,7 +74,7 @@ export function CategoryForm({ category }: Props) {
           await createCategory(form);
           setMessage("✅ Category created successfully!");
         }
-        setTimeout(() => router.push("/dashboard/categories"), 1000);
+        setTimeout(() => router.push("/iconic/categories"), 1000);
       } catch (err: any) {
         setMessage(`❌ Error: ${err.message || "Something went wrong"}`);
       }
@@ -83,7 +83,7 @@ export function CategoryForm({ category }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <Link href="/dashboard/categories" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+      <Link href="/iconic/categories" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
         <ArrowLeft className="w-4 h-4" />
         Back to Categories
       </Link>
@@ -214,7 +214,7 @@ export function CategoryForm({ category }: Props) {
         </button>
 
         <Link
-          href="/dashboard/categories"
+          href="/iconic/categories"
           className="px-6 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         >
           Cancel

@@ -7,19 +7,19 @@ import { revalidatePath } from "next/cache";
 
 export async function togglePromptStatus(id: number, isActive: boolean) {
   await db.update(prompts).set({ isActive, updatedAt: new Date() }).where(eq(prompts.id, id));
-  revalidatePath("/dashboard/prompts");
+  revalidatePath("/iconic/prompts");
   return { success: true };
 }
 
 export async function togglePromptFeatured(id: number, isFeatured: boolean) {
   await db.update(prompts).set({ isFeatured, updatedAt: new Date() }).where(eq(prompts.id, id));
-  revalidatePath("/dashboard/prompts");
+  revalidatePath("/iconic/prompts");
   return { success: true };
 }
 
 export async function deletePrompt(id: number) {
   await db.delete(prompts).where(eq(prompts.id, id));
-  revalidatePath("/dashboard/prompts");
+  revalidatePath("/iconic/prompts");
   return { success: true };
 }
 
@@ -44,7 +44,7 @@ export async function createPrompt(data: {
     isFeatured: data.isFeatured ?? false,
     usageCount: 0,
   });
-  revalidatePath("/dashboard/prompts");
+  revalidatePath("/iconic/prompts");
   return { success: true };
 }
 
@@ -59,7 +59,7 @@ export async function updatePrompt(id: number, data: {
   isFeatured?: boolean;
 }) {
   await db.update(prompts).set({ ...data, updatedAt: new Date() }).where(eq(prompts.id, id));
-  revalidatePath("/dashboard/prompts");
-  revalidatePath(`/dashboard/prompts/${id}/edit`);
+  revalidatePath("/iconic/prompts");
+  revalidatePath(`/iconic/prompts/${id}/edit`);
   return { success: true };
 }

@@ -11,7 +11,7 @@ interface FavoritesIconProps {
 export default function FavoritesIcon({ count = 0 }: FavoritesIconProps) {
   return (
     <Link
-      href="/dashboard/favorites"
+      href="/iconic/favorites"
       className={styles.link}
       aria-label="Favorites"
     >

@@ -1,5 +1,5 @@
-import { DashboardSidebar } from "@/components/dashboard/Sidebar";
-import { DashboardHeader } from "@/components/dashboard/Header";
+import { DashboardSidebar } from "@/components/iconic/Sidebar";
+import { DashboardHeader } from "@/components/iconic/Header";
 
 export const metadata = {
   title: "Admin Dashboard",

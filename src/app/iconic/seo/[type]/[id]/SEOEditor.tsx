@@ -64,7 +64,7 @@ export function SEOEditor({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-6">
-      <Link href="/dashboard/seo" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+      <Link href="/iconic/seo" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
         <ArrowLeft className="w-4 h-4" />
         Back to SEO Overview
       </Link>

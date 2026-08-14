@@ -15,7 +15,7 @@ export function MobileBottomNav() {
   const pathname = usePathname()
   
   // Check if we're on dashboard page
-  const isDashboardPage = pathname?.startsWith('/dashboard')
+  const isDashboardPage = pathname?.startsWith('/iconic')
 
   // 5 items with center as elevated
   const navItems = [
@@ -23,10 +23,10 @@ export function MobileBottomNav() {
     { name: 'AI', icon: Bot, href: '/prompts' },
     // Center item - dynamic
     isDashboardPage 
-      ? { name: 'Dashboard', icon: LayoutDashboard, href: '/dashboard', isCenter: true }
+      ? { name: 'Dashboard', icon: LayoutDashboard, href: '/iconic', isCenter: true }
       : { name: 'Home', icon: Home, href: '/', isCenter: true },
     { name: 'Blog', icon: BookOpen, href: '/blog' },
-    { name: 'Profile', icon: User, href: '/dashboard' },
+    { name: 'Profile', icon: User, href: '/iconic' },
   ]
 
   return (

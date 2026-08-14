@@ -74,7 +74,7 @@ export function CategoriesTable({ initialCategories, toolCounts }: Props) {
           </div>
 
           <Link
-            href="/dashboard/categories/new"
+            href="/iconic/categories/new"
             className="px-4 py-2 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-lg text-sm font-medium hover:shadow-lg transition-shadow flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
@@ -127,7 +127,7 @@ export function CategoriesTable({ initialCategories, toolCounts }: Props) {
 
                 <div className="flex gap-2">
                   <Link
-                    href={`/dashboard/categories/${cat.id}/edit`}
+                    href={`/iconic/categories/${cat.id}/edit`}
                     className="p-2 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                     title="Edit"
                   >

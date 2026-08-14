@@ -58,11 +58,11 @@ export function ToolForm({ tool, categories }: Props) {
         if (tool) {
           await updateTool(tool.id, form);
           setMessage("✅ Tool updated successfully!");
-          setTimeout(() => router.push("/dashboard/tools"), 1000);
+          setTimeout(() => router.push("/iconic/tools"), 1000);
         } else {
           await createTool(form);
           setMessage("✅ Tool created successfully!");
-          setTimeout(() => router.push("/dashboard/tools"), 1000);
+          setTimeout(() => router.push("/iconic/tools"), 1000);
         }
       } catch (err: any) {
         setMessage(`❌ Error: ${err.message || "Something went wrong"}`);
@@ -72,7 +72,7 @@ export function ToolForm({ tool, categories }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <Link href="/dashboard/tools" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+      <Link href="/iconic/tools" className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
         <ArrowLeft className="w-4 h-4" />
         Back to Tools
       </Link>
@@ -249,7 +249,7 @@ export function ToolForm({ tool, categories }: Props) {
         </button>
 
         <Link
-          href="/dashboard/tools"
+          href="/iconic/tools"
           className="px-6 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         >
           Cancel

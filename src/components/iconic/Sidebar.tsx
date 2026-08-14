@@ -4,14 +4,14 @@ import { usePathname } from "next/navigation";
 import { LayoutDashboard, Wrench, FolderTree, Lightbulb, Search, BarChart3, Settings, FileText } from "lucide-react";
 
 const navigation = [
-  { name: "Overview", href: "/dashboard", icon: LayoutDashboard },
-  { name: "Tools", href: "/dashboard/tools", icon: Wrench },
-  { name: "Categories", href: "/dashboard/categories", icon: FolderTree },
-  { name: "Prompts", href: "/dashboard/prompts", icon: Lightbulb },
-  { name: "SEO Editor", href: "/dashboard/seo", icon: Search },
-  { name: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
-  { name: "Pages", href: "/dashboard/pages", icon: FileText },
-  { name: "Settings", href: "/dashboard/settings", icon: Settings },
+  { name: "Overview", href: "/iconic", icon: LayoutDashboard },
+  { name: "Tools", href: "/iconic/tools", icon: Wrench },
+  { name: "Categories", href: "/iconic/categories", icon: FolderTree },
+  { name: "Prompts", href: "/iconic/prompts", icon: Lightbulb },
+  { name: "SEO Editor", href: "/iconic/seo", icon: Search },
+  { name: "Analytics", href: "/iconic/analytics", icon: BarChart3 },
+  { name: "Pages", href: "/iconic/pages", icon: FileText },
+  { name: "Settings", href: "/iconic/settings", icon: Settings },
 ];
 
 export function DashboardSidebar() {
@@ -19,7 +19,7 @@ export function DashboardSidebar() {
   return (
     <aside className="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 h-screen sticky top-0 overflow-y-auto">
       <div className="p-6 border-b border-gray-200 dark:border-gray-800">
-        <Link href="/dashboard" className="flex items-center gap-2">
+        <Link href="/iconic" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
             <span className="text-white font-bold">A</span>
           </div>

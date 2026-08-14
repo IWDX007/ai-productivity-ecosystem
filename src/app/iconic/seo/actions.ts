@@ -12,8 +12,8 @@ export async function updateToolSEO(id: number, data: {
   seoScore: number;
 }) {
   await db.update(tools).set({ ...data, updatedAt: new Date() }).where(eq(tools.id, id));
-  revalidatePath("/dashboard/seo");
-  revalidatePath(`/dashboard/seo/tool/${id}`);
+  revalidatePath("/iconic/seo");
+  revalidatePath(`/iconic/seo/tool/${id}`);
   return { success: true };
 }
 
@@ -22,7 +22,7 @@ export async function updatePromptSEO(id: number, data: {
   description: string;
 }) {
   await db.update(prompts).set({ ...data, updatedAt: new Date() }).where(eq(prompts.id, id));
-  revalidatePath("/dashboard/seo");
-  revalidatePath(`/dashboard/seo/prompt/${id}`);
+  revalidatePath("/iconic/seo");
+  revalidatePath(`/iconic/seo/prompt/${id}`);
   return { success: true };
 }

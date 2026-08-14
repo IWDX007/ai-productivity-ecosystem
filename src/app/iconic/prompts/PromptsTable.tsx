@@ -114,7 +114,7 @@ export function PromptsTable({ initialPrompts, categories }: Props) {
           </select>
 
           <Link
-            href="/dashboard/prompts/new"
+            href="/iconic/prompts/new"
             className="px-4 py-2 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-lg text-sm font-medium hover:shadow-lg transition-shadow flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
@@ -212,7 +212,7 @@ export function PromptsTable({ initialPrompts, categories }: Props) {
                           )}
                         </button>
                         <Link
-                          href={`/dashboard/prompts/${prompt.id}/edit`}
+                          href={`/iconic/prompts/${prompt.id}/edit`}
                           className="p-2 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                           title="Edit"
                         >

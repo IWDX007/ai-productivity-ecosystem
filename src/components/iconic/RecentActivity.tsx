@@ -25,7 +25,7 @@ export function RecentActivity() {
           <h3 className="text-lg font-bold text-theme-primary">Recent Activity</h3>
           <p className="text-sm text-theme-secondary">Your latest tool usage</p>
         </div>
-        <Link href="/dashboard/history" className="text-sm text-crimson-500 hover:text-crimson-600 flex items-center gap-1">
+        <Link href="/iconic/history" className="text-sm text-crimson-500 hover:text-crimson-600 flex items-center gap-1">
           View All
           <ArrowRight className="w-4 h-4" />
         </Link>

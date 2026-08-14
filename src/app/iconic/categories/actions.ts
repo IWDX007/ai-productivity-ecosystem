@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 
 export async function toggleCategoryStatus(id: number, isActive: boolean) {
   await db.update(categories).set({ isActive, updatedAt: new Date() }).where(eq(categories.id, id));
-  revalidatePath("/dashboard/categories");
+  revalidatePath("/iconic/categories");
   return { success: true };
 }
 
@@ -21,7 +21,7 @@ export async function deleteCategory(id: number) {
   }
 
   await db.delete(categories).where(eq(categories.id, id));
-  revalidatePath("/dashboard/categories");
+  revalidatePath("/iconic/categories");
   return { success: true };
 }
 
@@ -43,7 +43,7 @@ export async function createCategory(data: {
     isActive: data.isActive ?? true,
     sortOrder: 0,
   });
-  revalidatePath("/dashboard/categories");
+  revalidatePath("/iconic/categories");
   return { success: true };
 }
 
@@ -56,13 +56,13 @@ export async function updateCategory(id: number, data: {
   isActive?: boolean;
 }) {
   await db.update(categories).set({ ...data, updatedAt: new Date() }).where(eq(categories.id, id));
-  revalidatePath("/dashboard/categories");
-  revalidatePath(`/dashboard/categories/${id}/edit`);
+  revalidatePath("/iconic/categories");
+  revalidatePath(`/iconic/categories/${id}/edit`);
   return { success: true };
 }
 
 export async function updateCategoryOrder(id: number, sortOrder: number) {
   await db.update(categories).set({ sortOrder, updatedAt: new Date() }).where(eq(categories.id, id));
-  revalidatePath("/dashboard/categories");
+  revalidatePath("/iconic/categories");
   return { success: true };
 }

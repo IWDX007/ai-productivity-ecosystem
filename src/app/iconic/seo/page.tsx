@@ -106,7 +106,7 @@ export default async function SEOOverviewPage() {
           {needsAttention.map(tool => (
             <Link
               key={tool.id}
-              href={`/dashboard/seo/tool/${tool.id}`}
+              href={`/iconic/seo/tool/${tool.id}`}
               className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
               <div className="flex items-center gap-3 flex-1">
@@ -183,7 +183,7 @@ export default async function SEOOverviewPage() {
                   </td>
                   <td className="px-4 py-3 text-right">
                     <Link
-                      href={`/dashboard/seo/tool/${tool.id}`}
+                      href={`/iconic/seo/tool/${tool.id}`}
                       className="inline-flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:underline"
                     >
                       <Search className="w-3 h-3" />

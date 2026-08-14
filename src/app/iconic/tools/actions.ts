@@ -7,19 +7,19 @@ import { revalidatePath } from "next/cache";
 
 export async function toggleToolStatus(id: number, isActive: boolean) {
   await db.update(tools).set({ isActive, updatedAt: new Date() }).where(eq(tools.id, id));
-  revalidatePath("/dashboard/tools");
+  revalidatePath("/iconic/tools");
   return { success: true };
 }
 
 export async function toggleToolFeatured(id: number, isFeatured: boolean) {
   await db.update(tools).set({ isFeatured, updatedAt: new Date() }).where(eq(tools.id, id));
-  revalidatePath("/dashboard/tools");
+  revalidatePath("/iconic/tools");
   return { success: true };
 }
 
 export async function deleteTool(id: number) {
   await db.delete(tools).where(eq(tools.id, id));
-  revalidatePath("/dashboard/tools");
+  revalidatePath("/iconic/tools");
   return { success: true };
 }
 
@@ -48,7 +48,7 @@ export async function createTool(data: {
     seoScore: 0,
     sortOrder: 0,
   });
-  revalidatePath("/dashboard/tools");
+  revalidatePath("/iconic/tools");
   return { success: true };
 }
 
@@ -64,7 +64,7 @@ export async function updateTool(id: number, data: {
   isFeatured?: boolean;
 }) {
   await db.update(tools).set({ ...data, updatedAt: new Date() }).where(eq(tools.id, id));
-  revalidatePath("/dashboard/tools");
-  revalidatePath(`/dashboard/tools/${id}/edit`);
+  revalidatePath("/iconic/tools");
+  revalidatePath(`/iconic/tools/${id}/edit`);
   return { success: true };
 }

@@ -105,7 +105,7 @@ export function ToolsTable({ initialTools, categories }: Props) {
           </select>
 
           <Link
-            href="/dashboard/tools/new"
+            href="/iconic/tools/new"
             className="px-4 py-2 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-lg text-sm font-medium hover:shadow-lg transition-shadow flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
@@ -182,7 +182,7 @@ export function ToolsTable({ initialTools, categories }: Props) {
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-end gap-2">
                       <Link
-                        href={`/dashboard/tools/${tool.id}/edit`}
+                        href={`/iconic/tools/${tool.id}/edit`}
                         className="p-2 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                         title="Edit"
                       >

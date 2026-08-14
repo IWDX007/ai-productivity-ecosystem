@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { tools, prompts, categories } from "@/lib/db/schema";
-import { StatCard } from "@/components/dashboard/StatCard";
+import { StatCard } from "@/components/iconic/StatCard";
 import { Wrench, Lightbulb, FolderTree, TrendingUp, Users, Eye, Search, Zap, BarChart3 } from "lucide-react";
 
 export default async function DashboardPage() {
@@ -38,19 +38,19 @@ export default async function DashboardPage() {
       <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
         <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Quick Actions</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <a href="/dashboard/tools" className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg text-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+          <a href="/iconic/tools" className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg text-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
             <Wrench className="w-6 h-6 mx-auto mb-2 text-red-600 dark:text-red-400" />
             <span className="text-sm font-medium text-gray-900 dark:text-white">Manage Tools</span>
           </a>
-          <a href="/dashboard/prompts" className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
+          <a href="/iconic/prompts" className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
             <Lightbulb className="w-6 h-6 mx-auto mb-2 text-purple-600 dark:text-purple-400" />
             <span className="text-sm font-medium text-gray-900 dark:text-white">Add Prompt</span>
           </a>
-          <a href="/dashboard/seo" className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+          <a href="/iconic/seo" className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
             <Search className="w-6 h-6 mx-auto mb-2 text-blue-600 dark:text-blue-400" />
             <span className="text-sm font-medium text-gray-900 dark:text-white">SEO Editor</span>
           </a>
-          <a href="/dashboard/analytics" className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg text-center hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
+          <a href="/iconic/analytics" className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg text-center hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
             <BarChart3 className="w-6 h-6 mx-auto mb-2 text-green-600 dark:text-green-400" />
             <span className="text-sm font-medium text-gray-900 dark:text-white">Analytics</span>
           </a>
