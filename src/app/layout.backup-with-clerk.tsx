@@ -7,8 +7,8 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "AI Productivity Ecosystem - 200+ Free Online Tools",
-    template: "%s | AI Productivity Ecosystem",
+    default: "Get All In One Tools - 200+ Free Online Tools",
+    template: "%s | Get All In One Tools",
   },
   description: "200+ free online tools including calculators, converters, developer tools, image editors, PDF tools, security tools, AI prompts library and more. All processing in your browser. 100% private.",
 }

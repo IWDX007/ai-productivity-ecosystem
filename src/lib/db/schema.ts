@@ -82,3 +82,29 @@ export const siteSettings = pgTable("site_settings", {
   type: text("type").default("text"),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
+
+
+export const pages = pgTable("pages", {
+  id: serial("id").primaryKey(),
+  slug: text("slug").notNull().unique(),
+  title: text("title").notNull(),
+  content: text("content"),
+  metaTitle: text("meta_title"),
+  metaDescription: text("meta_description"),
+  isActive: boolean("is_active").default(true),
+  showInFooter: boolean("show_in_footer").default(false),
+  sortOrder: integer("sort_order").default(0),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+
+export const contactMessages = pgTable("contact_messages", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  subject: text("subject"),
+  message: text("message").notNull(),
+  isRead: boolean("is_read").default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+});

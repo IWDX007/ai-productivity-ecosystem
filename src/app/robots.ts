@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/iconic/', '/api/', '/admin/', '/sign-in/', '/sign-up/'],
       },
     ],
-    sitemap: 'https://ai-productivity-ecosystem-azure.vercel.app/sitemap.xml',
+    sitemap: 'https://getallinonetools.com/sitemap.xml',
   }
 }

@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "AI Productivity Ecosystem - 201+ Free Online Tools",
-    template: "%s | AI Productivity Ecosystem",
+    default: "Get All In One Tools - 200+ Free Online Tools & AI Prompts",
+    template: "%s | Get All In One Tools",
   },
   description:
-    "201+ free online tools for text, calculators, developers, converters, security, QR codes, images, and PDFs. Plus AI prompt library with 20+ prompts.",
+    "200+ free online tools for text, calculators, developers, converters, security, QR codes, images, and PDFs. Plus AI prompt library with 20+ prompts.",
   keywords: [
     "free online tools",
     "text tools",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     "PDF tools",
     "AI prompts",
   ],
-  authors: [{ name: "AI Productivity Ecosystem" }],
-  creator: "AI Productivity Ecosystem",
+  authors: [{ name: "Get All In One Tools" }],
+  creator: "Get All In One Tools",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ||
       "https://ai-productivity-ecosystem-azure.vercel.app"
@@ -45,16 +45,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://ai-productivity-ecosystem-azure.vercel.app",
-    title: "AI Productivity Ecosystem - 201+ Free Online Tools",
+    title: "Get All In One Tools - 200+ Free Online Tools & AI Prompts",
     description:
-      "201+ free online tools for productivity, development, and AI prompts.",
-    siteName: "AI Productivity Ecosystem",
+      "200+ free online tools for productivity, development, and AI prompts.",
+    siteName: "Get All In One Tools",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Productivity Ecosystem - 201+ Free Online Tools",
+    title: "Get All In One Tools - 200+ Free Online Tools & AI Prompts",
     description:
-      "201+ free online tools for productivity, development, and AI prompts.",
+      "200+ free online tools for productivity, development, and AI prompts.",
   },
   robots: {
     index: true,

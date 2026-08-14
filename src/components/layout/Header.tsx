@@ -107,7 +107,7 @@ export function Header() {
                 </div>
               </div>
               <div>
-                <h1 className="font-bold text-lg text-theme-primary leading-tight">AI Productivity</h1>
+                <h1 className="font-bold text-lg text-theme-primary leading-tight">Get All In One Tools</h1>
                 <p className="text-xs text-theme-secondary leading-tight">Ecosystem</p>
               </div>
             </Link>
@@ -145,7 +145,7 @@ export function Header() {
                 <div className="flex items-center gap-2 px-4 py-2 glass-card border border-theme rounded-lg w-64 hover:border-crimson-500 transition-all cursor-pointer">
                   <Search className="w-4 h-4 text-theme-secondary group-hover:text-crimson-500 transition-colors" />
                   <span className="text-sm text-theme-secondary flex-1">Search tools...</span>
-                  <kbd className="px-2 py-0.5 text-xs bg-theme-secondary text-theme-primary rounded border border-theme">âŒ˜K</kbd>
+                  <kbd className="px-2 py-0.5 text-xs bg-theme-secondary text-theme-primary rounded border border-theme">Ctrl+K</kbd>
                 </div>
               </div>
 
@@ -155,12 +155,12 @@ export function Header() {
 
               <ThemeToggle />
 
-              <Link href="/sign-in">
+              <Link href="#">
                 <Button variant="ghost" className="text-theme-primary hover:text-crimson-500">
                   Sign In
                 </Button>
               </Link>
-              <Link href="/sign-up">
+              <Link href="#">
                 <Button className="btn-primary border-0">
                   Sign Up
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -291,7 +291,7 @@ export function Header() {
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <div>
-              <h2 className="font-bold text-sm text-theme-primary leading-tight">AI Productivity</h2>
+              <h2 className="font-bold text-sm text-theme-primary leading-tight">Get All In One Tools</h2>
               <p className="text-[10px] text-theme-secondary leading-tight">Ecosystem</p>
             </div>
           </Link>
@@ -388,7 +388,7 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block mt-2 mx-2 text-center py-2 bg-gradient-to-r from-crimson-500/10 to-pink-500/10 text-crimson-500 text-xs font-semibold rounded-lg hover:bg-crimson-500/20 transition-colors"
                 >
-                  View All 200+ Tools â†’
+                  View All 200+ Tools Ã¢â€ â€™
                 </Link>
               </div>
             )}
@@ -422,10 +422,10 @@ export function Header() {
 
           {/* Auth Buttons */}
           <div className="pt-4 space-y-2">
-            <Link href="/sign-in" onClick={() => setMobileMenuOpen(false)} className="block">
+            <Link href="#" onClick={() => setMobileMenuOpen(false)} className="block">
               <Button variant="outline" className="w-full">Sign In</Button>
             </Link>
-            <Link href="/sign-up" onClick={() => setMobileMenuOpen(false)} className="block">
+            <Link href="#" onClick={() => setMobileMenuOpen(false)} className="block">
               <Button className="w-full btn-primary border-0">
                 Sign Up
                 <ArrowRight className="w-4 h-4 ml-2" />

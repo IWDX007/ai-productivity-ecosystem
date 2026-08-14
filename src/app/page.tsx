@@ -1,17 +1,17 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "AI Productivity Ecosystem - 200+ Free Online Tools for Everyone",
+  title: "Get All In One Tools - 200+ Free Online Tools for Everyone",
   description: "Free online tools: PDF, Image, Text, Calculators, Converters, Developer tools, Security tools, QR & Barcode. 200+ tools, 100% free, no signup, all in your browser.",
   keywords: "free online tools, pdf tools, image tools, text tools, calculators, converters, developer tools, security tools, qr code, barcode, ai productivity, ai prompts, chatgpt prompts, midjourney prompts",
   openGraph: {
-    title: "AI Productivity Ecosystem - 200+ Free Online Tools",
+    title: "Get All In One Tools - 200+ Free Online Tools",
     description: "200+ free online tools + AI prompts library. PDF, Image, Text, Calculators, Converters and more.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Productivity Ecosystem - 200+ Free Online Tools",
+    title: "Get All In One Tools - 200+ Free Online Tools",
     description: "200+ free online tools + AI prompts. All in your browser, 100% private.",
   },
 }
@@ -214,7 +214,7 @@ export default function HomePage() {
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 mb-4">
                 <Sparkles className="w-4 h-4 text-purple-500" />
-                <span className="text-sm font-medium text-purple-500">NEW • AI Prompt Library</span>
+                <span className="text-sm font-medium text-purple-500">NEW â€¢ AI Prompt Library</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold text-theme-primary mb-4">
                 Free <span className="gradient-text">AI Prompts</span>
@@ -340,7 +340,7 @@ export default function HomePage() {
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <p className="mt-4 text-sm text-theme-muted">100% Free • No signup • Copy & paste ready</p>
+              <p className="mt-4 text-sm text-theme-muted">100% Free â€¢ No signup â€¢ Copy & paste ready</p>
             </div>
           </ScrollReveal>
         </div>
@@ -633,7 +633,7 @@ export default function HomePage() {
               </div>
 
               <p className="mt-6 text-sm text-theme-muted">
-                No credit card required • No signup needed • 100% free forever
+                No credit card required â€¢ No signup needed â€¢ 100% free forever
               </p>
             </div>
           </ScrollReveal>

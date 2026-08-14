@@ -16,7 +16,7 @@ export function Footer() {
                 </div>
               </div>
               <div>
-                <h3 className="font-bold text-lg text-theme-primary leading-tight">AI Productivity</h3>
+                <h3 className="font-bold text-lg text-theme-primary leading-tight">Get All In One Tools</h3>
                 <p className="text-xs text-theme-secondary leading-tight">Ecosystem</p>
               </div>
             </Link>
@@ -76,7 +76,7 @@ export function Footer() {
 
         <div className="pt-6 border-t border-theme flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-theme-secondary">
-            © {new Date().getFullYear()} AI Productivity Ecosystem. All rights reserved.
+            Â© {new Date().getFullYear()} Get All In One Tools. All rights reserved.
           </p>
           <p className="text-xs text-theme-secondary flex items-center gap-1">
             Made with <Heart className="w-3 h-3 fill-crimson-500 text-crimson-500" /> for productivity
