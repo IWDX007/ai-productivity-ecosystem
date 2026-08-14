@@ -1,30 +1,49 @@
-"use client"
-import ToolPageMeta from "@/components/tools/ToolPageMeta"
-import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
-import TextStatsPanel from "@/components/tools/shared/TextStatsPanel"
-import TopWordsPanel from "@/components/tools/shared/TopWordsPanel"
-import Breadcrumbs from "@/components/layout/Breadcrumbs"
-import SEOSections from "@/components/tools/SEOSections"
-import { analyzeText, getTopWords } from "@/lib/processing/text/wordCounter"
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getToolData } from "@/lib/data/getToolData";
+import WordCounterClient from "./WordCounterClient";
+import SEOSections from "@/components/tools/SEOSections";
 
-export default function Page() {
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await getToolData("text", "word-counter");
+  
+  if (!tool) {
+    return {
+      title: "Word Counter",
+      description: "Count words, characters, sentences",
+    };
+  }
+
+  return {
+    title: tool.metaTitle || tool.name,
+    description: tool.metaDescription || tool.description || "",
+    keywords: tool.focusKeyword || undefined,
+    openGraph: {
+      title: tool.metaTitle || tool.name,
+      description: tool.metaDescription || tool.description || "",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: tool.metaTitle || tool.name,
+      description: tool.metaDescription || tool.description || "",
+    },
+  };
+}
+
+export default async function Page() {
+  const tool = await getToolData("text", "word-counter");
+  
+  if (!tool || !tool.isActive) {
+    notFound();
+  }
+
   return (
     <>
-      <ToolPageMeta title="Word Counter" description="Count words, characters, sentences, paragraphs and get detailed text statistics instantly. Free online tool with no login required." keywords="word counter, free online tool, word-counter, text tools, ai productivity" />
-      <Breadcrumbs items={[
-        { label: "Tools", href: "/tools" },
-        { label: "Text Tools", href: "/tools/text" },
-        { label: "Word Counter" }
-      ]} />
-      <TextToolTemplate
-        title="Word Counter"
-        description="Count words, characters, sentences, paragraphs and get detailed text statistics instantly. Free online tool with no login required."
-        placeholder="Type or paste your text here to count words, characters, sentences and more..."
-        badge="Text Tool"
-        statsPanel={(text) => <TextStatsPanel stats={analyzeText(text)} />}
-        extraPanel={(text) => <TopWordsPanel words={getTopWords(text, 10)} />}
-      />
-      <SEOSections toolSlug="word-counter" toolName="Word Counter" />
+      <WordCounterClient 
+      name={tool.name}
+      description={tool.description || ""}
+    />
+      <SEOSections toolSlug="word-counter" toolName={tool.name} category="text" />
     </>
-  )
+  );
 }

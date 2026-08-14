@@ -1,36 +1,46 @@
-"use client"
-import ToolPageMeta from "@/components/tools/ToolPageMeta"
-import { useState } from "react"
-import * as p from "@/lib/processing/text/allTextProcessors"
-import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
-import Breadcrumbs from "@/components/layout/Breadcrumbs"
-import SEOSections from "@/components/tools/SEOSections"
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getToolData } from "@/lib/data/getToolData";
+import TextToAsciiClient from "./TextToAsciiClient";
+import SEOSections from "@/components/tools/SEOSections";
 
-export default function Page() {
-  const [mode, setMode] = useState<"encode" | "decode">("encode")
-  const process = (t: string) => mode === "encode" ? p.textToASCII(t) : p.asciiToText(t)
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await getToolData("text", "text-to-ascii");
+  
+  if (!tool) {
+    return { title: "Tool Not Found" };
+  }
+
+  return {
+    title: tool.metaTitle || tool.name,
+    description: tool.metaDescription || tool.description || "",
+    keywords: tool.focusKeyword || undefined,
+    openGraph: {
+      title: tool.metaTitle || tool.name,
+      description: tool.metaDescription || tool.description || "",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: tool.metaTitle || tool.name,
+      description: tool.metaDescription || tool.description || "",
+    },
+  };
+}
+
+export default async function Page() {
+  const tool = await getToolData("text", "text-to-ascii");
+  
+  if (!tool || !tool.isActive) {
+    notFound();
+  }
+
   return (
     <>
-      <ToolPageMeta title="Text to ASCII" description="Convert text to ASCII character codes or convert ASCII codes back to text." keywords="text to ascii, free online tool, text-to-ascii, text tools, ai productivity" />
-      <Breadcrumbs items={[{ label: "Tools", href: "/tools" }, { label: "Text Tools", href: "/tools/text" }, { label: "Text to ASCII" }]} />
-      <TextToolTemplate
-        title="Text to ASCII"
-        description="Convert text to ASCII character codes or convert ASCII codes back to text."
-        placeholder={mode === "encode" ? "Enter text..." : "Enter ASCII codes (space separated: 72 101 108 108 111)"}
-        badge="Converter"
-        showOutput={true}
-        onProcess={process}
-        statsPanel={() => (
-          <div className="p-4 glass-card border border-theme rounded-xl">
-            <h3 className="text-sm font-semibold text-theme-primary mb-3">Mode</h3>
-            <div className="grid grid-cols-2 gap-2">
-              <button onClick={() => setMode("encode")} className={`p-2 rounded-lg text-sm transition-colors ${mode === "encode" ? "bg-crimson-500/10 text-crimson-500 border border-crimson-500/20" : "bg-theme-secondary text-theme-primary"}`}>Text to ASCII</button>
-              <button onClick={() => setMode("decode")} className={`p-2 rounded-lg text-sm transition-colors ${mode === "decode" ? "bg-crimson-500/10 text-crimson-500 border border-crimson-500/20" : "bg-theme-secondary text-theme-primary"}`}>ASCII to Text</button>
-            </div>
-          </div>
-        )}
-      />
-      <SEOSections toolSlug="text-to-ascii" toolName="Text to ASCII" />
+      <TextToAsciiClient 
+      name={tool.name}
+      description={tool.description || ""}
+    />
+      <SEOSections toolSlug="text-to-ascii" toolName={tool.name} category="text" />
     </>
-  )
+  );
 }

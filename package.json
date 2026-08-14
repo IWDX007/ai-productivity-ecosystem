@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/jsbarcode": "^3.11.4",
     "@types/node": "^22",
     "@types/pg": "^8.21.0",

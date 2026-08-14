@@ -1,52 +1,46 @@
-"use client"
-import ToolPageMeta from "@/components/tools/ToolPageMeta"
-import { useState } from "react"
-import { randomNumber } from "@/lib/processing/calculators/allCalculators"
-import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
-import Breadcrumbs from "@/components/layout/Breadcrumbs"
-import SEOSections from "@/components/tools/SEOSections"
-import { Shuffle, RefreshCw } from "lucide-react"
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getToolData } from "@/lib/data/getToolData";
+import RandomNumberClient from "./RandomNumberClient";
+import SEOSections from "@/components/tools/SEOSections";
 
-export default function Page() {
-  const [min, setMin] = useState("1")
-  const [max, setMax] = useState("100")
-  const [count, setCount] = useState("1")
-  const [nums, setNums] = useState<number[]>([])
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await getToolData("calculators", "random-number");
+  
+  if (!tool) {
+    return { title: "Tool Not Found" };
+  }
 
-  const generate = () => {
-    const result = randomNumber(parseInt(min) || 0, parseInt(max) || 100, parseInt(count) || 1)
-    setNums(result)
+  return {
+    title: tool.metaTitle || tool.name,
+    description: tool.metaDescription || tool.description || "",
+    keywords: tool.focusKeyword || undefined,
+    openGraph: {
+      title: tool.metaTitle || tool.name,
+      description: tool.metaDescription || tool.description || "",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: tool.metaTitle || tool.name,
+      description: tool.metaDescription || tool.description || "",
+    },
+  };
+}
+
+export default async function Page() {
+  const tool = await getToolData("calculators", "random-number");
+  
+  if (!tool || !tool.isActive) {
+    notFound();
   }
 
   return (
     <>
-      <ToolPageMeta title="Random Number Generator" description="Generate random numbers within a range. Perfect for lotteries, games and random selection." keywords="random number generator, free online tool, random-number, calculators tools, ai productivity" />
-      <Breadcrumbs items={[{ label: "Tools", href: "/tools" }, { label: "Calculators", href: "/tools/calculators" }, { label: "Random Number" }]} />
-      <CalculatorTemplate
-        title="Random Number Generator"
-        description="Generate random numbers within a range. Perfect for lotteries, games and random selection."
-        badge="Generator"
-        resultPanel={nums.length > 0 && (
-          <div className="p-4 glass-card border border-theme rounded-xl">
-            <h3 className="text-sm font-semibold text-theme-primary mb-3 flex items-center gap-2"><Shuffle className="w-4 h-4 text-crimson-500" /> Random Numbers</h3>
-            <div className="flex flex-wrap gap-2">
-              {nums.map((n, i) => (
-                <div key={i} className="px-4 py-3 gradient-crimson text-white rounded-lg font-bold text-xl">{n}</div>
-              ))}
-            </div>
-          </div>
-        )}
-      >
-        <div className="space-y-4">
-          <div className="grid grid-cols-3 gap-3">
-            <div><label className="block text-sm font-medium text-theme-primary mb-2">Min</label><input type="number" value={min} onChange={(e) => setMin(e.target.value)} className="w-full p-4 bg-theme-card border border-theme rounded-lg text-theme-primary text-lg focus:outline-none focus:border-crimson-500" /></div>
-            <div><label className="block text-sm font-medium text-theme-primary mb-2">Max</label><input type="number" value={max} onChange={(e) => setMax(e.target.value)} className="w-full p-4 bg-theme-card border border-theme rounded-lg text-theme-primary text-lg focus:outline-none focus:border-crimson-500" /></div>
-            <div><label className="block text-sm font-medium text-theme-primary mb-2">Count</label><input type="number" value={count} onChange={(e) => setCount(e.target.value)} min="1" max="20" className="w-full p-4 bg-theme-card border border-theme rounded-lg text-theme-primary text-lg focus:outline-none focus:border-crimson-500" /></div>
-          </div>
-          <button onClick={generate} className="w-full flex items-center justify-center gap-2 p-4 btn-primary rounded-lg font-bold text-lg"><RefreshCw className="w-5 h-5" /> Generate</button>
-        </div>
-      </CalculatorTemplate>
-      <SEOSections toolSlug="random-number" toolName="Random Number Generator" />
+      <RandomNumberClient 
+      name={tool.name}
+      description={tool.description || ""}
+    />
+      <SEOSections toolSlug="random-number" toolName={tool.name} category="calculators" />
     </>
-  )
+  );
 }
