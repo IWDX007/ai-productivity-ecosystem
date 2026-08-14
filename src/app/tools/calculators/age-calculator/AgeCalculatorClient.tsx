@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateAge } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Calendar } from "lucide-react"
 
+interface AgeCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function AgeCalculatorClient({ name, description }: Props) {
+export default function AgeCalculatorClient({ name, description }: AgeCalculatorClientProps) {
   const [birth, setBirth] = useState("")
   const r = calculateAge(birth)
 

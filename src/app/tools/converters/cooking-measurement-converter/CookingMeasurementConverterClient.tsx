@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, ChefHat } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface CookingMeasurementConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toMl: number }> = {
   teaspoon:    { name: "Teaspoon",         symbol: "tsp",  toMl: 4.92892 },
   tablespoon:  { name: "Tablespoon",       symbol: "tbsp", toMl: 14.7868 },
@@ -29,7 +35,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 4 })
 }
 
-export default function CookingMeasurementConverterPage() {
+export default function CookingMeasurementConverterPage({ name, description }: CookingMeasurementConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("cup")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

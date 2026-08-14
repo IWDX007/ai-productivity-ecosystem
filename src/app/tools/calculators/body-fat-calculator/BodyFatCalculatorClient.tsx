@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateBodyFat } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Activity } from "lucide-react"
 
+interface BodyFatCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function BodyFatCalculatorClient({ name, description }: Props) {
+export default function BodyFatCalculatorClient({ name, description }: BodyFatCalculatorClientProps) {
   const [g, setG] = useState<"male" | "female">("male")
   const [h, setH] = useState("")
   const [w, setW] = useState("")

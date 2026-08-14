@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function CronGeneratorPage() {
+
+interface CronGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function CronGeneratorPage({ name, description }: CronGeneratorPageProps) {
   const [minute, setMinute] = useState("*")
   const [hour, setHour] = useState("*")
   const [day, setDay] = useState("*")

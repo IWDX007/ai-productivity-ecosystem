@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Type } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function TextToAsciiPage() {
+
+interface TextToAsciiPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function TextToAsciiPage({ name, description }: TextToAsciiPageProps) {
   const [text, setText] = useState("Hello")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)
 

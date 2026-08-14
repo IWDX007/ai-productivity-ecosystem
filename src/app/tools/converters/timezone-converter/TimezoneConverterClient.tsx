@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Copy, Check, RotateCcw, Globe } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TimezoneConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const TIMEZONES = [
   { key: "UTC", name: "UTC", offset: 0 },
   { key: "America/New_York", name: "New York (EST)", offset: -5 },
@@ -21,7 +27,7 @@ const TIMEZONES = [
   { key: "Pacific/Auckland", name: "New Zealand (NZST)", offset: 12 },
 ]
 
-export default function TimezoneConverterPage() {
+export default function TimezoneConverterPage({ name, description }: TimezoneConverterPageProps) {
   const [dateTime, setDateTime] = useState<string>("")
   const [fromTz, setFromTz] = useState("UTC")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

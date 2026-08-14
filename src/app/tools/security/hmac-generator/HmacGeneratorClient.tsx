@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Copy, Check, Key } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface HmacGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
 type HmacAlgorithm = "SHA-1" | "SHA-256" | "SHA-384" | "SHA-512"
 
 async function generateHmac(key: string, message: string, algorithm: HmacAlgorithm): Promise<string> {
@@ -24,7 +30,7 @@ async function generateHmac(key: string, message: string, algorithm: HmacAlgorit
   }
 }
 
-export default function HmacGeneratorPage() {
+export default function HmacGeneratorPage({ name, description }: HmacGeneratorPageProps) {
   const [message, setMessage] = useState("Hello World")
   const [key, setKey] = useState("secret-key")
   const [algorithm, setAlgorithm] = useState<HmacAlgorithm>("SHA-256")

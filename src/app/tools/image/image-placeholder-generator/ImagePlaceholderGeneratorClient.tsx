@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Download, Copy, Check, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImagePlaceholderGeneratorPage() {
+
+interface ImagePlaceholderGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImagePlaceholderGeneratorPage({ name, description }: ImagePlaceholderGeneratorPageProps) {
   const [width, setWidth] = useState(600)
   const [height, setHeight] = useState(400)
   const [bgColor, setBgColor] = useState("#e2e8f0")

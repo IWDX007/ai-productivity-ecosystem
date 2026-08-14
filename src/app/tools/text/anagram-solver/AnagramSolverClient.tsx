@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { findAnagrams, areAnagrams } from "@/lib/processing/text/allTextProcessors"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Check, X } from "lucide-react"
 
+interface AnagramSolverClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function AnagramSolverClient({ name, description }: Props) {
+export default function AnagramSolverClient({ name, description }: AnagramSolverClientProps) {
   const [mode, setMode] = useState<"check" | "find">("check")
   const [text1, setText1] = useState("")
   const [text2, setText2] = useState("")

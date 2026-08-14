@@ -1,11 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { repeatText } from "@/lib/processing/text/allTextProcessors"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TextRepeaterClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TextRepeaterClient({ name, description }: Props) {
+export default function TextRepeaterClient({ name, description }: TextRepeaterClientProps) {
   const [count, setCount] = useState(5)
   const [sep, setSep] = useState("\n")
   return (

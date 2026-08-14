@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function YamlToJsonPage() {
+
+interface YamlToJsonPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function YamlToJsonPage({ name, description }: YamlToJsonPageProps) {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [error, setError] = useState<string | null>(null)

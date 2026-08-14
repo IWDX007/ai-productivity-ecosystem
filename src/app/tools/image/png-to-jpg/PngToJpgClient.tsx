@@ -4,8 +4,14 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, ArrowRight, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface PngToJpgClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function PngToJpgClient({ name, description }: Props) {
+export default function PngToJpgClient({ name, description }: PngToJpgClientProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [convertedUrl, setConvertedUrl] = useState("")
   const [quality, setQuality] = useState(90)

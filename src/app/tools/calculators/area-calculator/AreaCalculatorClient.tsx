@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateArea } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Square } from "lucide-react"
 
+interface AreaCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function AreaCalculatorClient({ name, description }: Props) {
+export default function AreaCalculatorClient({ name, description }: AreaCalculatorClientProps) {
   const [shape, setShape] = useState("rectangle")
   const [dims, setDims] = useState<Record<string, number>>({})
   const area = calculateArea(shape, dims)

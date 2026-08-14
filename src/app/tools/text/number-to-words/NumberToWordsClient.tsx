@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { numberToWords } from "@/lib/processing/text/allTextProcessors"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Copy, Check } from "lucide-react"
 
+interface NumberToWordsClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function NumberToWordsClient({ name, description }: Props) {
+export default function NumberToWordsClient({ name, description }: NumberToWordsClientProps) {
   const [num, setNum] = useState("")
   const [copied, setCopied] = useState(false)
   const output = num && !isNaN(parseInt(num)) ? numberToWords(parseInt(num)) : ""

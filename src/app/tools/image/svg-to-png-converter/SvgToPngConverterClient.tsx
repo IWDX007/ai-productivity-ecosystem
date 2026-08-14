@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function SvgToPngConverterPage() {
+
+interface SvgToPngConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function SvgToPngConverterPage({ name, description }: SvgToPngConverterPageProps) {
   const [svgContent, setSvgContent] = useState("")
   const [pngUrl, setPngUrl] = useState("")
   const [width, setWidth] = useState(1024)

@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Download, MessageSquare } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function SmsQrGeneratorPage() {
+
+interface SmsQrGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function SmsQrGeneratorPage({ name, description }: SmsQrGeneratorPageProps) {
   const [phone, setPhone] = useState("+1234567890")
   const [message, setMessage] = useState("")
   const [qrDataUrl, setQrDataUrl] = useState("")

@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateTip } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Users } from "lucide-react"
 
+interface TipCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TipCalculatorClient({ name, description }: Props) {
+export default function TipCalculatorClient({ name, description }: TipCalculatorClientProps) {
   const [bill, setBill] = useState("")
   const [tip, setTip] = useState(15)
   const [people, setPeople] = useState(1)

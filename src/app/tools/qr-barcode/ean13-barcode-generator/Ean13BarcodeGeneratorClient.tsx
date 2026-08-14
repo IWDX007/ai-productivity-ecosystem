@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useEffect, useRef, useState } from "react"
 import { Download, Barcode as BarcodeIcon, AlertCircle } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function Ean13BarcodePage() {
+
+interface Ean13BarcodePageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function Ean13BarcodePage({ name, description }: Ean13BarcodePageProps) {
   const [text, setText] = useState("590123412345")
   const [error, setError] = useState("")
   const svgRef = useRef<SVGSVGElement>(null)

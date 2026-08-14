@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateSalary } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Briefcase } from "lucide-react"
 
+interface SalaryCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function SalaryCalculatorClient({ name, description }: Props) {
+export default function SalaryCalculatorClient({ name, description }: SalaryCalculatorClientProps) {
   const [salary, setSalary] = useState("")
   const [hours, setHours] = useState("40")
   const r = calculateSalary(parseFloat(salary), parseFloat(hours))

@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateWaterIntake } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Droplet } from "lucide-react"
 
+interface WaterIntakeClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function WaterIntakeClient({ name, description }: Props) {
+export default function WaterIntakeClient({ name, description }: WaterIntakeClientProps) {
   const [w, setW] = useState("")
   const [act, setAct] = useState("30")
   const r = calculateWaterIntake(parseFloat(w), parseFloat(act) || 0)

@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useEffect, useRef, useState } from "react"
 import { Download, Copy, Check, Barcode as BarcodeIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function Code128BarcodePage() {
+
+interface Code128BarcodePageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function Code128BarcodePage({ name, description }: Code128BarcodePageProps) {
   const [text, setText] = useState("HELLO123")
   const [width, setWidth] = useState(2)
   const [height, setHeight] = useState(100)

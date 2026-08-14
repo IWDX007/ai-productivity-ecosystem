@@ -1,11 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import * as p from "@/lib/processing/text/allTextProcessors"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TextDecoderClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TextDecoderClient({ name, description }: Props) {
+export default function TextDecoderClient({ name, description }: TextDecoderClientProps) {
   const [mode, setMode] = useState<"url" | "html" | "base64">("url")
   const process = (t: string) => mode === "url" ? p.decodeURL(t) : mode === "html" ? p.decodeHTML(t) : p.decodeBase64(t)
   return (

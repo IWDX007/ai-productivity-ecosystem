@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function HashGeneratorPage() {
+
+interface HashGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function HashGeneratorPage({ name, description }: HashGeneratorPageProps) {
   const [input, setInput] = useState("")
   const [hashes, setHashes] = useState<{ [key: string]: string }>({})
   const [copied, setCopied] = useState<string | null>(null)

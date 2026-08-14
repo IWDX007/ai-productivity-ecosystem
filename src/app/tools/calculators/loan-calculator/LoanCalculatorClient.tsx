@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateLoan } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { DollarSign } from "lucide-react"
 
+interface LoanCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function LoanCalculatorClient({ name, description }: Props) {
+export default function LoanCalculatorClient({ name, description }: LoanCalculatorClientProps) {
   const [amount, setAmount] = useState("")
   const [rate, setRate] = useState("")
   const [years, setYears] = useState("")

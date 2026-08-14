@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateVolume } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Box } from "lucide-react"
 
+interface VolumeCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function VolumeCalculatorClient({ name, description }: Props) {
+export default function VolumeCalculatorClient({ name, description }: VolumeCalculatorClientProps) {
   const [shape, setShape] = useState("cube")
   const [dims, setDims] = useState<Record<string, number>>({})
   const vol = calculateVolume(shape, dims)

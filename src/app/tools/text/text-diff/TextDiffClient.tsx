@@ -1,10 +1,17 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { diffTexts } from "@/lib/processing/text/allTextProcessors"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TextDiffClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TextDiffClient({ name, description }: Props) {
+export default function TextDiffClient({ name, description }: TextDiffClientProps) {
   const [text1, setText1] = useState("")
   const [text2, setText2] = useState("")
   const diff = useMemo(() => diffTexts(text1, text2), [text1, text2])

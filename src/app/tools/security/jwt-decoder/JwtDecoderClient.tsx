@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, Key, AlertCircle } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface JwtDecoderPageProps {
+  name?: string;
+  description?: string;
+}
+
 function base64UrlDecode(str: string): string {
   try {
     str = str.replace(/-/g, "+").replace(/_/g, "/")
@@ -15,7 +21,7 @@ function base64UrlDecode(str: string): string {
   }
 }
 
-export default function JwtDecoderPage() {
+export default function JwtDecoderPage({ name, description }: JwtDecoderPageProps) {
   const [token, setToken] = useState("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)
 

@@ -1,10 +1,17 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { formatText } from "@/lib/processing/text/allTextProcessors"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TextFormatterClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TextFormatterClient({ name, description }: Props) {
+export default function TextFormatterClient({ name, description }: TextFormatterClientProps) {
   return (
     <>
       <ToolPageMeta title="Text Formatter" description="Clean and format text by removing extra whitespace, normalizing line breaks and trimming lines." keywords="text formatter, free online tool, text-formatter, text tools, ai productivity" />

@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateDateDifference } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Calendar } from "lucide-react"
 
+interface DateCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function DateCalculatorClient({ name, description }: Props) {
+export default function DateCalculatorClient({ name, description }: DateCalculatorClientProps) {
   const [d1, setD1] = useState("")
   const [d2, setD2] = useState("")
   const r = calculateDateDifference(d1, d2)

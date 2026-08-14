@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Circle } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageBlurToolPage() {
+
+interface ImageBlurToolPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageBlurToolPage({ name, description }: ImageBlurToolPageProps) {
   const [imageUrl, setImageUrl] = useState("")
   const [blur, setBlur] = useState(5)
   const fileInputRef = useRef<HTMLInputElement>(null)

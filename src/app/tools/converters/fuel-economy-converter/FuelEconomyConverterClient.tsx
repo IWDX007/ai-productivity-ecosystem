@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Fuel } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface FuelEconomyConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 // Fuel economy has special conversion (some units are inverse)
 const UNITS: Record<string, { name: string; symbol: string; isInverse: boolean }> = {
   kmPerLiter:  { name: "Km per Liter",   symbol: "km/L",  isInverse: false },
@@ -48,7 +54,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 4 })
 }
 
-export default function FuelEconomyConverterPage() {
+export default function FuelEconomyConverterPage({ name, description }: FuelEconomyConverterPageProps) {
   const [value, setValue] = useState("10")
   const [fromUnit, setFromUnit] = useState("kmPerLiter")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

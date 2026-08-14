@@ -1,8 +1,15 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Search } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface HttpStatusCodesPageProps {
+  name?: string;
+  description?: string;
+}
+
 const STATUS_CODES = [
   { code: 100, name: "Continue", category: "1xx", description: "Server received request headers, client should proceed." },
   { code: 101, name: "Switching Protocols", category: "1xx", description: "Server is switching protocols as requested." },
@@ -46,7 +53,7 @@ const categoryColors: { [key: string]: string } = {
   "5xx": "text-red-500 bg-red-500/10 border-red-500/30",
 }
 
-export default function HttpStatusCodesPage() {
+export default function HttpStatusCodesPage({ name, description }: HttpStatusCodesPageProps) {
   const [search, setSearch] = useState("")
   const [filter, setFilter] = useState<string>("all")
 

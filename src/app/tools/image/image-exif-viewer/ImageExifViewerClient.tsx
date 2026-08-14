@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Info, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageExifViewerPage() {
+
+interface ImageExifViewerPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageExifViewerPage({ name, description }: ImageExifViewerPageProps) {
   const [imageUrl, setImageUrl] = useState("")
   const [imageInfo, setImageInfo] = useState<Record<string, string>>({})
   const [file, setFile] = useState<File | null>(null)

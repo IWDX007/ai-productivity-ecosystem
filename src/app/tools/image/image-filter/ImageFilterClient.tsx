@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Sparkles } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface ImageFilterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const FILTERS = [
   { name: "Original", filter: "none" },
   { name: "Grayscale", filter: "grayscale(100%)" },
@@ -19,7 +25,7 @@ const FILTERS = [
   { name: "Dramatic", filter: "contrast(150%) saturate(150%) brightness(90%)" },
 ]
 
-export default function ImageFilterPage() {
+export default function ImageFilterPage({ name, description }: ImageFilterPageProps) {
   const [imageUrl, setImageUrl] = useState("")
   const [selectedFilter, setSelectedFilter] = useState(FILTERS[0])
   const fileInputRef = useRef<HTMLInputElement>(null)

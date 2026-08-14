@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, Plus, X } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function GradientGeneratorPage() {
+
+interface GradientGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function GradientGeneratorPage({ name, description }: GradientGeneratorPageProps) {
   const [colors, setColors] = useState(["#DC2626", "#EC4899"])
   const [direction, setDirection] = useState("135deg")
   const [type, setType] = useState<"linear" | "radial">("linear")

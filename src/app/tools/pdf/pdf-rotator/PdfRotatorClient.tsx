@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, RotateCw, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfRotatorPage() {
+
+interface PdfRotatorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfRotatorPage({ name, description }: PdfRotatorPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [angle, setAngle] = useState<90 | 180 | 270>(90)
   const [rotating, setRotating] = useState(false)

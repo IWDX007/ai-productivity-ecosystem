@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, Lock, RefreshCw } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface AesEncryptorPageProps {
+  name?: string;
+  description?: string;
+}
+
 async function deriveKey(password: string, salt: Uint8Array): Promise<CryptoKey> {
   const encoder = new TextEncoder()
   const keyMaterial = await crypto.subtle.importKey(
@@ -31,7 +37,7 @@ async function encryptText(text: string, password: string): Promise<string> {
   return btoa(String.fromCharCode(...combined))
 }
 
-export default function AesEncryptorPage() {
+export default function AesEncryptorPage({ name, description }: AesEncryptorPageProps) {
   const [text, setText] = useState("")
   const [password, setPassword] = useState("")
   const [encrypted, setEncrypted] = useState("")

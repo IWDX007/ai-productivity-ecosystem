@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Clock } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TimeConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toSeconds: number }> = {
   nanosecond:  { name: "Nanosecond",  symbol: "ns",  toSeconds: 1e-9 },
   microsecond: { name: "Microsecond", symbol: "ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âµs",  toSeconds: 1e-6 },
@@ -27,7 +33,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function TimeConverterPage() {
+export default function TimeConverterPage({ name, description }: TimeConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("hour")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

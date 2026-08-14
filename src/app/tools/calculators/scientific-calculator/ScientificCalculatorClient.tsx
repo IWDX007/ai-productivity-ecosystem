@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { evaluateExpression } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Calculator } from "lucide-react"
 
+interface ScientificCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function ScientificCalculatorClient({ name, description }: Props) {
+export default function ScientificCalculatorClient({ name, description }: ScientificCalculatorClientProps) {
   const [expr, setExpr] = useState("")
   const result = evaluateExpression(expr)
 

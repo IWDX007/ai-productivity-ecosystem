@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, FileText, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfPageExtractorPage() {
+
+interface PdfPageExtractorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfPageExtractorPage({ name, description }: PdfPageExtractorPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [pageCount, setPageCount] = useState(0)
   const [pagesToExtract, setPagesToExtract] = useState("1")

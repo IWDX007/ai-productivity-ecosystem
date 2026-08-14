@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, FileText, X, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfMergerPage() {
+
+interface PdfMergerPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfMergerPage({ name, description }: PdfMergerPageProps) {
   const [files, setFiles] = useState<File[]>([])
   const [merging, setMerging] = useState(false)
   const [mergedUrl, setMergedUrl] = useState("")

@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateRetirement } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Umbrella } from "lucide-react"
 
+interface RetirementCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function RetirementCalculatorClient({ name, description }: Props) {
+export default function RetirementCalculatorClient({ name, description }: RetirementCalculatorClientProps) {
   const [age, setAge] = useState("")
   const [retire, setRetire] = useState("65")
   const [savings, setSavings] = useState("")

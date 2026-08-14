@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef, useEffect } from "react"
 import { Upload, Copy, Check, Download, FileText, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfToTextPage() {
+
+interface PdfToTextPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfToTextPage({ name, description }: PdfToTextPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [text, setText] = useState("")
   const [processing, setProcessing] = useState(false)

@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, Download } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function CsvToJsonPage() {
+
+interface CsvToJsonPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function CsvToJsonPage({ name, description }: CsvToJsonPageProps) {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [error, setError] = useState<string | null>(null)

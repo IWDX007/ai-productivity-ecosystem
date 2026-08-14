@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { characterCount } from "@/lib/processing/text/allTextProcessors"
 import { Hash } from "lucide-react"
 
+interface CharacterCounterClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function CharacterCounterClient({ name, description }: Props) {
+export default function CharacterCounterClient({ name, description }: CharacterCounterClientProps) {
   return (
     <>
       <ToolPageMeta title="Character Counter" description="Count characters with and without spaces, letters, digits and special characters. Perfect for Twitter, SMS and meta descriptions." keywords="character counter, free online tool, character-counter, text tools, ai productivity" />

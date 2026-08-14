@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Type } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface NumberToWordsConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
               "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
               "seventeen", "eighteen", "nineteen"]
@@ -38,7 +44,7 @@ function numberToWords(num: number): string {
   return result.trim()
 }
 
-export default function NumberToWordsConverterPage() {
+export default function NumberToWordsConverterPage({ name, description }: NumberToWordsConverterPageProps) {
   const [number, setNumber] = useState("1234")
   const [copied, setCopied] = useState(false)
 

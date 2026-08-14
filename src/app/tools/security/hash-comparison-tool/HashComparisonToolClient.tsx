@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { CheckCircle, XCircle, GitCompare } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function HashComparisonToolPage() {
+
+interface HashComparisonToolPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function HashComparisonToolPage({ name, description }: HashComparisonToolPageProps) {
   const [hash1, setHash1] = useState("")
   const [hash2, setHash2] = useState("")
 

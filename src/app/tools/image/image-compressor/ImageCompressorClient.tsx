@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Image as ImageIcon, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageCompressorPage() {
+
+interface ImageCompressorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageCompressorPage({ name, description }: ImageCompressorPageProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [originalUrl, setOriginalUrl] = useState("")
   const [compressedUrl, setCompressedUrl] = useState("")

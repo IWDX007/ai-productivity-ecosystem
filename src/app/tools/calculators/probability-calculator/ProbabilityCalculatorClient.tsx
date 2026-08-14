@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateProbability } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Dice6 } from "lucide-react"
 
+interface ProbabilityCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function ProbabilityCalculatorClient({ name, description }: Props) {
+export default function ProbabilityCalculatorClient({ name, description }: ProbabilityCalculatorClientProps) {
   const [fav, setFav] = useState("")
   const [tot, setTot] = useState("")
   const r = calculateProbability(parseInt(fav), parseInt(tot))

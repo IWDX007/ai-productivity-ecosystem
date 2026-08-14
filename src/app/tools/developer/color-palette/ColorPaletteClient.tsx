@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ColorPalettePage() {
+
+interface ColorPalettePageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ColorPalettePage({ name, description }: ColorPalettePageProps) {
   const [baseColor, setBaseColor] = useState("#DC2626")
   const [copied, setCopied] = useState<string | null>(null)
 

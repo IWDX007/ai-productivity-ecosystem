@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, DollarSign, Info } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface CurrencyConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 // Static exchange rates (relative to USD) - Update periodically
 const RATES: Record<string, { name: string; symbol: string; rate: number }> = {
   USD: { name: "US Dollar",         symbol: "$",   rate: 1 },
@@ -29,7 +35,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 })
 }
 
-export default function CurrencyConverterPage() {
+export default function CurrencyConverterPage({ name, description }: CurrencyConverterPageProps) {
   const [value, setValue] = useState("100")
   const [fromCurrency, setFromCurrency] = useState("USD")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

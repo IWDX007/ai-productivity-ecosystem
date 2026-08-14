@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Radio } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface MorseCodeConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const MORSE_MAP: Record<string, string> = {
   "A": ".-", "B": "-...", "C": "-.-.", "D": "-..", "E": ".", "F": "..-.",
   "G": "--.", "H": "....", "I": "..", "J": ".---", "K": "-.-", "L": ".-..",
@@ -22,7 +28,7 @@ const REVERSE_MORSE: Record<string, string> = Object.fromEntries(
   Object.entries(MORSE_MAP).map(([k, v]) => [v, k])
 )
 
-export default function MorseCodeConverterPage() {
+export default function MorseCodeConverterPage({ name, description }: MorseCodeConverterPageProps) {
   const [mode, setMode] = useState<"toMorse" | "toText">("toMorse")
   const [input, setInput] = useState("HELLO")
   const [copied, setCopied] = useState(false)

@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Image as ImageIcon, ArrowRight } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageConverterPage() {
+
+interface ImageConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageConverterPage({ name, description }: ImageConverterPageProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [convertedUrl, setConvertedUrl] = useState("")
   const [format, setFormat] = useState<"jpeg" | "png" | "webp">("jpeg")

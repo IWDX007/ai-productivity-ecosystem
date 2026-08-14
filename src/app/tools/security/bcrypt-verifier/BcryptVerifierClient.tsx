@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Lock, CheckCircle, XCircle, Info } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function BcryptVerifierPage() {
+
+interface BcryptVerifierPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function BcryptVerifierPage({ name, description }: BcryptVerifierPageProps) {
   const [password, setPassword] = useState("")
   const [hash, setHash] = useState("")
   const [result, setResult] = useState<"idle" | "match" | "nomatch">("idle")

@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Copy, Check, Hash, Shield } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface Sha512HashGeneratorClientProps {
+  name?: string;
+  description?: string;
+}
+
 async function computeHash(text: string, algorithm: string): Promise<string> {
   if (!text) return ""
   const encoder = new TextEncoder()
@@ -58,7 +64,7 @@ function md5(str: string): string {
 }
 
 interface Props { name: string; description: string; }
-export default function Sha512HashGeneratorClient({ name, description }: Props) {
+export default function Sha512HashGeneratorClient({ name, description }: Sha512HashGeneratorClientProps) {
   const [text, setText] = useState("")
   const [hash, setHash] = useState("")
   const [copied, setCopied] = useState(false)

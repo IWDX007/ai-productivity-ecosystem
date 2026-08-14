@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { generateLorem } from "@/lib/processing/text/allTextProcessors"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Copy, Check, RefreshCw } from "lucide-react"
 
+interface LoremIpsumClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function LoremIpsumClient({ name, description }: Props) {
+export default function LoremIpsumClient({ name, description }: LoremIpsumClientProps) {
   const [count, setCount] = useState(3)
   const [type, setType] = useState<"words" | "sentences" | "paragraphs">("paragraphs")
   const [seed, setSeed] = useState(0)

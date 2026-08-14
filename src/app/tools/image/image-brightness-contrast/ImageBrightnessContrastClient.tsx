@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Sun, RotateCcw } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageBrightnessContrastPage() {
+
+interface ImageBrightnessContrastPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageBrightnessContrastPage({ name, description }: ImageBrightnessContrastPageProps) {
   const [imageUrl, setImageUrl] = useState("")
   const [brightness, setBrightness] = useState(100)
   const [contrast, setContrast] = useState(100)

@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Shield, Eye, EyeOff, Check, X } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PasswordStrengthCheckerPage() {
+
+interface PasswordStrengthCheckerPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PasswordStrengthCheckerPage({ name, description }: PasswordStrengthCheckerPageProps) {
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
 

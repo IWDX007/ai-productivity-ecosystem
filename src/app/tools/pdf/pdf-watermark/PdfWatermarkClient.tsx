@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Type, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfWatermarkPage() {
+
+interface PdfWatermarkPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfWatermarkPage({ name, description }: PdfWatermarkPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [watermarkText, setWatermarkText] = useState("CONFIDENTIAL")
   const [fontSize, setFontSize] = useState(50)

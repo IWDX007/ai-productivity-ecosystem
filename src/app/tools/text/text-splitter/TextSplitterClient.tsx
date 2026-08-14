@@ -1,11 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { splitText } from "@/lib/processing/text/allTextProcessors"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TextSplitterClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TextSplitterClient({ name, description }: Props) {
+export default function TextSplitterClient({ name, description }: TextSplitterClientProps) {
   const [delim, setDelim] = useState(",")
   return (
     <>

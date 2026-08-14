@@ -1,11 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import * as p from "@/lib/processing/text/allTextProcessors"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TextToAsciiClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TextToAsciiClient({ name, description }: Props) {
+export default function TextToAsciiClient({ name, description }: TextToAsciiClientProps) {
   const [mode, setMode] = useState<"encode" | "decode">("encode")
   const process = (t: string) => mode === "encode" ? p.textToASCII(t) : p.asciiToText(t)
   return (

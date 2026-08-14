@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useEffect, useRef, useState } from "react"
 import { Download, Barcode as BarcodeIcon, AlertCircle } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function UpcaBarcodePage() {
+
+interface UpcaBarcodePageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function UpcaBarcodePage({ name, description }: UpcaBarcodePageProps) {
   const [text, setText] = useState("012345678905")
   const [error, setError] = useState("")
   const svgRef = useRef<SVGSVGElement>(null)

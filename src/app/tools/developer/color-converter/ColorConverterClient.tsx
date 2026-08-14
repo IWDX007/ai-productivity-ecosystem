@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, AlertCircle } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ColorConverterPage() {
+
+interface ColorConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ColorConverterPage({ name, description }: ColorConverterPageProps) {
   const [input, setInput] = useState("#DC2626")
   const [copied, setCopied] = useState<string | null>(null)
 

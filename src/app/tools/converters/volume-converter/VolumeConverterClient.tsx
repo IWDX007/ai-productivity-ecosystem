@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Beaker } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface VolumeConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toLiters: number }> = {
   milliliter:  { name: "Milliliter",   symbol: "mL",  toLiters: 0.001 },
   liter:       { name: "Liter",        symbol: "L",   toLiters: 1 },
@@ -29,7 +35,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function VolumeConverterPage() {
+export default function VolumeConverterPage({ name, description }: VolumeConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("liter")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

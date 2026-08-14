@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Radio } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface FrequencyConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toBase: number }> = {
   hertz:      { name: "Hertz",       symbol: "Hz",  toBase: 1 },
   kilohertz:  { name: "Kilohertz",   symbol: "kHz", toBase: 1000 },
@@ -25,7 +31,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function FrequencyConverterPage() {
+export default function FrequencyConverterPage({ name, description }: FrequencyConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("hertz")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

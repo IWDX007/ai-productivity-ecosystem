@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, RefreshCw } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function UuidGeneratorPage() {
+
+interface UuidGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function UuidGeneratorPage({ name, description }: UuidGeneratorPageProps) {
   const [count, setCount] = useState(1)
   const [uuids, setUuids] = useState<string[]>([])
   const [copied, setCopied] = useState<string | null>(null)

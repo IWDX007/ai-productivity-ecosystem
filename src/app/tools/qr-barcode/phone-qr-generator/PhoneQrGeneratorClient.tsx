@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Download, Phone } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PhoneQrGeneratorPage() {
+
+interface PhoneQrGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PhoneQrGeneratorPage({ name, description }: PhoneQrGeneratorPageProps) {
   const [phone, setPhone] = useState("+1234567890")
   const [qrDataUrl, setQrDataUrl] = useState("")
 

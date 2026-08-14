@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, Lock, RefreshCw, Info } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface BcryptGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
 // Simplified bcrypt-like hash for demo (real bcrypt requires server or heavy library)
 async function simulateBcrypt(password: string, cost: number): Promise<string> {
   const encoder = new TextEncoder()
@@ -21,7 +27,7 @@ async function simulateBcrypt(password: string, cost: number): Promise<string> {
   return `$2b$${cost.toString().padStart(2, "0")}$${saltStr}${hashHex.substring(0, 31)}`
 }
 
-export default function BcryptGeneratorPage() {
+export default function BcryptGeneratorPage({ name, description }: BcryptGeneratorPageProps) {
   const [password, setPassword] = useState("")
   const [cost, setCost] = useState(10)
   const [hash, setHash] = useState("")

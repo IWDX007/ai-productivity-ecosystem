@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Image as ImageIcon, X, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface BulkImageCompressorPageProps {
+  name?: string;
+  description?: string;
+}
+
 interface FileItem {
   file: File
   original: number
@@ -12,7 +18,7 @@ interface FileItem {
   status: "pending" | "processing" | "done"
 }
 
-export default function BulkImageCompressorPage() {
+export default function BulkImageCompressorPage({ name, description }: BulkImageCompressorPageProps) {
   const [files, setFiles] = useState<FileItem[]>([])
   const [quality, setQuality] = useState(80)
   const [format, setFormat] = useState<"jpeg" | "webp">("jpeg")

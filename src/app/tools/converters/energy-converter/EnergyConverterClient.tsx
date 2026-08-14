@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Zap } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface EnergyConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toJoules: number }> = {
   joule:       { name: "Joule",         symbol: "J",     toJoules: 1 },
   kilojoule:   { name: "Kilojoule",     symbol: "kJ",    toJoules: 1000 },
@@ -27,7 +33,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function EnergyConverterPage() {
+export default function EnergyConverterPage({ name, description }: EnergyConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("kWh")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

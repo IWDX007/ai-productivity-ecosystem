@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, Eye, Code } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function MarkdownPreviewPage() {
+
+interface MarkdownPreviewPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function MarkdownPreviewPage({ name, description }: MarkdownPreviewPageProps) {
   const [markdown, setMarkdown] = useState("")
   const [view, setView] = useState<"split" | "preview" | "code">("split")
   const [copied, setCopied] = useState(false)

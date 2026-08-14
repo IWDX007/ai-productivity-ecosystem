@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { readabilityScore } from "@/lib/processing/text/allTextProcessors"
 import { BookOpen } from "lucide-react"
 
+interface ReadabilityScoreClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function ReadabilityScoreClient({ name, description }: Props) {
+export default function ReadabilityScoreClient({ name, description }: ReadabilityScoreClientProps) {
   return (
     <>
       <ToolPageMeta title="Readability Score" description="Analyze text readability using the Flesch Reading Ease formula. Check what grade level your writing is at." keywords="readability score, free online tool, readability-score, text tools, ai productivity" />

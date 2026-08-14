@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Download, MapPin } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function LocationQrGeneratorPage() {
+
+interface LocationQrGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function LocationQrGeneratorPage({ name, description }: LocationQrGeneratorPageProps) {
   const [latitude, setLatitude] = useState("40.7128")
   const [longitude, setLongitude] = useState("-74.0060")
   const [qrDataUrl, setQrDataUrl] = useState("")

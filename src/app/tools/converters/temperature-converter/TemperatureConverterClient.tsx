@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Thermometer } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface TemperatureConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 type TempUnit = "celsius" | "fahrenheit" | "kelvin" | "rankine"
 
 const UNIT_INFO: Record<TempUnit, { name: string; symbol: string }> = {
@@ -36,7 +42,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 4 })
 }
 
-export default function TemperatureConverterPage() {
+export default function TemperatureConverterPage({ name, description }: TemperatureConverterPageProps) {
   const [value, setValue] = useState("0")
   const [fromUnit, setFromUnit] = useState<TempUnit>("celsius")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

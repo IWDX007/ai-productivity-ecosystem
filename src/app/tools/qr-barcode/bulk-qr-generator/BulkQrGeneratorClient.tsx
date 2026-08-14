@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Download, Layers, RefreshCw } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function BulkQrGeneratorPage() {
+
+interface BulkQrGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function BulkQrGeneratorPage({ name, description }: BulkQrGeneratorPageProps) {
   const [input, setInput] = useState("https://example.com/1\nhttps://example.com/2\nhttps://example.com/3")
   const [qrCodes, setQrCodes] = useState<Array<{ text: string; dataUrl: string }>>([])
   const [loading, setLoading] = useState(false)

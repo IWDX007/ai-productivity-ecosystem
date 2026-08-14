@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Image as ImageIcon, Link2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageResizerPage() {
+
+interface ImageResizerPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageResizerPage({ name, description }: ImageResizerPageProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [originalUrl, setOriginalUrl] = useState("")
   const [resizedUrl, setResizedUrl] = useState("")

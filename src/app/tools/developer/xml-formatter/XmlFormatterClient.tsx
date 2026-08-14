@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, Trash2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function XmlFormatterPage() {
+
+interface XmlFormatterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function XmlFormatterPage({ name, description }: XmlFormatterPageProps) {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [copied, setCopied] = useState(false)

@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { isPalindrome } from "@/lib/processing/text/allTextProcessors"
 import { Check, X } from "lucide-react"
 
+interface PalindromeCheckerClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function PalindromeCheckerClient({ name, description }: Props) {
+export default function PalindromeCheckerClient({ name, description }: PalindromeCheckerClientProps) {
   return (
     <>
       <ToolPageMeta title="Palindrome Checker" description="Check if any word, phrase or sentence is a palindrome. Reads the same forwards and backwards." keywords="palindrome checker, free online tool, palindrome-checker, text tools, ai productivity" />

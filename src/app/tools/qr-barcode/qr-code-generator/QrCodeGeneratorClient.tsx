@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect, useRef } from "react"
 import { Copy, Check, Download, QrCode as QrIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function QrCodeGeneratorPage() {
+
+interface QrCodeGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function QrCodeGeneratorPage({ name, description }: QrCodeGeneratorPageProps) {
   const [text, setText] = useState("https://example.com")
   const [size, setSize] = useState(300)
   const [fgColor, setFgColor] = useState("#000000")

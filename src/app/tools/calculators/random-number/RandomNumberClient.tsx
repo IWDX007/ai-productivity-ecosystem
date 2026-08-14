@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { randomNumber } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Shuffle, RefreshCw } from "lucide-react"
 
+interface RandomNumberClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function RandomNumberClient({ name, description }: Props) {
+export default function RandomNumberClient({ name, description }: RandomNumberClientProps) {
   const [min, setMin] = useState("1")
   const [max, setMax] = useState("100")
   const [count, setCount] = useState("1")

@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Layers, X } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageMergerPage() {
+
+interface ImageMergerPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageMergerPage({ name, description }: ImageMergerPageProps) {
   const [images, setImages] = useState<Array<{ file: File; url: string }>>([])
   const [direction, setDirection] = useState<"horizontal" | "vertical">("horizontal")
   const [gap, setGap] = useState(10)

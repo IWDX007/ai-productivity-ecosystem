@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateGrade } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Award } from "lucide-react"
 
+interface GradeCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function GradeCalculatorClient({ name, description }: Props) {
+export default function GradeCalculatorClient({ name, description }: GradeCalculatorClientProps) {
   const [score, setScore] = useState("")
   const [total, setTotal] = useState("100")
   const r = calculateGrade(parseFloat(score), parseFloat(total))

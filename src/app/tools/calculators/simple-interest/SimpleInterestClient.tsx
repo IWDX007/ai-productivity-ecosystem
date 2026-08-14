@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateSimpleInterest } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { PiggyBank } from "lucide-react"
 
+interface SimpleInterestClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function SimpleInterestClient({ name, description }: Props) {
+export default function SimpleInterestClient({ name, description }: SimpleInterestClientProps) {
   const [p, setP] = useState("")
   const [r, setR] = useState("")
   const [t, setT] = useState("")

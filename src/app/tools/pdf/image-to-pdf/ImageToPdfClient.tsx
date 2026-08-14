@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, FileText, X, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageToPdfPage() {
+
+interface ImageToPdfPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageToPdfPage({ name, description }: ImageToPdfPageProps) {
   const [images, setImages] = useState<Array<{ file: File; url: string }>>([])
   const [processing, setProcessing] = useState(false)
   const [pdfUrl, setPdfUrl] = useState("")

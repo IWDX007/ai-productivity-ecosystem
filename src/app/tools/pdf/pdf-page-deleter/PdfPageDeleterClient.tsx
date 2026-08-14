@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, FileText, Trash2, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfPageDeleterPage() {
+
+interface PdfPageDeleterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfPageDeleterPage({ name, description }: PdfPageDeleterPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [pageCount, setPageCount] = useState(0)
   const [pagesToDelete, setPagesToDelete] = useState("")

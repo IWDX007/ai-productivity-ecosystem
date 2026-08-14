@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Lock, Loader2, Info } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfPasswordProtectorPage() {
+
+interface PdfPasswordProtectorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfPasswordProtectorPage({ name, description }: PdfPasswordProtectorPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [password, setPassword] = useState("")
   const [processing, setProcessing] = useState(false)

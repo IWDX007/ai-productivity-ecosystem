@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateMortgage } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Home } from "lucide-react"
 
+interface MortgageCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function MortgageCalculatorClient({ name, description }: Props) {
+export default function MortgageCalculatorClient({ name, description }: MortgageCalculatorClientProps) {
   const [price, setPrice] = useState("")
   const [down, setDown] = useState("")
   const [rate, setRate] = useState("")

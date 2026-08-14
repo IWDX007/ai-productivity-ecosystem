@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Square } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageBorderPage() {
+
+interface ImageBorderPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageBorderPage({ name, description }: ImageBorderPageProps) {
   const [imageUrl, setImageUrl] = useState("")
   const [borderWidth, setBorderWidth] = useState(20)
   const [borderColor, setBorderColor] = useState("#000000")

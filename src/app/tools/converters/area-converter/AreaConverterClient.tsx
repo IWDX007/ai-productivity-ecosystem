@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Square } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface AreaConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toSqm: number }> = {
   sqMm:      { name: "Square mm",      symbol: "mmÃ‚Â²",   toSqm: 1e-6 },
   sqCm:      { name: "Square cm",      symbol: "cmÃ‚Â²",   toSqm: 0.0001 },
@@ -25,7 +31,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function AreaConverterPage() {
+export default function AreaConverterPage({ name, description }: AreaConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("sqMeter")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

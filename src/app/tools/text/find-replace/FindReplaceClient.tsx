@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { findReplace } from "@/lib/processing/text/allTextProcessors"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Copy, Check } from "lucide-react"
 
+interface FindReplaceClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function FindReplaceClient({ name, description }: Props) {
+export default function FindReplaceClient({ name, description }: FindReplaceClientProps) {
   const [text, setText] = useState("")
   const [find, setFind] = useState("")
   const [replace, setReplace] = useState("")

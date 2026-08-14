@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { randomText } from "@/lib/processing/text/allTextProcessors"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Copy, Check, RefreshCw } from "lucide-react"
 
+interface RandomTextClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function RandomTextClient({ name, description }: Props) {
+export default function RandomTextClient({ name, description }: RandomTextClientProps) {
   const [length, setLength] = useState(50)
   const [type, setType] = useState<"alpha" | "numeric" | "alphanumeric" | "special">("alphanumeric")
   const [seed, setSeed] = useState(0)

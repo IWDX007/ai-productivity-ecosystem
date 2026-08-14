@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, MapPin } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface DistanceConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toBase: number }> = {
   meter:       { name: "Meter",         symbol: "m",   toBase: 1 },
   kilometer:   { name: "Kilometer",     symbol: "km",  toBase: 1000 },
@@ -27,7 +33,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function DistanceConverterPage() {
+export default function DistanceConverterPage({ name, description }: DistanceConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("kilometer")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RefreshCw, Key, Shield } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PasswordGeneratorPage() {
+
+interface PasswordGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PasswordGeneratorPage({ name, description }: PasswordGeneratorPageProps) {
   const [length, setLength] = useState(16)
   const [includeUppercase, setIncludeUppercase] = useState(true)
   const [includeLowercase, setIncludeLowercase] = useState(true)

@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RefreshCw, Type } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function RandomStringGeneratorPage() {
+
+interface RandomStringGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function RandomStringGeneratorPage({ name, description }: RandomStringGeneratorPageProps) {
   const [length, setLength] = useState(20)
   const [count, setCount] = useState(5)
   const [useUpper, setUseUpper] = useState(true)

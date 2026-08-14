@@ -4,9 +4,15 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface FaviconGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
 const SIZES = [16, 32, 48, 64, 128, 180, 192, 256, 512]
 
-export default function FaviconGeneratorPage() {
+export default function FaviconGeneratorPage({ name, description }: FaviconGeneratorPageProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [favicons, setFavicons] = useState<Array<{ size: number; url: string }>>([])
   const fileInputRef = useRef<HTMLInputElement>(null)

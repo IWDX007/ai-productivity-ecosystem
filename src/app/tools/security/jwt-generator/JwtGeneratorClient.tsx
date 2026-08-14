@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Copy, Check, Key, RefreshCw } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface JwtGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
 function base64UrlEncode(str: string): string {
   return btoa(str).replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_")
 }
@@ -23,7 +29,7 @@ async function hmacSha256(key: string, data: string): Promise<string> {
   return btoa(binary).replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_")
 }
 
-export default function JwtGeneratorPage() {
+export default function JwtGeneratorPage({ name, description }: JwtGeneratorPageProps) {
   const [payload, setPayload] = useState('{\n  "sub": "1234567890",\n  "name": "John Doe",\n  "iat": ' + Math.floor(Date.now() / 1000) + '\n}')
   const [secret, setSecret] = useState("your-256-bit-secret")
   const [token, setToken] = useState("")

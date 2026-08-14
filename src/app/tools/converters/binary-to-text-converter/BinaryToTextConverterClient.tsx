@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Binary } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function BinaryToTextPage() {
+
+interface BinaryToTextPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function BinaryToTextPage({ name, description }: BinaryToTextPageProps) {
   const [binary, setBinary] = useState("01001000 01100101 01101100 01101100 01101111")
   const [copied, setCopied] = useState(false)
   const [error, setError] = useState("")

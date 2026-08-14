@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateDiscount } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Tag } from "lucide-react"
 
+interface DiscountCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function DiscountCalculatorClient({ name, description }: Props) {
+export default function DiscountCalculatorClient({ name, description }: DiscountCalculatorClientProps) {
   const [price, setPrice] = useState("")
   const [disc, setDisc] = useState("")
   const r = calculateDiscount(parseFloat(price), parseFloat(disc))

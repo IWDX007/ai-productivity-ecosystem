@@ -1,11 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { slugify } from "@/lib/processing/text/allTextProcessors"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface SlugGeneratorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function SlugGeneratorClient({ name, description }: Props) {
+export default function SlugGeneratorClient({ name, description }: SlugGeneratorClientProps) {
   const [sep, setSep] = useState("-")
   return (
     <>

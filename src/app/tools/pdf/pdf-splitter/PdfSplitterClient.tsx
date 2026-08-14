@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, FileText, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfSplitterPage() {
+
+interface PdfSplitterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfSplitterPage({ name, description }: PdfSplitterPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [pageCount, setPageCount] = useState(0)
   const [range, setRange] = useState("1-1")

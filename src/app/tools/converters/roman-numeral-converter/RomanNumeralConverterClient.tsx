@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Type } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface RomanNumeralConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const ROMAN_MAP: [number, string][] = [
   [1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
   [100, "C"], [90, "XC"], [50, "L"], [40, "XL"],
@@ -40,7 +46,7 @@ function romanToNumber(roman: string): number {
   return result
 }
 
-export default function RomanNumeralConverterPage() {
+export default function RomanNumeralConverterPage({ name, description }: RomanNumeralConverterPageProps) {
   const [mode, setMode] = useState<"toRoman" | "toNumber">("toRoman")
   const [input, setInput] = useState("2024")
   const [copied, setCopied] = useState(false)

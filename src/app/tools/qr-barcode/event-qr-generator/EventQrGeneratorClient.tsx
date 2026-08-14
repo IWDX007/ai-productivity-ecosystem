@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Download, Calendar } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function EventQrGeneratorPage() {
+
+interface EventQrGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function EventQrGeneratorPage({ name, description: toolDescription }: EventQrGeneratorPageProps) {
   const [title, setTitle] = useState("My Event")
   const [location, setLocation] = useState("")
   const [description, setDescription] = useState("")

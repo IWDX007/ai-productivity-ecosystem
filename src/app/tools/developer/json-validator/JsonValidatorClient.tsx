@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { CheckCircle, XCircle, AlertCircle } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function JsonValidatorPage() {
+
+interface JsonValidatorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function JsonValidatorPage({ name, description }: JsonValidatorPageProps) {
   const [input, setInput] = useState("")
   const [result, setResult] = useState<{
     valid: boolean; error: string | null; lines: number; keys: number; size: number; type: string

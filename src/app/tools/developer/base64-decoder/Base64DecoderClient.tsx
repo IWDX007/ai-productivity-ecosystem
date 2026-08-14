@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function Base64DecoderPage() {
+
+interface Base64DecoderPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function Base64DecoderPage({ name, description }: Base64DecoderPageProps) {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [error, setError] = useState<string | null>(null)

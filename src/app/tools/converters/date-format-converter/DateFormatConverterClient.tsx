@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, RotateCcw, Calendar } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function DateFormatConverterPage() {
+
+interface DateFormatConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function DateFormatConverterPage({ name, description }: DateFormatConverterPageProps) {
   const [dateInput, setDateInput] = useState<string>(new Date().toISOString().slice(0, 10))
   const [copied, setCopied] = useState<string | null>(null)
 

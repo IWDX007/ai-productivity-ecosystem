@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Type, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageWatermarkPage() {
+
+interface ImageWatermarkPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageWatermarkPage({ name, description }: ImageWatermarkPageProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [watermarkText, setWatermarkText] = useState("Ãƒâ€šÃ‚Â© YourBrand")
   const [fontSize, setFontSize] = useState(48)

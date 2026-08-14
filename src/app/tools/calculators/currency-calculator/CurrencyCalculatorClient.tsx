@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { convertCurrency, CURRENCIES } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { DollarSign, ArrowRight } from "lucide-react"
 
+interface CurrencyCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function CurrencyCalculatorClient({ name, description }: Props) {
+export default function CurrencyCalculatorClient({ name, description }: CurrencyCalculatorClientProps) {
   const [amt, setAmt] = useState("100")
   const [from, setFrom] = useState("USD")
   const [to, setTo] = useState("EUR")

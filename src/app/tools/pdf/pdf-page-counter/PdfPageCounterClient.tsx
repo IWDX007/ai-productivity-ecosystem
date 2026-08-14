@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, FileText, Info, Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfPageCounterPage() {
+
+interface PdfPageCounterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfPageCounterPage({ name, description }: PdfPageCounterPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [info, setInfo] = useState<Record<string, string>>({})
   const [copied, setCopied] = useState<string | null>(null)

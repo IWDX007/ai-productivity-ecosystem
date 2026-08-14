@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Download, User } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function VcardQrGeneratorPage() {
+
+interface VcardQrGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function VcardQrGeneratorPage({ name, description }: VcardQrGeneratorPageProps) {
   const [firstName, setFirstName] = useState("John")
   const [lastName, setLastName] = useState("Doe")
   const [phone, setPhone] = useState("+1234567890")

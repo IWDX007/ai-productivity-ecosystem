@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateCalories } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Flame } from "lucide-react"
 
+interface CalorieCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function CalorieCalculatorClient({ name, description }: Props) {
+export default function CalorieCalculatorClient({ name, description }: CalorieCalculatorClientProps) {
   const [w, setW] = useState("")
   const [h, setH] = useState("")
   const [a, setA] = useState("")

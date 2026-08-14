@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function UrlDecoderPage() {
+
+interface UrlDecoderPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function UrlDecoderPage({ name, description }: UrlDecoderPageProps) {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [error, setError] = useState<string | null>(null)

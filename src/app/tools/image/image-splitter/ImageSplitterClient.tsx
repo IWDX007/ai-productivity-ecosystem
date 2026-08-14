@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Grid3x3 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageSplitterPage() {
+
+interface ImageSplitterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageSplitterPage({ name, description }: ImageSplitterPageProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [rows, setRows] = useState(3)
   const [cols, setCols] = useState(3)

@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateTax } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Receipt } from "lucide-react"
 
+interface TaxCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TaxCalculatorClient({ name, description }: Props) {
+export default function TaxCalculatorClient({ name, description }: TaxCalculatorClientProps) {
   const [amount, setAmount] = useState("")
   const [rate, setRate] = useState("")
   const r = calculateTax(parseFloat(amount), parseFloat(rate))

@@ -1,9 +1,15 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import * as p from "@/lib/processing/text/allTextProcessors"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Copy, Check, Trash2 } from "lucide-react"
+
+interface CaseConverterClientProps {
+  name?: string;
+  description?: string;
+}
 
 const cases = [
   { name: "UPPERCASE", fn: p.toUpperCase },
@@ -19,7 +25,7 @@ const cases = [
 ]
 
 interface Props { name: string; description: string; }
-export default function CaseConverterClient({ name, description }: Props) {
+export default function CaseConverterClient({ name, description }: CaseConverterClientProps) {
   const [input, setInput] = useState("")
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
 

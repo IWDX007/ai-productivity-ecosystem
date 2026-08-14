@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Download, Wifi } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function WifiQrGeneratorPage() {
+
+interface WifiQrGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function WifiQrGeneratorPage({ name, description }: WifiQrGeneratorPageProps) {
   const [ssid, setSsid] = useState("MyWiFi")
   const [password, setPassword] = useState("")
   const [encryption, setEncryption] = useState<"WPA" | "WEP" | "nopass">("WPA")

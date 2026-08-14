@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, FileText, Info, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfMetadataEditorPage() {
+
+interface PdfMetadataEditorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfMetadataEditorPage({ name, description }: PdfMetadataEditorPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [title, setTitle] = useState("")
   const [author, setAuthor] = useState("")

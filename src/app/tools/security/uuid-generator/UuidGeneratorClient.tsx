@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RefreshCw, Fingerprint } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function UuidGeneratorPage() {
+
+interface UuidGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function UuidGeneratorPage({ name, description }: UuidGeneratorPageProps) {
   const [count, setCount] = useState(10)
   const [uppercase, setUppercase] = useState(false)
   const [uuids, setUuids] = useState<string[]>([])

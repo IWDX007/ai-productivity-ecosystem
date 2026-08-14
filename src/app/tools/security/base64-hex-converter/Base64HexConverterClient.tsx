@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, ArrowRightLeft } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function Base64HexConverterPage() {
+
+interface Base64HexConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function Base64HexConverterPage({ name, description }: Base64HexConverterPageProps) {
   const [mode, setMode] = useState<"b64toHex" | "hexToB64">("b64toHex")
   const [input, setInput] = useState("SGVsbG8gV29ybGQ=")
   const [copied, setCopied] = useState(false)

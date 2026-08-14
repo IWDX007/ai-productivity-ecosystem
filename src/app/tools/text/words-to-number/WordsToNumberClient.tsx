@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { wordsToNumber } from "@/lib/processing/text/allTextProcessors"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Copy, Check } from "lucide-react"
 
+interface WordsToNumberClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function WordsToNumberClient({ name, description }: Props) {
+export default function WordsToNumberClient({ name, description }: WordsToNumberClientProps) {
   const [words, setWords] = useState("")
   const [copied, setCopied] = useState(false)
   const output = words ? wordsToNumber(words) : 0

@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Copy, Check, Pipette, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageColorPickerPage() {
+
+interface ImageColorPickerPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageColorPickerPage({ name, description }: ImageColorPickerPageProps) {
   const [imageUrl, setImageUrl] = useState("")
   const [color, setColor] = useState({ r: 0, g: 0, b: 0, hex: "#000000" })
   const [copied, setCopied] = useState<string | null>(null)

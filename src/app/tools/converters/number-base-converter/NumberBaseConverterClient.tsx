@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Binary } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface NumberBaseConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const BASES = [
   { key: "binary", name: "Binary", base: 2, symbol: "Base 2" },
   { key: "octal", name: "Octal", base: 8, symbol: "Base 8" },
@@ -13,7 +19,7 @@ const BASES = [
   { key: "base36", name: "Base 36", base: 36, symbol: "Base 36" },
 ]
 
-export default function NumberBaseConverterPage() {
+export default function NumberBaseConverterPage({ name, description }: NumberBaseConverterPageProps) {
   const [value, setValue] = useState("255")
   const [fromBase, setFromBase] = useState<string>("decimal")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

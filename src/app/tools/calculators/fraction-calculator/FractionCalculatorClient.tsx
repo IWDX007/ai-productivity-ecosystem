@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { fractionOperation } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Divide } from "lucide-react"
 
+interface FractionCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function FractionCalculatorClient({ name, description }: Props) {
+export default function FractionCalculatorClient({ name, description }: FractionCalculatorClientProps) {
   const [n1, setN1] = useState("1")
   const [d1, setD1] = useState("2")
   const [n2, setN2] = useState("1")

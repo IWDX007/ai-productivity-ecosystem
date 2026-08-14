@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, ArrowUpDown } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function HtmlEntitiesPage() {
+
+interface HtmlEntitiesPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function HtmlEntitiesPage({ name, description }: HtmlEntitiesPageProps) {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [mode, setMode] = useState<"encode" | "decode">("encode")

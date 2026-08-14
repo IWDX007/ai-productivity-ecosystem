@@ -6,8 +6,13 @@ import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { generateASCII, AVAILABLE_FONTS, type FontName } from "@/lib/processing/text/asciiFonts"
 import { Copy, Check, Download, Sparkles, Type } from "lucide-react"
 
+interface AsciiArtClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function AsciiArtClient({ name, description }: Props) {
+export default function AsciiArtClient({ name, description }: AsciiArtClientProps) {
   const [text, setText] = useState("HELLO")
   const [font, setFont] = useState<FontName>("block")
   const [copied, setCopied] = useState(false)

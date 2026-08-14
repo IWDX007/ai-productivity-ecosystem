@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { keywordDensity } from "@/lib/processing/text/allTextProcessors"
 import { TrendingUp } from "lucide-react"
 
+interface KeywordDensityClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function KeywordDensityClient({ name, description }: Props) {
+export default function KeywordDensityClient({ name, description }: KeywordDensityClientProps) {
   return (
     <>
       <ToolPageMeta title="Keyword Density" description="Analyze keyword frequency and density in your text. Perfect for SEO content optimization." keywords="keyword density, free online tool, keyword-density, text tools, ai productivity" />

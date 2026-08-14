@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Gauge } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface PressureConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toPascals: number }> = {
   pascal:     { name: "Pascal",         symbol: "Pa",    toPascals: 1 },
   kilopascal: { name: "Kilopascal",     symbol: "kPa",   toPascals: 1000 },
@@ -26,7 +32,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function PressureConverterPage() {
+export default function PressureConverterPage({ name, description }: PressureConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("bar")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

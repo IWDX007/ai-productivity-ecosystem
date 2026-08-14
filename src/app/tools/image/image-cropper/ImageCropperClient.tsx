@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, Crop, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageCropperPage() {
+
+interface ImageCropperPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageCropperPage({ name, description }: ImageCropperPageProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [originalUrl, setOriginalUrl] = useState("")
   const [croppedUrl, setCroppedUrl] = useState("")

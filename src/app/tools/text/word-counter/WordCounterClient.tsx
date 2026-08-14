@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import TextStatsPanel from "@/components/tools/shared/TextStatsPanel"
@@ -6,12 +7,17 @@ import TopWordsPanel from "@/components/tools/shared/TopWordsPanel"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { analyzeText, getTopWords } from "@/lib/processing/text/wordCounter"
 
+interface WordCounterClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props {
   name: string;
   description: string;
 }
 
-export default function WordCounterClient({ name, description }: Props) {
+export default function WordCounterClient({ name = "Word Counter", description = "" }: WordCounterClientProps) {
   return (
     <>
       <Breadcrumbs items={[

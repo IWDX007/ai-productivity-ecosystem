@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RefreshCw, Lock } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PinGeneratorPage() {
+
+interface PinGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PinGeneratorPage({ name, description }: PinGeneratorPageProps) {
   const [length, setLength] = useState(4)
   const [count, setCount] = useState(10)
   const [pins, setPins] = useState<string[]>([])

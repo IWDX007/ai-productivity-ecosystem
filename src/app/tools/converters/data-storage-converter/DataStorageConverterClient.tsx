@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, HardDrive } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface DataStorageConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toBytes: number }> = {
   bit:       { name: "Bit",       symbol: "b",  toBytes: 0.125 },
   byte:      { name: "Byte",      symbol: "B",  toBytes: 1 },
@@ -27,7 +33,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function DataStorageConverterPage() {
+export default function DataStorageConverterPage({ name, description }: DataStorageConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("gigabyte")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

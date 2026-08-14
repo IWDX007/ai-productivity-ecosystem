@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function HtmlTableGeneratorPage() {
+
+interface HtmlTableGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function HtmlTableGeneratorPage({ name, description }: HtmlTableGeneratorPageProps) {
   const [rows, setRows] = useState(3)
   const [cols, setCols] = useState(3)
   const [hasHeader, setHasHeader] = useState(true)

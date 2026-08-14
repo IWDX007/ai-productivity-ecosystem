@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { CheckCircle, XCircle } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ContrastCheckerPage() {
+
+interface ContrastCheckerPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ContrastCheckerPage({ name, description }: ContrastCheckerPageProps) {
   const [fg, setFg] = useState("#FFFFFF")
   const [bg, setBg] = useState("#DC2626")
 

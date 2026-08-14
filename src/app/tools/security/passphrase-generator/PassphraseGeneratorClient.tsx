@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RefreshCw, MessageSquare } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface PassphraseGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
 const WORDS = [
   "apple","brave","cloud","dance","eagle","frost","ghost","happy","island","jolly",
   "knight","lemon","magic","noble","ocean","peace","quest","river","stone","tiger",
@@ -14,7 +20,7 @@ const WORDS = [
   "kernel","laser","mystic","nova","onyx","phoenix","quiver","ranger","spirit","temple"
 ]
 
-export default function PassphraseGeneratorPage() {
+export default function PassphraseGeneratorPage({ name, description }: PassphraseGeneratorPageProps) {
   const [wordCount, setWordCount] = useState(5)
   const [separator, setSeparator] = useState("-")
   const [capitalize, setCapitalize] = useState(true)

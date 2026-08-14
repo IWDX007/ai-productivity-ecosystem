@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Copy, Check, RotateCcw, Clock } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function UnixTimeConverterPage() {
+
+interface UnixTimeConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function UnixTimeConverterPage({ name, description }: UnixTimeConverterPageProps) {
   const [unixTime, setUnixTime] = useState<string>("")
   const [humanDate, setHumanDate] = useState<string>("")
   const [copied, setCopied] = useState<string | null>(null)

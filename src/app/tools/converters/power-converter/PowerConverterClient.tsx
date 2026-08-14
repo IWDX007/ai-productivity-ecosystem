@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Zap } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface PowerConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toBase: number }> = {
   watt:       { name: "Watt",           symbol: "W",   toBase: 1 },
   kilowatt:   { name: "Kilowatt",       symbol: "kW",  toBase: 1000 },
@@ -27,7 +33,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function PowerConverterPage() {
+export default function PowerConverterPage({ name, description }: PowerConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("kilowatt")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

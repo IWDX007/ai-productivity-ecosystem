@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import { Download, Mail } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function EmailQrGeneratorPage() {
+
+interface EmailQrGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function EmailQrGeneratorPage({ name, description }: EmailQrGeneratorPageProps) {
   const [email, setEmail] = useState("hello@example.com")
   const [subject, setSubject] = useState("")
   const [body, setBody] = useState("")

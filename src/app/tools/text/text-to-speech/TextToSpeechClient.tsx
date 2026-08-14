@@ -1,11 +1,17 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useEffect } from "react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Play, Square } from "lucide-react"
 
+interface TextToSpeechClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TextToSpeechClient({ name, description }: Props) {
+export default function TextToSpeechClient({ name, description }: TextToSpeechClientProps) {
   const [text, setText] = useState("")
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
   const [voice, setVoice] = useState<string>("")

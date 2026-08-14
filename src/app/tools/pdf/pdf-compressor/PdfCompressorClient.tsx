@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, FileText, Loader2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function PdfCompressorPage() {
+
+interface PdfCompressorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function PdfCompressorPage({ name, description }: PdfCompressorPageProps) {
   const [file, setFile] = useState<File | null>(null)
   const [originalSize, setOriginalSize] = useState(0)
   const [compressedSize, setCompressedSize] = useState(0)

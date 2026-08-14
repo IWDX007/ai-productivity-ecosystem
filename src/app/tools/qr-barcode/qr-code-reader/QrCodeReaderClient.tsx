@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Copy, Check, Upload, Camera, ScanLine, X } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function QrCodeReaderPage() {
+
+interface QrCodeReaderPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function QrCodeReaderPage({ name, description }: QrCodeReaderPageProps) {
   const [result, setResult] = useState("")
   const [copied, setCopied] = useState(false)
   const [error, setError] = useState("")

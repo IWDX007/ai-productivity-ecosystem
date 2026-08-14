@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Copy, Check, Upload, Camera, ScanLine, X } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function BarcodeReaderPage() {
+
+interface BarcodeReaderPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function BarcodeReaderPage({ name, description }: BarcodeReaderPageProps) {
   const [result, setResult] = useState("")
   const [format, setFormat] = useState("")
   const [copied, setCopied] = useState(false)

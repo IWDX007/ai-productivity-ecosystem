@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function CssMinifierPage() {
+
+interface CssMinifierPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function CssMinifierPage({ name, description }: CssMinifierPageProps) {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [copied, setCopied] = useState(false)

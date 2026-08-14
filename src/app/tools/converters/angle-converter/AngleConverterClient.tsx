@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Compass } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface AngleConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toRadians: number }> = {
   degree:      { name: "Degree",       symbol: "ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°",    toRadians: Math.PI / 180 },
   radian:      { name: "Radian",       symbol: "rad",  toRadians: 1 },
@@ -25,7 +31,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function AngleConverterPage() {
+export default function AngleConverterPage({ name, description }: AngleConverterPageProps) {
   const [value, setValue] = useState("90")
   const [fromUnit, setFromUnit] = useState("degree")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

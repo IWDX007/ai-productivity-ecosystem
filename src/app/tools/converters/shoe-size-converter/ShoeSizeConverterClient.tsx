@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, RotateCcw, Footprints } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface ShoeSizeConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 // Men's shoe size conversion table (approximate)
 const SIZE_TABLE = [
   { us: 6,   uk: 5.5,  eu: 39,   cm: 24.4 },
@@ -23,7 +29,7 @@ const SIZE_TABLE = [
   { us: 14,  uk: 13.5, eu: 48,   cm: 32.0 },
 ]
 
-export default function ShoeSizeConverterPage() {
+export default function ShoeSizeConverterPage({ name, description }: ShoeSizeConverterPageProps) {
   const [gender, setGender] = useState<"men" | "women">("men")
   const [value, setValue] = useState<string>("9")
   const [fromSystem, setFromSystem] = useState<"us" | "uk" | "eu" | "cm">("us")

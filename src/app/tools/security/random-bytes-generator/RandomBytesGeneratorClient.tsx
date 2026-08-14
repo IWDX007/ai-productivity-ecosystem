@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RefreshCw, Binary } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function RandomBytesGeneratorPage() {
+
+interface RandomBytesGeneratorPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function RandomBytesGeneratorPage({ name, description }: RandomBytesGeneratorPageProps) {
   const [byteCount, setByteCount] = useState(32)
   const [bytes, setBytes] = useState<Uint8Array>(new Uint8Array())
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

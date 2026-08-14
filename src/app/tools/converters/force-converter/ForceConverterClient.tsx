@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Move } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface ForceConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toBase: number }> = {
   newton:      { name: "Newton",          symbol: "N",     toBase: 1 },
   kilonewton:  { name: "Kilonewton",      symbol: "kN",    toBase: 1000 },
@@ -25,7 +31,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function ForceConverterPage() {
+export default function ForceConverterPage({ name, description }: ForceConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("newton")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

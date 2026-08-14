@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Download, FlipHorizontal, FlipVertical } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageFlipperPage() {
+
+interface ImageFlipperPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageFlipperPage({ name, description }: ImageFlipperPageProps) {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [flippedUrl, setFlippedUrl] = useState("")
   const [flipMode, setFlipMode] = useState<"horizontal" | "vertical" | "both">("horizontal")

@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Eye, Code, Maximize2 } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function HtmlPreviewPage() {
+
+interface HtmlPreviewPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function HtmlPreviewPage({ name, description }: HtmlPreviewPageProps) {
   const [html, setHtml] = useState("")
   const [view, setView] = useState<"split" | "preview" | "code">("split")
 

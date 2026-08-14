@@ -4,7 +4,13 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useRef } from "react"
 import { Upload, Copy, Check, Image as ImageIcon } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function ImageToBase64Page() {
+
+interface ImageToBase64PageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function ImageToBase64Page({ name, description }: ImageToBase64PageProps) {
   const [imageUrl, setImageUrl] = useState("")
   const [base64, setBase64] = useState("")
   const [dataUri, setDataUri] = useState("")

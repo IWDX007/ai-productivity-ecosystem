@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Ruler } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface LengthConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 // Conversion factors to meters (base unit)
 const UNITS: Record<string, { name: string; symbol: string; toMeters: number }> = {
   nanometer:   { name: "Nanometer",   symbol: "nm",  toMeters: 1e-9 },
@@ -28,7 +34,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function LengthConverterPage() {
+export default function LengthConverterPage({ name, description }: LengthConverterPageProps) {
   const [value, setValue] = useState<string>("1")
   const [fromUnit, setFromUnit] = useState<string>("meter")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

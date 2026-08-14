@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { Copy, Check, AlertCircle, CheckCircle, Trash2, Download } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function JsonFormatterPage() {
+
+interface JsonFormatterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function JsonFormatterPage({ name, description }: JsonFormatterPageProps) {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [error, setError] = useState<string | null>(null)

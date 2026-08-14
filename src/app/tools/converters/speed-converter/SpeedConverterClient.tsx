@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Gauge } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface SpeedConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toMps: number }> = {
   mps:     { name: "Meters/sec",    symbol: "m/s",  toMps: 1 },
   kph:     { name: "Km/hour",       symbol: "km/h", toMps: 0.277778 },
@@ -25,7 +31,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function SpeedConverterPage() {
+export default function SpeedConverterPage({ name, description }: SpeedConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("kph")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

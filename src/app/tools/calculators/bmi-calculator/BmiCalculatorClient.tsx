@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateBMI } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { Activity } from "lucide-react"
 
+interface BmiCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function BmiCalculatorClient({ name, description }: Props) {
+export default function BmiCalculatorClient({ name, description }: BmiCalculatorClientProps) {
   const [unit, setUnit] = useState<"metric" | "imperial">("metric")
   const [weight, setWeight] = useState("")
   const [height, setHeight] = useState("")

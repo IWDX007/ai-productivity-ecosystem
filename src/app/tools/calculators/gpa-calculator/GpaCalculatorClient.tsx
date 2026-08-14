@@ -1,4 +1,5 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { calculateGPA } from "@/lib/processing/calculators/allCalculators"
@@ -6,8 +7,13 @@ import CalculatorTemplate from "@/components/tools/templates/CalculatorTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { GraduationCap, Trash2, Plus } from "lucide-react"
 
+interface GpaCalculatorClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function GpaCalculatorClient({ name, description }: Props) {
+export default function GpaCalculatorClient({ name, description }: GpaCalculatorClientProps) {
   const [rows, setRows] = useState([{ grade: "A", credits: 3 }])
   const gpa = calculateGPA(rows)
 

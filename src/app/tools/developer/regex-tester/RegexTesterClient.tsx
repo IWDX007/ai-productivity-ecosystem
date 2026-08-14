@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { CheckCircle, XCircle, Info } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function RegexTesterPage() {
+
+interface RegexTesterPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function RegexTesterPage({ name, description }: RegexTesterPageProps) {
   const [pattern, setPattern] = useState("")
   const [flags, setFlags] = useState("g")
   const [testText, setTestText] = useState("")

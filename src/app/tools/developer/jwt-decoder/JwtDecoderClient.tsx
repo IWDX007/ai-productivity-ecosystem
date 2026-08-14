@@ -1,9 +1,16 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import { AlertCircle, CheckCircle, Clock } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
-export default function JwtDecoderPage() {
+
+interface JwtDecoderPageProps {
+  name?: string;
+  description?: string;
+}
+
+export default function JwtDecoderPage({ name, description }: JwtDecoderPageProps) {
   const [token, setToken] = useState("")
   const [result, setResult] = useState<{
     header: any; payload: any; signature: string; isExpired: boolean; error: string | null

@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { lineStats } from "@/lib/processing/text/allTextProcessors"
 import { List } from "lucide-react"
 
+interface LineCounterClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function LineCounterClient({ name, description }: Props) {
+export default function LineCounterClient({ name, description }: LineCounterClientProps) {
   return (
     <>
       <ToolPageMeta title="Line Counter" description="Count total lines, empty lines and analyze line statistics in your text." keywords="line counter, free online tool, line-counter, text tools, ai productivity" />

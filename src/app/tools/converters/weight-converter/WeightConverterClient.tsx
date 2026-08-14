@@ -4,6 +4,12 @@ import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState, useMemo } from "react"
 import { Copy, Check, RotateCcw, Weight } from "lucide-react"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface WeightConverterPageProps {
+  name?: string;
+  description?: string;
+}
+
 const UNITS: Record<string, { name: string; symbol: string; toGrams: number }> = {
   milligram:  { name: "Milligram",  symbol: "mg",   toGrams: 0.001 },
   gram:       { name: "Gram",       symbol: "g",    toGrams: 1 },
@@ -25,7 +31,7 @@ function formatNumber(num: number): string {
   return num.toLocaleString(undefined, { maximumFractionDigits: 10 })
 }
 
-export default function WeightConverterPage() {
+export default function WeightConverterPage({ name, description }: WeightConverterPageProps) {
   const [value, setValue] = useState("1")
   const [fromUnit, setFromUnit] = useState("kilogram")
   const [copiedKey, setCopiedKey] = useState<string | null>(null)

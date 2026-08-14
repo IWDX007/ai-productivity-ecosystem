@@ -1,11 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import { useState } from "react"
 import * as p from "@/lib/processing/text/allTextProcessors"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
+
+interface RemoveDuplicatesClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function RemoveDuplicatesClient({ name, description }: Props) {
+export default function RemoveDuplicatesClient({ name, description }: RemoveDuplicatesClientProps) {
   const [mode, setMode] = useState<"lines" | "words">("lines")
   const [caseSensitive, setCaseSensitive] = useState(true)
   const process = (text: string) => mode === "lines" ? p.removeDuplicateLines(text, caseSensitive) : p.removeDuplicateWords(text)

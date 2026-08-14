@@ -1,12 +1,18 @@
 "use client"
+
 import ToolPageMeta from "@/components/tools/ToolPageMeta"
 import TextToolTemplate from "@/components/tools/templates/TextToolTemplate"
 import Breadcrumbs from "@/components/layout/Breadcrumbs"
 import { textStatistics } from "@/lib/processing/text/allTextProcessors"
 import { BarChart3 } from "lucide-react"
 
+interface TextStatisticsClientProps {
+  name?: string;
+  description?: string;
+}
+
 interface Props { name: string; description: string; }
-export default function TextStatisticsClient({ name, description }: Props) {
+export default function TextStatisticsClient({ name, description }: TextStatisticsClientProps) {
   return (
     <>
       <ToolPageMeta title="Text Statistics" description="Get comprehensive statistics about your text including word count, reading time, unique words and more." keywords="text statistics, free online tool, text-statistics, text tools, ai productivity" />
