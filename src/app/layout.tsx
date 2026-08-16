@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider/ThemeProvider";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
@@ -75,21 +76,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <GoogleAnalytics />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          suppressHydrationWarning
         >
-          <ConditionalLayout>{children}</ConditionalLayout>
-        </ThemeProvider>
-      </body>
-    </html>
+          <GoogleAnalytics />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ConditionalLayout>{children}</ConditionalLayout>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
