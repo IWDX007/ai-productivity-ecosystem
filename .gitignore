@@ -42,3 +42,6 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# Google Analytics service account
+ga-service-account.json

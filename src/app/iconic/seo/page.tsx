@@ -3,6 +3,8 @@ import { tools } from "@/lib/db/schema";
 import Link from "next/link";
 import { Search, TrendingUp, AlertTriangle, CheckCircle, XCircle } from "lucide-react";
 import { analyzeSEO } from "@/lib/seo/calculator";
+import SearchConsoleData from "@/components/iconic/seo/SearchConsoleData";
+import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +40,22 @@ export default async function SEOOverviewPage() {
         <p className="text-gray-600 dark:text-gray-400 mt-1">
           Optimize your pages for search engines
         </p>
+      </div>
+
+      {/* Google Search Console - Real Data */}
+      <Suspense fallback={
+        <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-12 text-center">
+          <p className="text-gray-500">Loading Search Console data...</p>
+        </div>
+      }>
+        <SearchConsoleData />
+      </Suspense>
+
+      {/* Divider */}
+      <div className="border-t border-gray-200 dark:border-gray-800 pt-6">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+          On-Page SEO Analysis
+        </h2>
       </div>
 
       {/* Stats Grid */}
@@ -120,8 +138,8 @@ export default async function SEOOverviewPage() {
                 <div className="flex-1">
                   <div className="font-medium text-gray-900 dark:text-white text-sm">{tool.name}</div>
                   <div className="text-xs text-gray-500 mt-0.5">
-                    /{tool.categorySlug}/{tool.slug} • 
-                    <span className="text-red-500 ml-1">{tool.analysis.failed} failed</span> • 
+                    /{tool.categorySlug}/{tool.slug} •
+                    <span className="text-red-500 ml-1">{tool.analysis.failed} failed</span> •
                     <span className="text-yellow-500 ml-1">{tool.analysis.warnings} warnings</span>
                   </div>
                 </div>
