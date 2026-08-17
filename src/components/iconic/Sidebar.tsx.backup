@@ -2,14 +2,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { LayoutDashboard, Wrench, FolderTree, Lightbulb, Search, BarChart3, Settings, FileText, BookOpen, Menu, X } from "lucide-react";
+import { LayoutDashboard, Wrench, FolderTree, Lightbulb, Search, BarChart3, Settings, FileText, Menu, X } from "lucide-react";
 
 const navigation = [
   { name: "Overview", href: "/iconic", icon: LayoutDashboard },
   { name: "Tools", href: "/iconic/tools", icon: Wrench },
   { name: "Categories", href: "/iconic/categories", icon: FolderTree },
   { name: "Prompts", href: "/iconic/prompts", icon: Lightbulb },
-  { name: "Blog Posts", href: "/iconic/posts", icon: BookOpen },
   { name: "SEO Editor", href: "/iconic/seo", icon: Search },
   { name: "Analytics", href: "/iconic/analytics", icon: BarChart3 },
   { name: "Pages", href: "/iconic/pages", icon: FileText },

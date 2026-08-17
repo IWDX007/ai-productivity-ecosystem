@@ -1,4 +1,4 @@
-import { pgTable, text, integer, boolean, timestamp, jsonb, serial } from "drizzle-orm/pg-core";
+import { boolean, integer, jsonb, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const categories = pgTable("categories", {
   id: serial("id").primaryKey(),
@@ -107,4 +107,60 @@ export const contactMessages = pgTable("contact_messages", {
   message: text("message").notNull(),
   isRead: boolean("is_read").default(false),
   createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ============================================================
+// BLOG TABLES
+// ============================================================
+
+export const blogCategories = pgTable("blog_categories", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 100 }).notNull().unique(),
+  slug: varchar("slug", { length: 100 }).notNull().unique(),
+  description: text("description"),
+  color: varchar("color", { length: 20 }).default("#DC2626"),
+  sortOrder: integer("sort_order").default(0),
+  isActive: boolean("is_active").default(true),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const posts = pgTable("posts", {
+  id: serial("id").primaryKey(),
+  
+  // Basic info
+  title: varchar("title", { length: 255 }).notNull(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  excerpt: text("excerpt"),
+  content: text("content").notNull(),
+  
+  // Category
+  categoryId: integer("category_id").references(() => blogCategories.id),
+  
+  // Media
+  featuredImage: varchar("featured_image", { length: 500 }),
+  featuredImageAlt: varchar("featured_image_alt", { length: 255 }),
+  
+  // Author
+  author: varchar("author", { length: 100 }).default("Iconic Usama"),
+  authorAvatar: varchar("author_avatar", { length: 500 }),
+  
+  // SEO
+  metaTitle: varchar("meta_title", { length: 255 }),
+  metaDescription: text("meta_description"),
+  focusKeyword: varchar("focus_keyword", { length: 100 }),
+  keywords: text("keywords"), // comma separated
+  
+  // Stats
+  readingTime: integer("reading_time").default(5), // in minutes
+  viewCount: integer("view_count").default(0),
+  
+  // Status
+  isPublished: boolean("is_published").default(false),
+  isFeatured: boolean("is_featured").default(false),
+  
+  // Dates
+  publishedAt: timestamp("published_at"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
