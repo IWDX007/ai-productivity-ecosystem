@@ -3,7 +3,7 @@ import { categories } from '@/config/tools-data'
 import { allPrompts, promptCategories } from '@/config/prompts-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://getallinonetools.com'
+  const baseUrl = 'https://ai-productivity-ecosystem-azure.vercel.app'
   const currentDate = new Date().toISOString()
 
   const staticPages = [
