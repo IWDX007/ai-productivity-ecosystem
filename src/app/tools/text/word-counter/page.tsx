@@ -37,12 +37,6 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: tool.metaTitle || tool.name,
       description: tool.metaDescription || tool.description || "",
-      images: ["https://ai-productivity-ecosystem-azure.vercel.app/opengraph-image"],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: tool.metaTitle || tool.name,
-      description: tool.metaDescription || tool.description || "",
     },
   };
 }
