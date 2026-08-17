@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getToolData } from "@/lib/data/getToolData";
 import QrCodeGeneratorClient from "./QrCodeGeneratorClient";
 import SEOSections from "@/components/tools/SEOSections";
+import { ToolSchema } from "@/components/seo/SchemaMarkup";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tool = await getToolData("qr-barcode", "qr-code-generator");
@@ -36,6 +37,16 @@ export default async function Page() {
 
   return (
     <>
+      
+      <ToolSchema
+        name={tool.name}
+        description={tool.metaDescription || tool.description || ""}
+        url={`https://ai-productivity-ecosystem-azure.vercel.app/tools/qr-barcode/qr-code-generator`}
+        category="qr-barcode"
+        faqs={tool.seoFaqs || undefined}
+        steps={tool.seoSteps || undefined}
+        rating={tool.seoRating || undefined}
+      />
       <QrCodeGeneratorClient 
       name={tool.name}
       description={tool.description || ""}

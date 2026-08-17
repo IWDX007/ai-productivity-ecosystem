@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getToolData } from "@/lib/data/getToolData";
 import MarkdownPreviewClient from "./MarkdownPreviewClient";
 import SEOSections from "@/components/tools/SEOSections";
+import { ToolSchema } from "@/components/seo/SchemaMarkup";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tool = await getToolData("developer", "markdown-preview");
@@ -36,6 +37,16 @@ export default async function Page() {
 
   return (
     <>
+      
+      <ToolSchema
+        name={tool.name}
+        description={tool.metaDescription || tool.description || ""}
+        url={`https://ai-productivity-ecosystem-azure.vercel.app/tools/developer/markdown-preview`}
+        category="developer"
+        faqs={tool.seoFaqs || undefined}
+        steps={tool.seoSteps || undefined}
+        rating={tool.seoRating || undefined}
+      />
       <MarkdownPreviewClient 
       name={tool.name}
       description={tool.description || ""}

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getToolData } from "@/lib/data/getToolData";
 import FindReplaceClient from "./FindReplaceClient";
 import SEOSections from "@/components/tools/SEOSections";
+import { ToolSchema } from "@/components/seo/SchemaMarkup";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tool = await getToolData("text", "find-replace");
@@ -36,6 +37,16 @@ export default async function Page() {
 
   return (
     <>
+      
+      <ToolSchema
+        name={tool.name}
+        description={tool.metaDescription || tool.description || ""}
+        url={`https://ai-productivity-ecosystem-azure.vercel.app/tools/text/find-replace`}
+        category="text"
+        faqs={tool.seoFaqs || undefined}
+        steps={tool.seoSteps || undefined}
+        rating={tool.seoRating || undefined}
+      />
       <FindReplaceClient 
       name={tool.name}
       description={tool.description || ""}

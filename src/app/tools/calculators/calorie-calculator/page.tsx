@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getToolData } from "@/lib/data/getToolData";
 import CalorieCalculatorClient from "./CalorieCalculatorClient";
 import SEOSections from "@/components/tools/SEOSections";
+import { ToolSchema } from "@/components/seo/SchemaMarkup";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tool = await getToolData("calculators", "calorie-calculator");
@@ -36,6 +37,16 @@ export default async function Page() {
 
   return (
     <>
+      
+      <ToolSchema
+        name={tool.name}
+        description={tool.metaDescription || tool.description || ""}
+        url={`https://ai-productivity-ecosystem-azure.vercel.app/tools/calculators/calorie-calculator`}
+        category="calculators"
+        faqs={tool.seoFaqs || undefined}
+        steps={tool.seoSteps || undefined}
+        rating={tool.seoRating || undefined}
+      />
       <CalorieCalculatorClient 
       name={tool.name}
       description={tool.description || ""}

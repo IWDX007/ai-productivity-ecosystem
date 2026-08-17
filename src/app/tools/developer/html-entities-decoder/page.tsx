@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getToolData } from "@/lib/data/getToolData";
 import HtmlEntitiesDecoderClient from "./HtmlEntitiesDecoderClient";
 import SEOSections from "@/components/tools/SEOSections";
+import { ToolSchema } from "@/components/seo/SchemaMarkup";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tool = await getToolData("developer", "html-entities-decoder");
@@ -36,6 +37,16 @@ export default async function Page() {
 
   return (
     <>
+      
+      <ToolSchema
+        name={tool.name}
+        description={tool.metaDescription || tool.description || ""}
+        url={`https://ai-productivity-ecosystem-azure.vercel.app/tools/developer/html-entities-decoder`}
+        category="developer"
+        faqs={tool.seoFaqs || undefined}
+        steps={tool.seoSteps || undefined}
+        rating={tool.seoRating || undefined}
+      />
       <HtmlEntitiesDecoderClient 
       name={tool.name}
       description={tool.description || ""}
