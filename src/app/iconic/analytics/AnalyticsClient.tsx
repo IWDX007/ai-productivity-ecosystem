@@ -1,4 +1,4 @@
-﻿﻿"use client";
+﻿"use client";
 
 import { useState } from "react";
 import {
@@ -123,7 +123,7 @@ export default function AnalyticsClient({
       </div>
 
       {/* Real-time */}
-      <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white">
+      <div className="bg-gradient-to-r from-red-500 to-pink-600 rounded-xl p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm opacity-90">🔴 Active users right now</p>
