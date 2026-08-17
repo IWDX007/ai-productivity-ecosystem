@@ -19,6 +19,22 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: tool.metaTitle || tool.name,
       description: tool.metaDescription || tool.description || "",
+      images: [
+        {
+          url: "https://ai-productivity-ecosystem-azure.vercel.app/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: tool.metaTitle || tool.name,
+        },
+      ],
+      type: "website",
+      siteName: "AI Productivity Ecosystem",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: tool.metaTitle || tool.name,
+      description: tool.metaDescription || tool.description || "",
+      images: ["https://ai-productivity-ecosystem-azure.vercel.app/opengraph-image"],
     },
     twitter: {
       card: "summary_large_image",
