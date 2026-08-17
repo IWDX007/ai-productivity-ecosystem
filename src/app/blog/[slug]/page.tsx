@@ -79,7 +79,7 @@ export default async function BlogArticlePage({ params }: Props) {
       />
       <BlogArticleClient 
         post={post} 
-        category={category} 
+        category={category || undefined} 
         relatedPosts={relatedPosts}
         allCategories={allCategories}
       />
