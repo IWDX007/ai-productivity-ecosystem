@@ -133,12 +133,10 @@ export function Header() {
                 <Bot className="w-4 h-4" />
                 AI Prompts
               </Link>
-
-              <Link href="/blog" className="menu-link px-4 py-2 text-sm font-medium text-theme-primary hover:text-crimson-500 transition-colors flex items-center gap-2">
-                <BookOpen className="w-4 h-4" />
-                Blog
-              </Link>
-
+              
+              
+              
+              
             </nav>
 
             {/* Right Side - Desktop */}
@@ -408,14 +406,7 @@ export function Header() {
           </Link>
 
           {/* Blog */}
-          <Link
-            href="/blog"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-3 px-3 py-3 text-theme-primary hover:text-crimson-500 hover:bg-theme-secondary rounded-lg transition-colors"
-          >
-            <BookOpen className="w-5 h-5" />
-            <span className="text-sm font-medium flex-1">Blog</span>
-          </Link>
+          
 
           {/* Pricing */}
           

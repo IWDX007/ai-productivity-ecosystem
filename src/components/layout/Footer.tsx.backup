@@ -44,7 +44,6 @@ export function Footer() {
             <h4 className="font-semibold text-theme-primary text-sm mb-3">Explore</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/tools" className="text-theme-secondary hover:text-crimson-500 transition-colors">All Tools</Link></li>
-              <li><Link href="/blog" className="text-theme-secondary hover:text-crimson-500 transition-colors">Blog</Link></li>
               <li><Link href="/prompts" className="text-theme-secondary hover:text-crimson-500 transition-colors">AI Prompts</Link></li>
               <li></li>
               <li></li>
