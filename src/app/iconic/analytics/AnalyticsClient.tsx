@@ -1,4 +1,4 @@
-﻿"use client";
+﻿﻿"use client";
 
 import { useState } from "react";
 import {
@@ -90,7 +90,7 @@ export default function AnalyticsClient({
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            ðŸ“Š Analytics
+            📊 Analytics
           </h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
             Real-time data from Google Analytics
@@ -126,7 +126,7 @@ export default function AnalyticsClient({
       <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm opacity-90">ðŸ”´ Active users right now</p>
+            <p className="text-sm opacity-90">🔴 Active users right now</p>
             <p className="text-4xl font-bold mt-2">{realtimeUsers}</p>
           </div>
           <Activity className="w-16 h-16 opacity-30" />
