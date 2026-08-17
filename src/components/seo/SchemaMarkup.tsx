@@ -1,13 +1,41 @@
 // src/components/seo/SchemaMarkup.tsx
 
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Step {
+  title: string;
+  description: string;
+}
+
+interface Rating {
+  score: number;
+  count: number;
+}
+
 interface ToolSchemaProps {
   name: string;
   description: string;
   url: string;
   category: string;
-  faqs?: { question: string; answer: string }[];
-  steps?: { title: string; description: string }[];
-  rating?: { score: number; count: number };
+  faqs?: unknown;
+  steps?: unknown;
+  rating?: unknown;
+}
+
+// Type guards
+function isFAQArray(val: unknown): val is FAQ[] {
+  return Array.isArray(val) && val.length > 0 && typeof val[0]?.question === "string";
+}
+
+function isStepArray(val: unknown): val is Step[] {
+  return Array.isArray(val) && val.length > 0 && typeof val[0]?.title === "string";
+}
+
+function isRating(val: unknown): val is Rating {
+  return typeof val === "object" && val !== null && "score" in val && "count" in val;
 }
 
 export function ToolSchema({ name, description, url, category, faqs, steps, rating }: ToolSchemaProps) {
@@ -27,7 +55,7 @@ export function ToolSchema({ name, description, url, category, faqs, steps, rati
       price: "0",
       priceCurrency: "USD",
     },
-    ...(rating && {
+    ...(isRating(rating) && {
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: rating.score,
@@ -39,7 +67,7 @@ export function ToolSchema({ name, description, url, category, faqs, steps, rati
   };
 
   // FAQ Schema
-  const faqSchema = faqs && faqs.length > 0 ? {
+  const faqSchema = isFAQArray(faqs) ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
@@ -53,7 +81,7 @@ export function ToolSchema({ name, description, url, category, faqs, steps, rati
   } : null;
 
   // HowTo Schema
-  const howToSchema = steps && steps.length > 0 ? {
+  const howToSchema = isStepArray(steps) ? {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: `How to use ${name}`,
@@ -124,7 +152,7 @@ export function ToolSchema({ name, description, url, category, faqs, steps, rati
   );
 }
 
-// Organization Schema (for layout.tsx)
+// Organization Schema
 export function OrganizationSchema() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ai-productivity-ecosystem-azure.vercel.app";
 
@@ -134,9 +162,7 @@ export function OrganizationSchema() {
     name: "AI Productivity Ecosystem",
     url: baseUrl,
     description: "Free online tools and AI prompts for productivity",
-    sameAs: [
-      "https://github.com/IWDX007/ai-productivity-ecosystem",
-    ],
+    sameAs: ["https://github.com/IWDX007/ai-productivity-ecosystem"],
   };
 
   const websiteSchema = {
