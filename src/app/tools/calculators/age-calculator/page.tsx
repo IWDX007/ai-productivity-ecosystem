@@ -2,66 +2,51 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getToolData } from "@/lib/data/getToolData";
 import AgeCalculatorClient from "./AgeCalculatorClient";
-import SEOSections from "@/components/tools/SEOSections";
-import { ToolSchema } from "@/components/seo/SchemaMarkup";
+import ToolPageLayout, {
+  generateToolMetadata,
+} from "@/components/tools/ToolPageLayout";
+
+const CATEGORY_SLUG = "calculators";
+const CATEGORY_NAME = "Calculators";
+const TOOL_SLUG = "age-calculator";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const tool = await getToolData("calculators", "age-calculator");
-  
-  if (!tool) {
-    return { title: "Tool Not Found" };
-  }
-
-  return {
-    title: tool.metaTitle || tool.name,
-    description: tool.metaDescription || tool.description || "",
-    keywords: tool.focusKeyword || undefined,
-    openGraph: {
-      title: tool.metaTitle || tool.name,
-      description: tool.metaDescription || tool.description || "",
-      images: [
-        {
-          url: "https://ai-productivity-ecosystem-azure.vercel.app/opengraph-image",
-          width: 1200,
-          height: 630,
-          alt: tool.metaTitle || tool.name,
-        },
-      ],
-      type: "website",
-      siteName: "AI Productivity Ecosystem",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: tool.metaTitle || tool.name,
-      description: tool.metaDescription || tool.description || "",
-    },
-  };
+  const tool = await getToolData(CATEGORY_SLUG, TOOL_SLUG);
+  return generateToolMetadata(tool);
 }
 
 export default async function Page() {
-  const tool = await getToolData("calculators", "age-calculator");
-  
+  const tool = await getToolData(CATEGORY_SLUG, TOOL_SLUG);
+
   if (!tool || !tool.isActive) {
     notFound();
   }
 
   return (
-    <>
-      
-      <ToolSchema
+    <ToolPageLayout
+      tool={tool}
+      categorySlug={CATEGORY_SLUG}
+      categoryName={CATEGORY_NAME}
+      toolSlug={TOOL_SLUG}
+      customSteps={[
+        {
+          title: "Enter Your Birth Date",
+          description: "Select your date of birth using the calendar input above.",
+        },
+        {
+          title: "Choose Target Date",
+          description: "Pick today or any future/past date to calculate age against.",
+        },
+        {
+          title: "View Your Exact Age",
+          description: "Get your age in years, months, days, hours, and seconds instantly.",
+        },
+      ]}
+    >
+      <AgeCalculatorClient
         name={tool.name}
-        description={tool.metaDescription || tool.description || ""}
-        url={`https://ai-productivity-ecosystem-azure.vercel.app/tools/calculators/age-calculator`}
-        category="calculators"
-        faqs={tool.seoFaqs || undefined}
-        steps={tool.seoSteps || undefined}
-        rating={tool.seoRating || undefined}
+        description={tool.description || ""}
       />
-      <AgeCalculatorClient 
-      name={tool.name}
-      description={tool.description || ""}
-    />
-      <SEOSections toolSlug="age-calculator" toolName={tool.name} category="calculators" />
-    </>
+    </ToolPageLayout>
   );
 }

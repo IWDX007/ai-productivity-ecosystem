@@ -2,66 +2,37 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getToolData } from "@/lib/data/getToolData";
 import HtmlEntitiesEncoderClient from "./HtmlEntitiesEncoderClient";
-import SEOSections from "@/components/tools/SEOSections";
-import { ToolSchema } from "@/components/seo/SchemaMarkup";
+import ToolPageLayout, {
+  generateToolMetadata,
+} from "@/components/tools/ToolPageLayout";
+
+const CATEGORY_SLUG = "developer";
+const CATEGORY_NAME = "Developer Tools";
+const TOOL_SLUG = "html-entities-encoder";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const tool = await getToolData("developer", "html-entities-encoder");
-  
-  if (!tool) {
-    return { title: "Tool Not Found" };
-  }
-
-  return {
-    title: tool.metaTitle || tool.name,
-    description: tool.metaDescription || tool.description || "",
-    keywords: tool.focusKeyword || undefined,
-    openGraph: {
-      title: tool.metaTitle || tool.name,
-      description: tool.metaDescription || tool.description || "",
-      images: [
-        {
-          url: "https://ai-productivity-ecosystem-azure.vercel.app/opengraph-image",
-          width: 1200,
-          height: 630,
-          alt: tool.metaTitle || tool.name,
-        },
-      ],
-      type: "website",
-      siteName: "AI Productivity Ecosystem",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: tool.metaTitle || tool.name,
-      description: tool.metaDescription || tool.description || "",
-    },
-  };
+  const tool = await getToolData(CATEGORY_SLUG, TOOL_SLUG);
+  return generateToolMetadata(tool);
 }
 
 export default async function Page() {
-  const tool = await getToolData("developer", "html-entities-encoder");
-  
+  const tool = await getToolData(CATEGORY_SLUG, TOOL_SLUG);
+
   if (!tool || !tool.isActive) {
     notFound();
   }
 
   return (
-    <>
-      
-      <ToolSchema
+    <ToolPageLayout
+      tool={tool}
+      categorySlug={CATEGORY_SLUG}
+      categoryName={CATEGORY_NAME}
+      toolSlug={TOOL_SLUG}
+    >
+      <HtmlEntitiesEncoderClient
         name={tool.name}
-        description={tool.metaDescription || tool.description || ""}
-        url={`https://ai-productivity-ecosystem-azure.vercel.app/tools/developer/html-entities-encoder`}
-        category="developer"
-        faqs={tool.seoFaqs || undefined}
-        steps={tool.seoSteps || undefined}
-        rating={tool.seoRating || undefined}
+        description={tool.description || ""}
       />
-      <HtmlEntitiesEncoderClient 
-      name={tool.name}
-      description={tool.description || ""}
-    />
-      <SEOSections toolSlug="html-entities-encoder" toolName={tool.name} category="developer" />
-    </>
+    </ToolPageLayout>
   );
 }
