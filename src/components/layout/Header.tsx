@@ -1,6 +1,6 @@
-import { SearchBar } from "./SearchBar";
-'use client'
+'use client';
 
+import { SearchBar } from "./SearchBar";
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { 
