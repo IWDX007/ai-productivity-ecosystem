@@ -144,13 +144,7 @@ export function Header() {
 
             {/* Right Side - Desktop */}
             <div className="hidden lg:flex items-center gap-3">
-              <div className="relative group">
-                <div className="flex items-center gap-2 px-4 py-2 glass-card border border-theme rounded-lg w-64 hover:border-crimson-500 transition-all cursor-pointer">
-                  <Search className="w-4 h-4 text-theme-secondary group-hover:text-crimson-500 transition-colors" />
-                  <span className="text-sm text-theme-secondary flex-1">Search tools...</span>
-                  <kbd className="px-2 py-0.5 text-xs bg-theme-secondary text-theme-primary rounded border border-theme">Ctrl+K</kbd>
-                </div>
-              </div>
+              <SearchBar />
 
               <button className="p-2 rounded-lg hover:bg-theme-secondary transition-colors group">
                 <Heart className="w-5 h-5 text-theme-secondary group-hover:text-crimson-500 icon-hover" />
