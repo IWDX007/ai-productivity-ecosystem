@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { 
-  Search, 
-  X, 
+import {
+  Search,
+  X,
   Sparkles,
   FileText,
   Image as ImageIcon,
@@ -14,66 +14,56 @@ import {
   Ruler,
   Lock,
   QrCode,
-  Clock,
   TrendingUp,
   ArrowRight,
   Command
 } from 'lucide-react'
+import { ALL_SEARCH_TOOLS, SearchToolItem } from '@/lib/searchToolsData'
 
-interface Tool {
-  name: string
-  category: string
-  href: string
-  icon: any
-  color: string
-  bg: string
+const iconMap: Record<string, any> = {
+  FileText,
+  ImageIcon,
+  Type,
+  Code,
+  Calculator,
+  Ruler,
+  Lock,
+  QrCode,
+  Sparkles
 }
 
-const allTools: Tool[] = [
-  // Popular Tools
-  { name: 'PDF Merger', category: 'PDF', href: '/tools/pdf/pdf-merger', icon: FileText, color: 'text-red-500', bg: 'bg-red-500/10' },
-  { name: 'Image Compressor', category: 'Image', href: '/tools/image/image-compressor', icon: ImageIcon, color: 'text-orange-500', bg: 'bg-orange-500/10' },
-  { name: 'Word Counter', category: 'Text', href: '/tools/text/word-counter', icon: Type, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
-  { name: 'JSON Formatter', category: 'Developer', href: '/tools/developer/json-formatter', icon: Code, color: 'text-green-500', bg: 'bg-green-500/10' },
-  { name: 'BMI Calculator', category: 'Calculator', href: '/tools/calculators/bmi-calculator', icon: Calculator, color: 'text-blue-500', bg: 'bg-blue-500/10' },
-  { name: 'Length Converter', category: 'Converter', href: '/tools/converters/length-converter', icon: Ruler, color: 'text-purple-500', bg: 'bg-purple-500/10' },
-  { name: 'Password Generator', category: 'Security', href: '/tools/security/password-generator', icon: Lock, color: 'text-pink-500', bg: 'bg-pink-500/10' },
-  { name: 'QR Code Generator', category: 'QR', href: '/tools/qr-barcode/qr-code-generator', icon: QrCode, color: 'text-cyan-500', bg: 'bg-cyan-500/10' },
-  { name: 'PDF Splitter', category: 'PDF', href: '/tools/pdf/pdf-splitter', icon: FileText, color: 'text-red-500', bg: 'bg-red-500/10' },
-  { name: 'Image Resizer', category: 'Image', href: '/tools/image/image-resizer', icon: ImageIcon, color: 'text-orange-500', bg: 'bg-orange-500/10' },
-  { name: 'Character Counter', category: 'Text', href: '/tools/text/character-counter', icon: Type, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
-  { name: 'Base64 Encoder', category: 'Developer', href: '/tools/developer/base64-encoder', icon: Code, color: 'text-green-500', bg: 'bg-green-500/10' },
-]
+const trendingTools = ALL_SEARCH_TOOLS.slice(0, 6)
 
-const trendingTools = allTools.slice(0, 5)
-const categories = [
-  { name: 'PDF Tools', icon: FileText, color: 'text-red-500', bg: 'bg-red-500/10' },
-  { name: 'Image Tools', icon: ImageIcon, color: 'text-orange-500', bg: 'bg-orange-500/10' },
-  { name: 'Text Tools', icon: Type, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
-  { name: 'Developer', icon: Code, color: 'text-green-500', bg: 'bg-green-500/10' },
+const categoryList = [
+  { name: 'PDF Tools', href: '/tools/pdf', icon: FileText, color: 'text-red-500', bg: 'bg-red-500/10' },
+  { name: 'Image Tools', href: '/tools/image', icon: ImageIcon, color: 'text-orange-500', bg: 'bg-orange-500/10' },
+  { name: 'Text Tools', href: '/tools/text', icon: Type, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
+  { name: 'Developer', href: '/tools/developer', icon: Code, color: 'text-green-500', bg: 'bg-green-500/10' },
+  { name: 'Calculators', href: '/tools/calculators', icon: Calculator, color: 'text-blue-500', bg: 'bg-blue-500/10' },
+  { name: 'Converters', href: '/tools/converters', icon: Ruler, color: 'text-purple-500', bg: 'bg-purple-500/10' },
 ]
 
 export function SearchBar() {
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
-  const [filteredTools, setFilteredTools] = useState<Tool[]>([])
+  const [filteredTools, setFilteredTools] = useState<SearchToolItem[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
   const searchRef = useRef<HTMLDivElement>(null)
 
-  // Filter tools based on query
   useEffect(() => {
     if (query.trim() === '') {
       setFilteredTools([])
     } else {
-      const filtered = allTools.filter(tool =>
-        tool.name.toLowerCase().includes(query.toLowerCase()) ||
-        tool.category.toLowerCase().includes(query.toLowerCase())
+      const q = query.toLowerCase()
+      const filtered = ALL_SEARCH_TOOLS.filter(tool =>
+        tool.name.toLowerCase().includes(q) ||
+        tool.category.toLowerCase().includes(q) ||
+        tool.categorySlug.toLowerCase().includes(q)
       )
-      setFilteredTools(filtered)
+      setFilteredTools(filtered.slice(0, 15)) // Limit top 15 results for performance
     }
   }, [query])
 
-  // Handle Ctrl+K shortcut
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -90,7 +80,6 @@ export function SearchBar() {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  // Handle click outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
@@ -103,8 +92,7 @@ export function SearchBar() {
 
   return (
     <>
-      {/* Search Button (Trigger) */}
-      <button 
+      <button
         onClick={() => {
           setIsOpen(true)
           setTimeout(() => inputRef.current?.focus(), 100)
@@ -112,30 +100,25 @@ export function SearchBar() {
         className="flex items-center gap-2 px-4 py-2 glass-card border border-theme rounded-lg w-64 hover:border-crimson-500 transition-all cursor-pointer group"
       >
         <Search className="w-4 h-4 text-theme-secondary group-hover:text-crimson-500 transition-colors" />
-        <span className="text-sm text-theme-secondary flex-1 text-left">Search tools...</span>
+        <span className="text-sm text-theme-secondary flex-1 text-left">Search 200+ tools...</span>
         <kbd className="px-2 py-0.5 text-xs bg-theme-secondary text-theme-primary rounded border border-theme flex items-center gap-1">
           <Command className="w-3 h-3" />K
         </kbd>
       </button>
 
-      {/* Search Modal */}
       {isOpen && (
         <>
-          {/* Backdrop */}
-          <div 
+          <div
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 animate-fade-in"
             onClick={() => setIsOpen(false)}
           />
 
-          {/* Search Container */}
           <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 pointer-events-none">
-            <div 
+            <div
               ref={searchRef}
               className="w-full max-w-2xl pointer-events-auto animate-scale-in"
             >
               <div className="bg-theme-card border border-theme rounded-2xl shadow-2xl overflow-hidden">
-                
-                {/* Search Input */}
                 <div className="relative border-b border-theme">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-theme-secondary" />
                   <input
@@ -143,7 +126,7 @@ export function SearchBar() {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search for tools, prompts, or blogs..."
+                    placeholder="Search 200+ free online tools..."
                     className="w-full pl-12 pr-12 py-4 bg-transparent text-theme-primary text-base outline-none placeholder:text-theme-muted"
                     autoFocus
                   />
@@ -155,10 +138,7 @@ export function SearchBar() {
                   </button>
                 </div>
 
-                {/* Search Results */}
                 <div className="max-h-[500px] overflow-y-auto">
-                  
-                  {/* Show filtered results when typing */}
                   {query.trim() !== '' ? (
                     <>
                       {filteredTools.length > 0 ? (
@@ -167,7 +147,7 @@ export function SearchBar() {
                             Search Results ({filteredTools.length})
                           </p>
                           {filteredTools.map((tool, idx) => {
-                            const Icon = tool.icon
+                            const IconComponent = iconMap[tool.iconName] || Sparkles
                             return (
                               <Link
                                 key={idx}
@@ -178,8 +158,8 @@ export function SearchBar() {
                                 }}
                                 className="flex items-center gap-3 p-3 rounded-lg hover:bg-theme-secondary group transition-all"
                               >
-                                <div className={tool.bg + ' p-2 rounded-lg'}>
-                                  <Icon className={tool.color + ' w-5 h-5'} />
+                                <div className="p-2 rounded-lg bg-crimson-500/10 text-crimson-500">
+                                  <IconComponent className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">
                                   <p className="text-sm font-medium text-theme-primary group-hover:text-crimson-500 transition-colors">
@@ -197,23 +177,22 @@ export function SearchBar() {
                           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-crimson-500/10 flex items-center justify-center">
                             <Search className="w-8 h-8 text-crimson-500" />
                           </div>
-                          <p className="text-theme-primary font-medium mb-1">No results found</p>
-                          <p className="text-sm text-theme-secondary">Try searching with different keywords</p>
+                          <p className="text-theme-primary font-medium mb-1">No tools found</p>
+                          <p className="text-sm text-theme-secondary">Try searching for word counter, pdf, json, or password</p>
                         </div>
                       )}
                     </>
                   ) : (
                     <>
-                      {/* Trending Tools */}
                       <div className="p-2">
                         <div className="flex items-center gap-2 px-3 py-2">
                           <TrendingUp className="w-4 h-4 text-crimson-500" />
                           <p className="text-xs font-semibold text-theme-secondary uppercase tracking-wider">
-                            Trending Now
+                            Popular Tools
                           </p>
                         </div>
                         {trendingTools.map((tool, idx) => {
-                          const Icon = tool.icon
+                          const IconComponent = iconMap[tool.iconName] || Sparkles
                           return (
                             <Link
                               key={idx}
@@ -224,8 +203,8 @@ export function SearchBar() {
                               }}
                               className="flex items-center gap-3 p-3 rounded-lg hover:bg-theme-secondary group transition-all"
                             >
-                              <div className={tool.bg + ' p-2 rounded-lg'}>
-                                <Icon className={tool.color + ' w-5 h-5'} />
+                              <div className="p-2 rounded-lg bg-crimson-500/10 text-crimson-500">
+                                <IconComponent className="w-5 h-5" />
                               </div>
                               <div className="flex-1">
                                 <p className="text-sm font-medium text-theme-primary group-hover:text-crimson-500 transition-colors">
@@ -241,18 +220,17 @@ export function SearchBar() {
                         })}
                       </div>
 
-                      {/* Quick Categories */}
                       <div className="p-2 border-t border-theme">
                         <p className="px-3 py-2 text-xs font-semibold text-theme-secondary uppercase tracking-wider">
-                          Quick Categories
+                          Categories
                         </p>
                         <div className="grid grid-cols-2 gap-2 p-2">
-                          {categories.map((cat, idx) => {
+                          {categoryList.map((cat, idx) => {
                             const Icon = cat.icon
                             return (
                               <Link
                                 key={idx}
-                                href="#"
+                                href={cat.href}
                                 onClick={() => {
                                   setIsOpen(false)
                                   setQuery('')
@@ -272,26 +250,13 @@ export function SearchBar() {
                   )}
                 </div>
 
-                {/* Footer */}
                 <div className="border-t border-theme p-3 flex items-center justify-between bg-theme-secondary/50">
                   <div className="flex items-center gap-4 text-xs text-theme-muted">
-                    <div className="flex items-center gap-1">
-                      <kbd className="px-1.5 py-0.5 bg-theme-card rounded border border-theme">↑</kbd>
-                      <kbd className="px-1.5 py-0.5 bg-theme-card rounded border border-theme">↓</kbd>
-                      <span>Navigate</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <kbd className="px-1.5 py-0.5 bg-theme-card rounded border border-theme">↵</kbd>
-                      <span>Select</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <kbd className="px-1.5 py-0.5 bg-theme-card rounded border border-theme">ESC</kbd>
-                      <span>Close</span>
-                    </div>
+                    <span>200+ Live Tools</span>
                   </div>
                   <div className="flex items-center gap-1 text-xs text-theme-muted">
                     <Sparkles className="w-3 h-3 text-crimson-500" />
-                    <span>Powered by AI Search</span>
+                    <span>Instant Search</span>
                   </div>
                 </div>
               </div>
