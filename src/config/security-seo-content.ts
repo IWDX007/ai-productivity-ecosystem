@@ -37,7 +37,7 @@ export const securitySEOContent: Record<string, SecuritySEOContent> = {
       { name: "PIN Generator", description: "Generate numeric PINs", href: "/tools/security/pin-generator" },
       { name: "Passphrase Generator", description: "Generate memorable passphrases", href: "/tools/security/passphrase-generator" },
       { name: "Random String Generator", description: "Generate random strings", href: "/tools/security/random-string-generator" },
-      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/security/uuid-generator" },
+      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/developer/uuid-generator" },
       { name: "SHA256 Hash", description: "Generate SHA256 hash", href: "/tools/security/sha256-hash-generator" }
     ]
   },
@@ -104,7 +104,7 @@ export const securitySEOContent: Record<string, SecuritySEOContent> = {
       { name: "SHA512 Hash", description: "Generate SHA512 hash", href: "/tools/security/sha512-hash-generator" },
       { name: "Password Generator", description: "Generate strong passwords", href: "/tools/security/password-generator" },
       { name: "Random String Generator", description: "Generate random strings", href: "/tools/security/random-string-generator" },
-      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/security/uuid-generator" }
+      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/developer/uuid-generator" }
     ]
   },
 
@@ -136,7 +136,7 @@ export const securitySEOContent: Record<string, SecuritySEOContent> = {
       { name: "SHA256 Hash", description: "Generate SHA256 hash", href: "/tools/security/sha256-hash-generator" },
       { name: "SHA512 Hash", description: "Generate SHA512 hash", href: "/tools/security/sha512-hash-generator" },
       { name: "Password Generator", description: "Generate strong passwords", href: "/tools/security/password-generator" },
-      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/security/uuid-generator" },
+      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/developer/uuid-generator" },
       { name: "Random String Generator", description: "Generate random strings", href: "/tools/security/random-string-generator" }
     ]
   },
@@ -169,7 +169,7 @@ export const securitySEOContent: Record<string, SecuritySEOContent> = {
       { name: "SHA1 Hash", description: "Generate SHA1 hash", href: "/tools/security/sha1-hash-generator" },
       { name: "MD5 Hash", description: "Generate MD5 hash", href: "/tools/security/md5-hash-generator" },
       { name: "Password Generator", description: "Generate strong passwords", href: "/tools/security/password-generator" },
-      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/security/uuid-generator" },
+      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/developer/uuid-generator" },
       { name: "Random String Generator", description: "Generate random strings", href: "/tools/security/random-string-generator" }
     ]
   },
@@ -202,7 +202,7 @@ export const securitySEOContent: Record<string, SecuritySEOContent> = {
       { name: "SHA1 Hash", description: "Generate SHA1 hash", href: "/tools/security/sha1-hash-generator" },
       { name: "MD5 Hash", description: "Generate MD5 hash", href: "/tools/security/md5-hash-generator" },
       { name: "Password Generator", description: "Generate strong passwords", href: "/tools/security/password-generator" },
-      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/security/uuid-generator" },
+      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/developer/uuid-generator" },
       { name: "Passphrase Generator", description: "Generate passphrases", href: "/tools/security/passphrase-generator" }
     ]
   },
@@ -231,7 +231,7 @@ export const securitySEOContent: Record<string, SecuritySEOContent> = {
       { question: "String vs UUID?", answer: "UUIDs are standardized 36-char strings with specific format. Random strings are more flexible. Use UUID for database IDs, random strings for tokens/keys." }
     ],
     relatedTools: [
-      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/security/uuid-generator" },
+      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/developer/uuid-generator" },
       { name: "Password Generator", description: "Generate passwords", href: "/tools/security/password-generator" },
       { name: "PIN Generator", description: "Generate PINs", href: "/tools/security/pin-generator" },
       { name: "Passphrase Generator", description: "Generate passphrases", href: "/tools/security/passphrase-generator" },
@@ -299,7 +299,7 @@ export const securitySEOContent: Record<string, SecuritySEOContent> = {
     relatedTools: [
       { name: "Password Generator", description: "Generate passwords", href: "/tools/security/password-generator" },
       { name: "Random String Generator", description: "Generate random strings", href: "/tools/security/random-string-generator" },
-      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/security/uuid-generator" },
+      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/developer/uuid-generator" },
       { name: "Passphrase Generator", description: "Generate passphrases", href: "/tools/security/passphrase-generator" },
       { name: "Password Strength Checker", description: "Test password strength", href: "/tools/security/password-strength-checker" },
       { name: "SHA256 Hash", description: "Generate SHA256 hash", href: "/tools/security/sha256-hash-generator" }
@@ -334,7 +334,7 @@ export const securitySEOContent: Record<string, SecuritySEOContent> = {
       { name: "Password Strength Checker", description: "Test password strength", href: "/tools/security/password-strength-checker" },
       { name: "PIN Generator", description: "Generate PINs", href: "/tools/security/pin-generator" },
       { name: "Random String Generator", description: "Generate random strings", href: "/tools/security/random-string-generator" },
-      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/security/uuid-generator" },
+      { name: "UUID Generator", description: "Generate UUIDs", href: "/tools/developer/uuid-generator" },
       { name: "SHA256 Hash", description: "Generate SHA256 hash", href: "/tools/security/sha256-hash-generator" }
     ]
   }

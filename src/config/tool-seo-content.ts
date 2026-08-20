@@ -546,7 +546,7 @@ export const TOOL_SEO: Record<string, ToolSEO> = {
     ],
     related: [
       { name: "Password Generator", href: "/tools/security/password-generator", description: "Strong password generator" },
-      { name: "UUID Generator", href: "/tools/security/uuid-generator", description: "Generate unique IDs" },
+      { name: "UUID Generator", href: "/tools/developer/uuid-generator", description: "Generate unique IDs" },
       { name: "Text Repeater", href: "/tools/text/text-repeater", description: "Repeat text N times" },
       { name: "Lorem Ipsum", href: "/tools/text/lorem-ipsum", description: "Placeholder text" },
       { name: "Character Counter", href: "/tools/text/character-counter", description: "Count characters" },

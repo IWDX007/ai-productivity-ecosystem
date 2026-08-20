@@ -31,18 +31,18 @@ interface Tool {
 
 const allTools: Tool[] = [
   // Popular Tools
-  { name: 'PDF Merger', category: 'PDF', href: '/tools/pdf/merge', icon: FileText, color: 'text-red-500', bg: 'bg-red-500/10' },
-  { name: 'Image Compressor', category: 'Image', href: '/tools/image/compress', icon: ImageIcon, color: 'text-orange-500', bg: 'bg-orange-500/10' },
+  { name: 'PDF Merger', category: 'PDF', href: '/tools/pdf/pdf-merger', icon: FileText, color: 'text-red-500', bg: 'bg-red-500/10' },
+  { name: 'Image Compressor', category: 'Image', href: '/tools/image/image-compressor', icon: ImageIcon, color: 'text-orange-500', bg: 'bg-orange-500/10' },
   { name: 'Word Counter', category: 'Text', href: '/tools/text/word-counter', icon: Type, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
   { name: 'JSON Formatter', category: 'Developer', href: '/tools/developer/json-formatter', icon: Code, color: 'text-green-500', bg: 'bg-green-500/10' },
-  { name: 'BMI Calculator', category: 'Calculator', href: '/tools/calculators/bmi', icon: Calculator, color: 'text-blue-500', bg: 'bg-blue-500/10' },
-  { name: 'Length Converter', category: 'Converter', href: '/tools/converters/length', icon: Ruler, color: 'text-purple-500', bg: 'bg-purple-500/10' },
-  { name: 'Password Generator', category: 'Security', href: '/tools/security/password', icon: Lock, color: 'text-pink-500', bg: 'bg-pink-500/10' },
-  { name: 'QR Code Generator', category: 'QR', href: '/tools/qr-barcode/qr-generator', icon: QrCode, color: 'text-cyan-500', bg: 'bg-cyan-500/10' },
-  { name: 'PDF Splitter', category: 'PDF', href: '/tools/pdf/split', icon: FileText, color: 'text-red-500', bg: 'bg-red-500/10' },
-  { name: 'Image Resizer', category: 'Image', href: '/tools/image/resize', icon: ImageIcon, color: 'text-orange-500', bg: 'bg-orange-500/10' },
+  { name: 'BMI Calculator', category: 'Calculator', href: '/tools/calculators/bmi-calculator', icon: Calculator, color: 'text-blue-500', bg: 'bg-blue-500/10' },
+  { name: 'Length Converter', category: 'Converter', href: '/tools/converters/length-converter', icon: Ruler, color: 'text-purple-500', bg: 'bg-purple-500/10' },
+  { name: 'Password Generator', category: 'Security', href: '/tools/security/password-generator', icon: Lock, color: 'text-pink-500', bg: 'bg-pink-500/10' },
+  { name: 'QR Code Generator', category: 'QR', href: '/tools/qr-barcode/qr-code-generator', icon: QrCode, color: 'text-cyan-500', bg: 'bg-cyan-500/10' },
+  { name: 'PDF Splitter', category: 'PDF', href: '/tools/pdf/pdf-splitter', icon: FileText, color: 'text-red-500', bg: 'bg-red-500/10' },
+  { name: 'Image Resizer', category: 'Image', href: '/tools/image/image-resizer', icon: ImageIcon, color: 'text-orange-500', bg: 'bg-orange-500/10' },
   { name: 'Character Counter', category: 'Text', href: '/tools/text/character-counter', icon: Type, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
-  { name: 'Base64 Encoder', category: 'Developer', href: '/tools/developer/base64', icon: Code, color: 'text-green-500', bg: 'bg-green-500/10' },
+  { name: 'Base64 Encoder', category: 'Developer', href: '/tools/developer/base64-encoder', icon: Code, color: 'text-green-500', bg: 'bg-green-500/10' },
 ]
 
 const trendingTools = allTools.slice(0, 5)
