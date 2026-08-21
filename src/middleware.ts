@@ -11,10 +11,10 @@ const isAdminRoute = createRouteMatcher(["/iconic(.*)"]);
 export default clerkMiddleware(async (auth, req) => {
   const { pathname } = req.nextUrl;
 
-  // TOOL REDIRECT LOGIC: /tools/[slug] -> /tools/[category]/[slug]
-  const toolMatch = pathname.match(/^\/tools\/([a-z0-9-]+)\/?$/);
-  if (toolMatch) {
-    const slug = toolMatch[1];
+  // 1. SHORT URL REDIRECT: /tools/[slug] -> /tools/[correctCategory]/[slug]
+  const shortMatch = pathname.match(/^\/tools\/([a-z0-9-]+)\/?$/);
+  if (shortMatch) {
+    const slug = shortMatch[1];
     const category = TOOL_CATEGORY_MAP[slug];
     if (category) {
       const url = req.nextUrl.clone();
@@ -23,7 +23,22 @@ export default clerkMiddleware(async (auth, req) => {
     }
   }
 
-  // ADMIN ROUTE PROTECTION
+  // 2. WRONG CATEGORY REDIRECT: /tools/[wrongCategory]/[slug] -> /tools/[correctCategory]/[slug]
+  const categoryMatch = pathname.match(/^\/tools\/([a-z0-9-]+)\/([a-z0-9-]+)\/?$/);
+  if (categoryMatch) {
+    const wrongCategory = categoryMatch[1];
+    const slug = categoryMatch[2];
+    const correctCategory = TOOL_CATEGORY_MAP[slug];
+
+    // If it's a known tool and category is wrong -> redirect to correct category
+    if (correctCategory && wrongCategory !== correctCategory) {
+      const url = req.nextUrl.clone();
+      url.pathname = `/tools/${correctCategory}/${slug}`;
+      return NextResponse.redirect(url, 301);
+    }
+  }
+
+  // 3. ADMIN ROUTE PROTECTION
   if (isAdminRoute(req)) {
     const { userId, sessionClaims, redirectToSignIn } = await auth();
 
