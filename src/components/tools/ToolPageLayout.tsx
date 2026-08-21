@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ReactNode } from "react";
 import SEOSections from "@/components/tools/SEOSections";
 import { ToolSchema } from "@/components/seo/SchemaMarkup";
@@ -95,18 +96,39 @@ export default async function ToolPageLayout({
 export function generateToolMetadata(
   tool: any,
   siteUrl: string = "https://ai-productivity-ecosystem-azure.vercel.app"
-) {
+): Metadata {
   if (!tool) {
     return { title: "Tool Not Found" };
   }
+
+  const categorySlug = tool.categorySlug || tool.category || "";
+  const toolSlug = tool.slug || "";
+  const canonicalUrl = categorySlug && toolSlug 
+    ? `${siteUrl}/tools/${categorySlug}/${toolSlug}`
+    : siteUrl;
 
   return {
     title: tool.metaTitle || tool.name,
     description: tool.metaDescription || tool.description || "",
     keywords: tool.focusKeyword || undefined,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large" as const,
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
       title: tool.metaTitle || tool.name,
       description: tool.metaDescription || tool.description || "",
+      url: canonicalUrl,
       images: [
         {
           url: `${siteUrl}/opengraph-image`,
@@ -115,11 +137,11 @@ export function generateToolMetadata(
           alt: tool.metaTitle || tool.name,
         },
       ],
-      type: "website" as const,
+      type: "website",
       siteName: "AI Productivity Ecosystem",
     },
     twitter: {
-      card: "summary_large_image" as const,
+      card: "summary_large_image",
       title: tool.metaTitle || tool.name,
       description: tool.metaDescription || tool.description || "",
     },

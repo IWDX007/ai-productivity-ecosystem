@@ -1,14 +1,22 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = "https://ai-productivity-ecosystem-azure.vercel.app";
+
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/iconic/', '/api/', '/admin/', '/sign-in/', '/sign-up/'],
+        userAgent: "*",
+        allow: "/",
+        disallow: [
+          "/iconic/",
+          "/api/",
+          "/admin/",
+          "/sign-in",
+          "/sign-up",
+        ],
       },
     ],
-    sitemap: 'https://ai-productivity-ecosystem-azure.vercel.app/sitemap.xml',
-  }
+    sitemap: `${baseUrl}/sitemap.xml`,
+  };
 }

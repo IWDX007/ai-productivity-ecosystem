@@ -1,27 +1,9 @@
-# AI Productivity Ecosystem - robots.txt
-# Allow all search engines to crawl all pages
-
-User-agent: *
+User-Agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://ai-productivity-ecosystem-azure.vercel.app/sitemap.xml
-
-# Disallow admin/api paths
+Disallow: /iconic/
 Disallow: /api/
-Disallow: /dashboard/
-Disallow: /_next/
 Disallow: /admin/
+Disallow: /sign-in
+Disallow: /sign-up
 
-# Common bots explicitly allowed
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Slurp
-Allow: /
+Sitemap: https://ai-productivity-ecosystem-azure.vercel.app/sitemap.xml

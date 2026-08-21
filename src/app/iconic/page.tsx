@@ -1,3 +1,4 @@
+﻿import GSCDashboard from "@/components/dashboard/GSCDashboard";
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { tools, prompts, categories, posts } from "@/lib/db/schema";
@@ -187,6 +188,7 @@ export default async function DashboardOverview() {
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6">
         <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">System Status</h2>
         <div className="space-y-2">
+        <div className="my-6"><GSCDashboard /></div>
           <StatusItem label="Database" status="Connected" ok />
           <StatusItem label="Blog System" status={stats.totalPosts > 0 ? "Active" : "Ready"} ok />
           <StatusItem label="Sitemap" status="Submitted" ok />
